@@ -97,12 +97,10 @@
 		C824664B25D4769C00D3B8E5 /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
-				C824664C25D4769C00D3B8E5 /* AppDelegate.swift */,
-				C824664E25D4769C00D3B8E5 /* SceneDelegate.swift */,
-				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
-				C824665525D4769F00D3B8E5 /* Assets.xcassets */,
-				C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */,
-				C824665A25D4769F00D3B8E5 /* Info.plist */,
+				C8911FD525D51B6200F5E594 /* App */,
+				C8911FDA25D51BFA00F5E594 /* Core */,
+				C8911FDB25D51C0A00F5E594 /* Resources */,
+				C8911FDC25D51CA100F5E594 /* Enviroments */,
 			);
 			path = GBShop;
 			sourceTree = "<group>";
@@ -123,6 +121,80 @@
 				C824667025D476A000D3B8E5 /* Info.plist */,
 			);
 			path = GBShopUITests;
+			sourceTree = "<group>";
+		};
+		C8911FD525D51B6200F5E594 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C824664C25D4769C00D3B8E5 /* AppDelegate.swift */,
+				C824664E25D4769C00D3B8E5 /* SceneDelegate.swift */,
+				C8911FD625D51B6C00F5E594 /* BusinessLogic */,
+				C8911FD725D51B9700F5E594 /* Entity */,
+				C8911FD825D51BB100F5E594 /* Assembly */,
+				C8911FD925D51BD100F5E594 /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C8911FD625D51B6C00F5E594 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		C8911FD725D51B9700F5E594 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		C8911FD825D51BB100F5E594 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C8911FD925D51BD100F5E594 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		C8911FDA25D51BFA00F5E594 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C8911FDB25D51C0A00F5E594 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C8911FDD25D51E1700F5E594 /* forBaseLproj */,
+				C824665525D4769F00D3B8E5 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C8911FDC25D51CA100F5E594 /* Enviroments */ = {
+			isa = PBXGroup;
+			children = (
+				C824665A25D4769F00D3B8E5 /* Info.plist */,
+			);
+			path = Enviroments;
+			sourceTree = "<group>";
+		};
+		C8911FDD25D51E1700F5E594 /* forBaseLproj */ = {
+			isa = PBXGroup;
+			children = (
+				C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */,
+			);
+			path = forBaseLproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Enviroments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2Z4Y76PYN;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Enviroments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
