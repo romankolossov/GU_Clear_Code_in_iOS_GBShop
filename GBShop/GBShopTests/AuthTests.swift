@@ -48,7 +48,7 @@ class AuthTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        waitForExpectations(timeout: 1.0, handler: nil)
+        waitForExpectations(timeout: 8.0, handler: nil)
     }
     
     // MARK: - Negative tests
@@ -85,9 +85,6 @@ class AuthTests: XCTestCase {
         waitForExpectations(timeout: 8.0, handler: nil)
     }
 
-
-    
-    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

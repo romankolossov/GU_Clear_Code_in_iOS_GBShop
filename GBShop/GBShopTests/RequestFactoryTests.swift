@@ -13,7 +13,7 @@ class RequestFactoryTests: XCTestCase {
     
     // MARK: - Test AuthRequestFactory
     
-    func testLogIn() throws {
+    func testAuthRequestFactory() throws {
         // Given
         // Initialize test date and system under test
         let requestFactory = RequestFactory()
@@ -21,7 +21,7 @@ class RequestFactoryTests: XCTestCase {
         
         // When
         // Call system under test
-        let signedIn  = expectation(description: "log in")
+        let signedIn  = expectation(description: "logged in")
         
         authFactory.login(userName: "Somebody", password: "mypassword") { response in
             // Then
@@ -39,7 +39,7 @@ class RequestFactoryTests: XCTestCase {
     
     // MARK: - Test SignUpRequestFactory
     
-    func testSignUp() throws {
+    func testSSignUpRequestFactory() throws {
         // Given
         // Initialize test date and system under test
         let requestFactory = RequestFactory()
@@ -47,7 +47,7 @@ class RequestFactoryTests: XCTestCase {
         
         // When
         // Call system under test
-        let signUp  = expectation(description: "sign up")
+        let signedUp  = expectation(description: "signed up")
         
         signUpFactory.signUp(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             // Then
@@ -55,7 +55,7 @@ class RequestFactoryTests: XCTestCase {
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                signUp.fulfill()
+                signedUp.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -65,7 +65,7 @@ class RequestFactoryTests: XCTestCase {
     
     // MARK: - Test ChangeUserDataRequestFactory
     
-    func testChangeUserData() throws {
+    func testCChangeUserDataRequestFactory() throws {
         // Given
         // Initialize test date and system under test
         let requestFactory = RequestFactory()
@@ -73,7 +73,7 @@ class RequestFactoryTests: XCTestCase {
 
         // When
         // Call system under test
-        let changeUserData  = expectation(description: "change user data")
+        let changedUserData  = expectation(description: "user data changed")
 
         changeUserDataFactory.changeUserData(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             // Then
@@ -81,7 +81,7 @@ class RequestFactoryTests: XCTestCase {
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                changeUserData.fulfill()
+                changedUserData.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -91,7 +91,7 @@ class RequestFactoryTests: XCTestCase {
     
     // MARK: - Test LogoutRequestFactory
     
-    func testLogout() throws {
+    func testLogoutRequestFactory() throws {
         // Given
         // Initialize test date and system under test
         let requestFactory = RequestFactory()
@@ -99,7 +99,7 @@ class RequestFactoryTests: XCTestCase {
         
         // When
         // Call system under test
-        let logout  = expectation(description: "logout")
+        let loggedOut  = expectation(description: "logged out")
         
         logoutFactory.logout(id: "123") { response in
             // Then
@@ -107,7 +107,7 @@ class RequestFactoryTests: XCTestCase {
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                logout.fulfill()
+                loggedOut.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
