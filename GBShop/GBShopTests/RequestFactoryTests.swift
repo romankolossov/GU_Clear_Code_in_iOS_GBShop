@@ -115,6 +115,64 @@ class RequestFactoryTests: XCTestCase {
         waitForExpectations(timeout: 3.0, handler: nil)
     }
     
+    // MARK: - Test CatalogDataRequestFactory
+    
+    func testCatalogDataRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let requestFactory = RequestFactory()
+        let catalogDataFactory: CatalogDataRequestFactory = requestFactory.makeCatalogDataRequestFactory()
+        
+        // When
+        // Call system under test
+        let gotCatalogData  = expectation(description: "got catalog data")
+        
+        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+            switch response.result {
+            case .success(let model):
+                guard let elementFirst: CatalogDataResultElement = model.first else { return }
+                guard let elementLast: CatalogDataResultElement = model.last else { return }
+                XCTAssertEqual(elementFirst.idProduct, 123)
+                XCTAssertEqual(elementFirst.productName, "Ноутбук")
+                XCTAssertEqual(elementFirst.price, 45600)
+                XCTAssertEqual(elementLast.idProduct, 456)
+                XCTAssertEqual(elementLast.productName, "Мышка")
+                XCTAssertEqual(elementLast.price, 1000)
+                gotCatalogData.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+    
+    // MARK: - Test GetGoodByIdRequestFactory
+    
+    func testGetGoodByIdRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let requestFactory = RequestFactory()
+        let getGoodByIdFactory: GetGoodByIdRequestFactory = requestFactory.makeGetGoodByIdRequestFactory()
+        
+        // When
+        // Call system under test
+        let gotGoodById = expectation(description: "got good by id")
+        
+        getGoodByIdFactory.getGoodById(id: "123") { response in
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                XCTAssertEqual(model.productName, "Ноутбук")
+                XCTAssertEqual(model.productDescription, "Мощный игровой ноутбук")
+                XCTAssertEqual(model.productPrice, 45600)
+                gotGoodById.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

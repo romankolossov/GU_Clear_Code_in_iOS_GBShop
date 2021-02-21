@@ -10,10 +10,14 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let requestFactory = RequestFactory()
+    // let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        
+        // No need in the commented code bellow since it is covered by the RequestFactory tests
+        /*
+         
         // MARK: - Auth RequestFactory
         
         let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
@@ -91,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        
+        */
         
         return true
     }
