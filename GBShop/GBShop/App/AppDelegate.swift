@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: - authFactory
+        // MARK: - Auth RequestFactory
         
         let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
         
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // MARK: - signUpFactory
+        // MARK: - SignUp RequestFactory
         
         let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
         
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // MARK: - changeUserDataFactory
+        // MARK: - ChangeUserData RequestFactory
         
         let changeUserDataFactory: ChangeUserDataRequestFactory = requestFactory.makeChangeUserDataRequestFactory()
         
@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success(let message):
                 print(message)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
         
-        // MARK: - logoutFactory
+        // MARK: - Logout RequestFactory
         
         let logoutFactory: LogoutRequestFactory = requestFactory.makeLogoutRequestFactory()
         
@@ -62,9 +62,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success(let message):
                 print(message)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
+        
+        // MARK: - CatalogData RequestFactory
+        
+        let catalogDataFactory: CatalogDataRequestFactory = requestFactory.makeCatalogDataRequestFactory()
+        
+        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+            switch response.result {
+            case .success(let message):
+                print(message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // MARK: - GetGoodById RequestFactory
+        
+        let getGoodByIDFactory: GetGoodByIdRequestFactory = requestFactory.makeGetGoodByIdRequestFactory()
+        
+        getGoodByIDFactory.getGoodById(id: "123") { response in
+            switch response.result {
+            case .success(let message):
+                print(message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
         
         return true
     }

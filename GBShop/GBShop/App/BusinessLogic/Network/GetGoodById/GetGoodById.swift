@@ -1,14 +1,14 @@
 //
-//  Auth.swift
+//  GetGoodById.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 17.02.2021.
+//  Created by Roman Kolosov on 21.02.2021.
 //
 
 import Foundation
 import Alamofire
 
-class Auth: AbstractRequestFactory {
+class GetGoodById: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -26,34 +26,29 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions Auth
+// MARK: - Extensions GetGoodById
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: baseUrl,
-                                 login: userName,
-                                 password: password)
+extension GetGoodById: GetGoodByIdRequestFactory {
+    func getGoodById(id: String, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void) {
+        let requestModel = GetGoodByIdRequest(baseUrl: baseUrl, id: id)
+        
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
+extension GetGoodById {
     
     // MARK: Nested type
     
-    struct Login: RequestRouter {
+    struct GetGoodByIdRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let path: String = "getGoodById.json"
         
-        let login: String
-        let password: String
+        let id: String
         
         var parameters: Parameters? {
-            return [
-                "username": login,
-                "password": password
-            ]
+            return [ "id_product": id ]
         }
     }
 }

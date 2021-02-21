@@ -39,6 +39,12 @@
 		C833567725E2169700205932 /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833567625E2169700205932 /* SignUpTests.swift */; };
 		C833567C25E216D000205932 /* ChangeUserDtaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833567B25E216D000205932 /* ChangeUserDtaTests.swift */; };
 		C833568125E2170200205932 /* LogoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833568025E2170200205932 /* LogoutTests.swift */; };
+		C833568C25E2825A00205932 /* CatalogDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833568B25E2825A00205932 /* CatalogDataResult.swift */; };
+		C833569125E28E1200205932 /* GetGoodByIdResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833569025E28E1200205932 /* GetGoodByIdResult.swift */; };
+		C833569825E2956900205932 /* GetGoodById.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833569725E2956900205932 /* GetGoodById.swift */; };
+		C833569D25E295DE00205932 /* CatalogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833569C25E295DE00205932 /* CatalogData.swift */; };
+		C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A125E2962D00205932 /* CatalogDataRequestFactory.swift */; };
+		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +102,12 @@
 		C833567625E2169700205932 /* SignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTests.swift; sourceTree = "<group>"; };
 		C833567B25E216D000205932 /* ChangeUserDtaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDtaTests.swift; sourceTree = "<group>"; };
 		C833568025E2170200205932 /* LogoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutTests.swift; sourceTree = "<group>"; };
+		C833568B25E2825A00205932 /* CatalogDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataResult.swift; sourceTree = "<group>"; };
+		C833569025E28E1200205932 /* GetGoodByIdResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdResult.swift; sourceTree = "<group>"; };
+		C833569725E2956900205932 /* GetGoodById.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodById.swift; sourceTree = "<group>"; };
+		C833569C25E295DE00205932 /* CatalogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogData.swift; sourceTree = "<group>"; };
+		C83356A125E2962D00205932 /* CatalogDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataRequestFactory.swift; sourceTree = "<group>"; };
+		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				C83355CD25DCC8FE00205932 /* RequestFactory.swift */,
+				C833569525E294C900205932 /* CatalogData */,
+				C833569625E294F400205932 /* GetGoodById */,
 				C83355F125DE44F600205932 /* Auth */,
 				C83355F225DE452A00205932 /* SignUp */,
 				C833561725DEA95100205932 /* ChangeUserData */,
@@ -238,6 +252,24 @@
 			path = ChangeUserData;
 			sourceTree = "<group>";
 		};
+		C833569525E294C900205932 /* CatalogData */ = {
+			isa = PBXGroup;
+			children = (
+				C83356A125E2962D00205932 /* CatalogDataRequestFactory.swift */,
+				C833569C25E295DE00205932 /* CatalogData.swift */,
+			);
+			path = CatalogData;
+			sourceTree = "<group>";
+		};
+		C833569625E294F400205932 /* GetGoodById */ = {
+			isa = PBXGroup;
+			children = (
+				C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */,
+				C833569725E2956900205932 /* GetGoodById.swift */,
+			);
+			path = GetGoodById;
+			sourceTree = "<group>";
+		};
 		C8911FD525D51B6200F5E594 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +294,8 @@
 		C8911FD725D51B9700F5E594 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				C833568B25E2825A00205932 /* CatalogDataResult.swift */,
+				C833569025E28E1200205932 /* GetGoodByIdResult.swift */,
 				C83355B925DCB24100205932 /* LoginResult.swift */,
 				C83355E125DCCCB500205932 /* User.swift */,
 				C833561B25DEAA4D00205932 /* LogoutResult.swift */,
@@ -459,23 +493,29 @@
 				C833560F25DE761800205932 /* SignUpResult.swift in Sources */,
 				C833563B25DEC45800205932 /* Logout.swift in Sources */,
 				C83355C925DCC4F000205932 /* RequestRouter.swift in Sources */,
+				C833569825E2956900205932 /* GetGoodById.swift in Sources */,
 				C833563625DEC44100205932 /* ChangeUserData.swift in Sources */,
 				C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */,
 				C83355FC25DE466F00205932 /* SignUp.swift in Sources */,
 				C83355BF25DCB61600205932 /* ResponseCodable.swift in Sources */,
 				C83355DD25DCCBCF00205932 /* AbstractRequestFactory.swift in Sources */,
+				C833569125E28E1200205932 /* GetGoodByIdResult.swift in Sources */,
 				C83355F425DE462A00205932 /* SignUpRequestFactory.swift in Sources */,
 				C824664D25D4769C00D3B8E5 /* AppDelegate.swift in Sources */,
 				C833562C25DEADF200205932 /* LogoutRequestFactory.swift in Sources */,
 				C83355BA25DCB24100205932 /* LoginResult.swift in Sources */,
 				C833562125DEAA8C00205932 /* ChangeUserDataResult.swift in Sources */,
+				C833568C25E2825A00205932 /* CatalogDataResult.swift in Sources */,
 				C833563125DEAE1C00205932 /* ChangeUserDataRequestFactory.swift in Sources */,
 				C83355D825DCCB2100205932 /* ErrorParser.swift in Sources */,
+				C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */,
 				C833561C25DEAA4D00205932 /* LogoutResult.swift in Sources */,
+				C833569D25E295DE00205932 /* CatalogData.swift in Sources */,
 				C83355C425DCB91300205932 /* Auth.swift in Sources */,
 				C83355D325DCCA5100205932 /* AbstractErrorParser.swift in Sources */,
 				C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */,
 				C824664F25D4769C00D3B8E5 /* SceneDelegate.swift in Sources */,
+				C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
