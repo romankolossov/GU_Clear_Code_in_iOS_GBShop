@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: - authFactory
         
-        let authFactory = requestFactory.makeAuthRequestFatory()
+        let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
         
         authFactory.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: - signUpFactory
         
-        let signUpFactory = requestFactory.makeSignUpRequestFactory()
+        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
         
         signUpFactory.signUp(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: - changeUserDataFactory
         
-        let changeUserDataFactory = requestFactory.makeChangeUserDataRequestFactory()
+        let changeUserDataFactory: ChangeUserDataRequestFactory = requestFactory.makeChangeUserDataRequestFactory()
         
         changeUserDataFactory.changeUserData(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: - logoutFactory
         
-        let logoutFactory = requestFactory.makeLogoutRequestFactory()
+        let logoutFactory: LogoutRequestFactory = requestFactory.makeLogoutRequestFactory()
         
         logoutFactory.logout(id: "123") { response in
             switch response.result {
