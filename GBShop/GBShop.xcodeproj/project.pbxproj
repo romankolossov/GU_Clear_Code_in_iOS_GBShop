@@ -45,6 +45,8 @@
 		C833569D25E295DE00205932 /* CatalogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833569C25E295DE00205932 /* CatalogData.swift */; };
 		C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A125E2962D00205932 /* CatalogDataRequestFactory.swift */; };
 		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
+		C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */; };
+		C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		C833569C25E295DE00205932 /* CatalogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogData.swift; sourceTree = "<group>"; };
 		C83356A125E2962D00205932 /* CatalogDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataRequestFactory.swift; sourceTree = "<group>"; };
 		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
+		C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
+		C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 			children = (
 				C824666325D476A000D3B8E5 /* GBShopTests.swift */,
 				C833566625E17CE400205932 /* RequestFactoryTests.swift */,
+				C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */,
+				C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */,
 				C833566E25E2161000205932 /* AuthTests.swift */,
 				C833567625E2169700205932 /* SignUpTests.swift */,
 				C833567B25E216D000205932 /* ChangeUserDtaTests.swift */,
@@ -523,10 +529,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */,
 				C833566725E17CE400205932 /* RequestFactoryTests.swift in Sources */,
 				C833568125E2170200205932 /* LogoutTests.swift in Sources */,
 				C833567C25E216D000205932 /* ChangeUserDtaTests.swift in Sources */,
 				C833567725E2169700205932 /* SignUpTests.swift in Sources */,
+				C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */,
 				C833566F25E2161000205932 /* AuthTests.swift in Sources */,
 				C824666425D476A000D3B8E5 /* GBShopTests.swift in Sources */,
 			);
