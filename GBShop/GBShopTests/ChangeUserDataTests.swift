@@ -1,5 +1,5 @@
 //
-//  ChangeUserDtaTests.swift
+//  ChangeUserDataTests.swift
 //  GBShopTests
 //
 //  Created by Roman Kolosov on 21.02.2021.
@@ -9,7 +9,7 @@ import XCTest
 import Alamofire
 @testable import GBShop
 
-class ChangeUserDtaTests: XCTestCase {
+class ChangeUserDataTests: XCTestCase {
     
     // MARK: - Positive tests
     
