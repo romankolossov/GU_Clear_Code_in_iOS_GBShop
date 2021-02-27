@@ -13,12 +13,13 @@ class Logout: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!) {
+        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -36,19 +37,18 @@ extension Logout: LogoutRequestFactory {
 }
 
 extension Logout {
-    
+
     // MARK: Nested type
-    
+
     struct LogoutRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "logout.json"
-        
+
         let id: String
-        
+
         var parameters: Parameters? {
-            return [ "id_user": id ]
+            [ "id_user": id ]
         }
     }
 }
-

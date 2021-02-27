@@ -12,7 +12,6 @@
 		C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824665025D4769C00D3B8E5 /* MainViewController.swift */; };
 		C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C824665525D4769F00D3B8E5 /* Assets.xcassets */; };
 		C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */; };
-		C824666425D476A000D3B8E5 /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824666325D476A000D3B8E5 /* GBShopTests.swift */; };
 		C824666F25D476A000D3B8E5 /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824666E25D476A000D3B8E5 /* GBShopUITests.swift */; };
 		C83355A925DB275F00205932 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C83355A825DB275F00205932 /* Alamofire */; };
 		C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B425DCB08E00205932 /* AuthRequestFactory.swift */; };
@@ -47,6 +46,7 @@
 		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
 		C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */; };
 		C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */; };
+		C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C8CC19D025EAB65E006F375C /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		C824665825D4769F00D3B8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C824665A25D4769F00D3B8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C824665F25D476A000D3B8E5 /* GBShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C824666325D476A000D3B8E5 /* GBShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopTests.swift; sourceTree = "<group>"; };
 		C824666525D476A000D3B8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C824666A25D476A000D3B8E5 /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C824666E25D476A000D3B8E5 /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
 		C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
 		C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdTests.swift; sourceTree = "<group>"; };
+		C8CC19D025EAB65E006F375C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +147,7 @@
 				C824666225D476A000D3B8E5 /* GBShopTests */,
 				C824666D25D476A000D3B8E5 /* GBShopUITests */,
 				C824664A25D4769C00D3B8E5 /* Products */,
+				C8CC19D025EAB65E006F375C /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,7 +175,6 @@
 		C824666225D476A000D3B8E5 /* GBShopTests */ = {
 			isa = PBXGroup;
 			children = (
-				C824666325D476A000D3B8E5 /* GBShopTests.swift */,
 				C833566625E17CE400205932 /* RequestFactoryTests.swift */,
 				C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */,
 				C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */,
@@ -369,6 +369,7 @@
 				C824664525D4769C00D3B8E5 /* Sources */,
 				C824664625D4769C00D3B8E5 /* Frameworks */,
 				C824664725D4769C00D3B8E5 /* Resources */,
+				C8CC19CC25EAADDB006F375C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */,
 				C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */,
 				C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */,
 			);
@@ -488,6 +490,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8CC19CC25EAADDB006F375C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C824664525D4769C00D3B8E5 /* Sources */ = {
@@ -536,7 +558,6 @@
 				C833567725E2169700205932 /* SignUpTests.swift in Sources */,
 				C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */,
 				C833566F25E2161000205932 /* AuthTests.swift in Sources */,
-				C824666425D476A000D3B8E5 /* GBShopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

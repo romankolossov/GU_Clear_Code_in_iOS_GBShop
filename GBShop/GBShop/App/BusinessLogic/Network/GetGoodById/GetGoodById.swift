@@ -13,12 +13,13 @@ class GetGoodById: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!) {
+        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -31,24 +32,24 @@ class GetGoodById: AbstractRequestFactory {
 extension GetGoodById: GetGoodByIdRequestFactory {
     func getGoodById(id: String, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void) {
         let requestModel = GetGoodByIdRequest(baseUrl: baseUrl, id: id)
-        
+
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
 extension GetGoodById {
-    
+
     // MARK: Nested type
-    
+
     struct GetGoodByIdRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "getGoodById.json"
-        
+
         let id: String
-        
+
         var parameters: Parameters? {
-            return [ "id_product": id ]
+            [ "id_product": id ]
         }
     }
 }

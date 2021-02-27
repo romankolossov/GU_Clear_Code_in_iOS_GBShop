@@ -10,30 +10,30 @@ import Alamofire
 @testable import GBShop
 
 class CatalogDataTests: XCTestCase {
-    
+
     // MARK: - Positive tests
-    
+
     func testCatalogData() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/"))
-        
+
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let session = Session(configuration: configuration)
-        
+
         let catalogData = CatalogData(errorParser: ErrorParser(),
                                       sessionManager: session,
                                       queue: DispatchQueue.global(qos: .utility),
                                       baseUrl: baseUrl)
-        
+
         // When
         // Call system under test
         let gotCatalogData = expectation(description: "got catalog data")
-        
+
         catalogData.catalogData(id: "1", pageNumber: "1") { response in
-            //Then
+            // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
@@ -52,30 +52,30 @@ class CatalogDataTests: XCTestCase {
         }
         waitForExpectations(timeout: 8.0, handler: nil)
     }
-    
+
     // MARK: - Negative tests
-    
+
     func testFailedCatalogData() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
-        
+
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let session = Session(configuration: configuration)
-        
+
         let catalogData = CatalogData(errorParser: ErrorParser(),
                                       sessionManager: session,
                                       queue: DispatchQueue.global(qos: .utility),
                                       baseUrl: baseUrl)
-        
+
         // When
         // Call system under test
         let failedCatalogData = expectation(description: "failed to get catalog data")
-        
+
         catalogData.catalogData(id: "1", pageNumber: "1") { response in
-            //Then
+            // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
@@ -85,19 +85,6 @@ class CatalogDataTests: XCTestCase {
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)
-    }
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() throws {
