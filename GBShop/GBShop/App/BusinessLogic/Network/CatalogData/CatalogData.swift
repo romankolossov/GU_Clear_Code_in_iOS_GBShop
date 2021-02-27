@@ -1,14 +1,14 @@
 //
-//  Auth.swift
+//  CatalogData.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 17.02.2021.
+//  Created by Roman Kolosov on 21.02.2021.
 //
 
 import Foundation
 import Alamofire
 
-class Auth: AbstractRequestFactory {
+class CatalogData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -26,34 +26,33 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions Auth
+// MARK: - Extensions CatalogData
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = LoginRequest(baseUrl: baseUrl,
-                                        login: userName,
-                                        password: password)
+extension CatalogData: CatalogDataRequestFactory {
+    func catalogData(id: String, pageNumber: String, completionHandler: @escaping (AFDataResponse<CatalogDataResult>) -> Void) {
+        let requestModel = CatalogDataRequest(baseUrl: baseUrl, id: id, pageNumber: pageNumber)
+        
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
+extension CatalogData {
     
     // MARK: Nested type
     
-    struct LoginRequest: RequestRouter {
+    struct CatalogDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let path: String = "catalogData.json"
         
-        let login: String
-        let password: String
+        let id: String
+        let pageNumber: String
         
         var parameters: Parameters? {
             return [
-                "username": login,
-                "password": password
-            ]
+                "id_category": id,
+                "page_number": pageNumber ]
         }
     }
 }
+

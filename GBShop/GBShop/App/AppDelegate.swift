@@ -10,13 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let requestFactory = RequestFactory()
+    // let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: - authFactory
         
-        let authFactory = requestFactory.makeAuthRequestFatory()
+        // No need in the commented code bellow since it is covered by the RequestFactory tests
+        /*
+         
+        // MARK: - Auth RequestFactory
+        
+        let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
         
         authFactory.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -27,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // MARK: - signUpFactory
+        // MARK: - SignUp RequestFactory
         
-        let signUpFactory = requestFactory.makeSignUpRequestFactory()
+        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
         
         signUpFactory.signUp(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
@@ -40,31 +44,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // MARK: - changeUserDataFactory
+        // MARK: - ChangeUserData RequestFactory
         
-        let changeUserDataFactory = requestFactory.makeChangeUserDataRequestFactory()
+        let changeUserDataFactory: ChangeUserDataRequestFactory = requestFactory.makeChangeUserDataRequestFactory()
         
         changeUserDataFactory.changeUserData(id: "123", userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let message):
                 print(message)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
         
-        // MARK: - logoutFactory
+        // MARK: - Logout RequestFactory
         
-        let logoutFactory = requestFactory.makeLogoutRequestFactory()
+        let logoutFactory: LogoutRequestFactory = requestFactory.makeLogoutRequestFactory()
         
         logoutFactory.logout(id: "123") { response in
             switch response.result {
             case .success(let message):
                 print(message)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
+        
+        // MARK: - CatalogData RequestFactory
+        
+        let catalogDataFactory: CatalogDataRequestFactory = requestFactory.makeCatalogDataRequestFactory()
+        
+        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+            switch response.result {
+            case .success(let message):
+                print(message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // MARK: - GetGoodById RequestFactory
+        
+        let getGoodByIDFactory: GetGoodByIdRequestFactory = requestFactory.makeGetGoodByIdRequestFactory()
+        
+        getGoodByIDFactory.getGoodById(id: "123") { response in
+            switch response.result {
+            case .success(let message):
+                print(message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        */
         
         return true
     }
