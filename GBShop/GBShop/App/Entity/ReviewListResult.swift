@@ -8,8 +8,9 @@
 import Foundation
 
 struct ReviewListResultElement: Codable {
+    let idComment: Int
     let idUser: Int
-    let reviewText: String
+    let commentText: String
 }
 
 typealias ReviewListResult = [ReviewListResultElement]

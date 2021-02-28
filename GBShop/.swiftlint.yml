@@ -38,12 +38,14 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - closure_spacing # Closure expressions should have a single space inside each brace.
 
 
-warning_threshold: 21
+warning_threshold: 15 # initially was 15
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
   - R.generated.swift
   - templates
+  
+function_parameter_count: 8 # initially was 5
 
 line_length: 210
 
@@ -52,7 +54,7 @@ type_body_length:
   error: 400
 
 function_body_length:
-  warning: 50
+  warning: 80 # initially was 50
   error: 100
 
 file_length:

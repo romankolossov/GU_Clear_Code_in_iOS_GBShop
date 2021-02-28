@@ -18,7 +18,7 @@ class ReviewList: AbstractRequestFactory {
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = URL(string: "https://sheltered-castle-91706.herokuapp.com/")!
+        baseUrl: URL = URL(string: "https://sheltered-castle-91706.herokuapp.com/") ?? URL(fileURLWithPath: "")
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
@@ -30,7 +30,7 @@ class ReviewList: AbstractRequestFactory {
 // MARK: - Extensions ReviewList
 
 extension ReviewList: ReviewListRequestFactory {
-    func reviewList(idComment: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<CatalogDataResult>) -> Void) {
+    func reviewList(idComment: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<ReviewListResult>) -> Void) {
         let requestModel = ReviewListRequest(baseUrl: baseUrl, idComment: idComment, pageNumber: pageNumber)
 
         self.request(request: requestModel, completionHandler: completionHandler)

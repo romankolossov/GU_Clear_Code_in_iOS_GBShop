@@ -153,6 +153,8 @@ class RequestFactoryTests: XCTestCase {
         let gotCatalogData = expectation(description: "got catalog data")
 
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+            // Then
+            // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 guard let elementFirst: CatalogDataResultElement = model.first else { return }
@@ -183,6 +185,8 @@ class RequestFactoryTests: XCTestCase {
         let gotGoodById = expectation(description: "got good by id")
 
         getGoodByIdFactory.getGoodById(id: "123") { response in
+            // Then
+            // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
@@ -190,6 +194,84 @@ class RequestFactoryTests: XCTestCase {
                 XCTAssertEqual(model.productDescription, "Мощный игровой ноутбук")
                 XCTAssertEqual(model.productPrice, 45600)
                 gotGoodById.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
+    // MARK: - Test AddReviewRequestFactory
+
+    func testAddReviewRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let addReviewRequestFactory: AddReviewRequestFactory = try XCTUnwrap(requestFactory).makeAddReviewRequestFactory()
+
+        // When
+        // Call system under test
+        let addedReview = expectation(description: "review added")
+
+        addReviewRequestFactory.addReview(idUser: 123, reviewText: "Текст отзыва") { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                addedReview.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
+    // MARK: - Test RemoveReviewRequestFactory
+
+    func testRemoveReviewRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let removeReviewRequestFactory: RemoveReviewRequestFactory = try XCTUnwrap(requestFactory).makeRemoveReviewRequestFactory()
+
+        // When
+        // Call system under test
+        let removedReview = expectation(description: "review removed")
+
+        removeReviewRequestFactory.removeReview(idComment: 123) { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                removedReview.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
+    // MARK: - Test ReviewListdRequestFactory
+
+    func testReviewListRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let reviewListRequestFactory: ReviewListRequestFactory = try XCTUnwrap(requestFactory).makeReviewListRequestFactory()
+
+        // When
+        // Call system under test
+        let gotReviewList = expectation(description: "got review list")
+
+        reviewListRequestFactory.reviewList(idComment: 1, pageNumber: 1) { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                guard let elementFirst: ReviewListResultElement = model.first else { return }
+                guard let elementLast: ReviewListResultElement = model.last else { return }
+                XCTAssertEqual(elementFirst.idComment, 1)
+                XCTAssertEqual(elementLast.idComment, 2)
+                gotReviewList.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }

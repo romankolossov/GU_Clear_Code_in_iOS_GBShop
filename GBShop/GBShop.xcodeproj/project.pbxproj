@@ -46,6 +46,9 @@
 		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
 		C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */; };
 		C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */; };
+		C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */; };
+		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
+		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
 		C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C8CC19D025EAB65E006F375C /* .swiftlint.yml */; };
 		C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */; };
 		C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */; };
@@ -120,6 +123,9 @@
 		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
 		C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
 		C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdTests.swift; sourceTree = "<group>"; };
+		C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewTest.swift; sourceTree = "<group>"; };
+		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
+		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
 		C8CC19D025EAB65E006F375C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
 		C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
@@ -200,6 +206,9 @@
 				C833567625E2169700205932 /* SignUpTests.swift */,
 				C833567B25E216D000205932 /* ChangeUserDataTests.swift */,
 				C833568025E2170200205932 /* LogoutTests.swift */,
+				C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */,
+				C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */,
+				C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */,
 				C824666525D476A000D3B8E5 /* Info.plist */,
 			);
 			path = GBShopTests;
@@ -612,8 +621,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */,
+				C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */,
 				C833566725E17CE400205932 /* RequestFactoryTests.swift in Sources */,
+				C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */,
 				C833568125E2170200205932 /* LogoutTests.swift in Sources */,
+				C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */,
 				C833567C25E216D000205932 /* ChangeUserDataTests.swift in Sources */,
 				C833567725E2169700205932 /* SignUpTests.swift in Sources */,
 				C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */,
