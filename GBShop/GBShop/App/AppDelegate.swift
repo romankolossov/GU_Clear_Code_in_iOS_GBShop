@@ -110,6 +110,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        // MARK: - AddReview RequestFactory
+
+        let addReviewFactory: AddReviewRequestFactory = requestFactory.makeAddReviewRequestFactory()
+
+        addReviewFactory.addReview(idUser: 123, reviewText: "Текст отзыва") { response in
+            switch response.result {
+            case .success(let message):
+                print("\n", message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        // MARK: - RemoveReview RequestFactory
+
+        let removeReviewRequestFactory: RemoveReviewRequestFactory = requestFactory.makeRemoveReviewRequestFactory()
+
+        removeReviewRequestFactory.removeReview(idComment: 123) { response in
+            switch response.result {
+            case .success(let message):
+                print("\n", message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        // MARK: - ReviewList RequestFactory
+
+        let reviewListRequestFactory: ReviewListRequestFactory = requestFactory.makeReviewListRequestFactory()
+
+        reviewListRequestFactory.reviewList(idComment: 1, pageNumber: 1) { response in
+            switch response.result {
+            case .success(let message):
+                print("\n", message)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
         return true
     }
 
