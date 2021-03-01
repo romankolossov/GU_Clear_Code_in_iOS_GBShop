@@ -262,15 +262,15 @@ class RequestFactoryTests: XCTestCase {
         // Call system under test
         let gotReviewList = expectation(description: "got review list")
 
-        reviewListRequestFactory.reviewList(idComment: 1, pageNumber: 1) { response in
+        reviewListRequestFactory.reviewList(idUser: 1, pageNumber: 1) { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 guard let elementFirst: ReviewListResultElement = model.first else { return }
                 guard let elementLast: ReviewListResultElement = model.last else { return }
-                XCTAssertEqual(elementFirst.idComment, 1)
-                XCTAssertEqual(elementLast.idComment, 2)
+                XCTAssertEqual(elementFirst.idComment, 123)
+                XCTAssertEqual(elementLast.idComment, 456)
                 gotReviewList.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)

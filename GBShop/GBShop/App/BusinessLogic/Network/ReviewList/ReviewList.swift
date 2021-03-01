@@ -19,6 +19,7 @@ class ReviewList: AbstractRequestFactory {
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
         baseUrl: URL = URL(string: "https://sheltered-castle-91706.herokuapp.com/") ?? URL(fileURLWithPath: "")
+        // baseUrl: URL = URL(string: "http://127.0.0.1:8080/") ?? URL(fileURLWithPath: "")
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
@@ -30,8 +31,8 @@ class ReviewList: AbstractRequestFactory {
 // MARK: - Extensions ReviewList
 
 extension ReviewList: ReviewListRequestFactory {
-    func reviewList(idComment: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<ReviewListResult>) -> Void) {
-        let requestModel = ReviewListRequest(baseUrl: baseUrl, idComment: idComment, pageNumber: pageNumber)
+    func reviewList(idUser: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<ReviewListResult>) -> Void) {
+        let requestModel = ReviewListRequest(baseUrl: baseUrl, idUser: idUser, pageNumber: pageNumber)
 
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -43,15 +44,15 @@ extension ReviewList {
 
     struct ReviewListRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
+        let method: HTTPMethod = .post
         let path: String = "reviewList"
 
-        let idComment: Int
+        let idUser: Int
         let pageNumber: Int
 
         var parameters: Parameters? {
             [
-                "idComment": idComment,
+                "idUser": idUser,
                 "pageNumber": pageNumber
             ]
         }

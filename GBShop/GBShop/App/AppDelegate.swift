@@ -140,7 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let reviewListRequestFactory: ReviewListRequestFactory = requestFactory.makeReviewListRequestFactory()
 
-        reviewListRequestFactory.reviewList(idComment: 1, pageNumber: 1) { response in
+        reviewListRequestFactory.reviewList(idUser: 1, pageNumber: 1) { response in
             switch response.result {
             case .success(let message):
                 print("\n", message)

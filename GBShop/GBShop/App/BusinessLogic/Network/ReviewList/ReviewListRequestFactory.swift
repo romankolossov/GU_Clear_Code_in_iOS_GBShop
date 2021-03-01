@@ -9,5 +9,5 @@ import Foundation
 import Alamofire
 
 protocol ReviewListRequestFactory {
-    func reviewList(idComment: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<ReviewListResult>) -> Void)
+    func reviewList(idUser: Int, pageNumber: Int, completionHandler: @escaping (AFDataResponse<ReviewListResult>) -> Void)
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 struct ReviewListResultElement: Codable {
-    let idComment: Int
     let idUser: Int
+    let idComment: Int
     let commentText: String
 }
 
