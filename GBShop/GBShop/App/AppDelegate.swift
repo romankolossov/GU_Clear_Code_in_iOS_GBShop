@@ -10,144 +10,24 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-     let requestFactory = RequestFactory()
+    // let requestFactory = RequestFactory()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        // No need in the commented code bellow since it is covered by the RequestFactory tests
+        // the commented code Auth RequestFactory bellow done as an example. There is no need in it since it is covered by the RequestFactory tests
 
         // MARK: - Auth RequestFactory
 
-        let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
-
-        authFactory.login(userName: "Somebody", password: "mypassword") { response in
-            switch response.result {
-            case .success(let login):
-                print("\n", login)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - SignUp RequestFactory
-
-        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
-
-        signUpFactory.signUp(
-            id: "123",
-            userName: "Somebody",
-            password: "mypassword",
-            email: "some@some.ru",
-            gender: "m",
-            creditCard: "9872389-2424-234224-234",
-            bio: "This is good! I think I will switch to another language"
-        ) { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - ChangeUserData RequestFactory
-
-        let changeUserDataFactory: ChangeUserDataRequestFactory = requestFactory.makeChangeUserDataRequestFactory()
-
-        changeUserDataFactory.changeUserData(
-            id: "123",
-            userName: "Somebody",
-            password: "mypassword",
-            email: "some@some.ru",
-            gender: "m",
-            creditCard: "9872389-2424-234224-234",
-            bio: "This is good! I think I will switch to another language"
-        ) { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - Logout RequestFactory
-
-        let logoutFactory: LogoutRequestFactory = requestFactory.makeLogoutRequestFactory()
-
-        logoutFactory.logout(id: "123") { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - CatalogData RequestFactory
-
-        let catalogDataFactory: CatalogDataRequestFactory = requestFactory.makeCatalogDataRequestFactory()
-
-        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - GetGoodById RequestFactory
-
-        let getGoodByIDFactory: GetGoodByIdRequestFactory = requestFactory.makeGetGoodByIdRequestFactory()
-
-        getGoodByIDFactory.getGoodById(id: "123") { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - AddReview RequestFactory
-
-        let addReviewFactory: AddReviewRequestFactory = requestFactory.makeAddReviewRequestFactory()
-
-        addReviewFactory.addReview(idUser: 123, reviewText: "Текст отзыва") { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - RemoveReview RequestFactory
-
-        let removeReviewRequestFactory: RemoveReviewRequestFactory = requestFactory.makeRemoveReviewRequestFactory()
-
-        removeReviewRequestFactory.removeReview(idComment: 123) { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // MARK: - ReviewList RequestFactory
-
-        let reviewListRequestFactory: ReviewListRequestFactory = requestFactory.makeReviewListRequestFactory()
-
-        reviewListRequestFactory.reviewList(idUser: 1, pageNumber: 1) { response in
-            switch response.result {
-            case .success(let message):
-                print("\n", message)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        //        let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
+        //
+        //        authFactory.login(userName: "Somebody", password: "mypassword") { response in
+        //            switch response.result {
+        //            case .success(let login):
+        //                print("\n", login)
+        //            case .failure(let error):
+        //                print(error.localizedDescription)
+        //            }
+        //        }
 
         return true
     }

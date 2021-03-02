@@ -54,7 +54,7 @@ type_body_length:
   error: 400
 
 function_body_length:
-  warning: 80 # initially was set to 50
+  warning: 50 # initially was set to 50
   error: 100
 
 file_length:
