@@ -59,6 +59,15 @@
 		C8CC1A0325EB9979006F375C /* RemoveReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */; };
 		C8CC1A0825EB99A0006F375C /* AddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0725EB99A0006F375C /* AddReview.swift */; };
 		C8CC1A1025EB99BB006F375C /* AddReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */; };
+		C8F51D3B25EFFEA900D83AFE /* AddToBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D3A25EFFEA900D83AFE /* AddToBasketResult.swift */; };
+		C8F51D4025EFFEE200D83AFE /* DeleteFromBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D3F25EFFEE200D83AFE /* DeleteFromBasketResult.swift */; };
+		C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D4425EFFF1500D83AFE /* PayBasketResult.swift */; };
+		C8F51D5625F000EA00D83AFE /* AddToBasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D5525F000EA00D83AFE /* AddToBasketRequestFactory.swift */; };
+		C8F51D5E25F0011000D83AFE /* DeleteFromBasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D5D25F0011000D83AFE /* DeleteFromBasketRequestFactory.swift */; };
+		C8F51D6325F0013300D83AFE /* PayBasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D6225F0013300D83AFE /* PayBasketRequestFactory.swift */; };
+		C8F51D6825F0015100D83AFE /* AddToBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D6725F0015100D83AFE /* AddToBasket.swift */; };
+		C8F51D6D25F0016C00D83AFE /* DeleteFromBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D6C25F0016C00D83AFE /* DeleteFromBasket.swift */; };
+		C8F51D7225F0018300D83AFE /* PayBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D7125F0018300D83AFE /* PayBasket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +145,15 @@
 		C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewRequestFactory.swift; sourceTree = "<group>"; };
 		C8CC1A0725EB99A0006F375C /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
 		C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequestFactory.swift; sourceTree = "<group>"; };
+		C8F51D3A25EFFEA900D83AFE /* AddToBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasketResult.swift; sourceTree = "<group>"; };
+		C8F51D3F25EFFEE200D83AFE /* DeleteFromBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasketResult.swift; sourceTree = "<group>"; };
+		C8F51D4425EFFF1500D83AFE /* PayBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketResult.swift; sourceTree = "<group>"; };
+		C8F51D5525F000EA00D83AFE /* AddToBasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasketRequestFactory.swift; sourceTree = "<group>"; };
+		C8F51D5D25F0011000D83AFE /* DeleteFromBasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasketRequestFactory.swift; sourceTree = "<group>"; };
+		C8F51D6225F0013300D83AFE /* PayBasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketRequestFactory.swift; sourceTree = "<group>"; };
+		C8F51D6725F0015100D83AFE /* AddToBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasket.swift; sourceTree = "<group>"; };
+		C8F51D6C25F0016C00D83AFE /* DeleteFromBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteFromBasket.swift; path = GBShop/App/BusinessLogic/Network/AddToBasket/DeleteFromBasket.swift; sourceTree = SOURCE_ROOT; };
+		C8F51D7125F0018300D83AFE /* PayBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +254,9 @@
 				C8CC19ED25EB91BB006F375C /* AddReview */,
 				C8CC19EF25EB91F3006F375C /* RemoveReview */,
 				C8CC19EE25EB91D4006F375C /* ReviewList */,
+				C8F51D5225F0001F00D83AFE /* AddToBasket */,
+				C8F51D5325F0004E00D83AFE /* DeleteFromBasket */,
+				C8F51D5425F0006E00D83AFE /* PayBasket */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -340,6 +361,9 @@
 				C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */,
 				C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */,
 				C8CC19E825EB907B006F375C /* ReviewListResult.swift */,
+				C8F51D3A25EFFEA900D83AFE /* AddToBasketResult.swift */,
+				C8F51D3F25EFFEE200D83AFE /* DeleteFromBasketResult.swift */,
+				C8F51D4425EFFF1500D83AFE /* PayBasketResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -417,6 +441,33 @@
 				C8CC19FD25EB995A006F375C /* RemoveReview.swift */,
 			);
 			path = RemoveReview;
+			sourceTree = "<group>";
+		};
+		C8F51D5225F0001F00D83AFE /* AddToBasket */ = {
+			isa = PBXGroup;
+			children = (
+				C8F51D5525F000EA00D83AFE /* AddToBasketRequestFactory.swift */,
+				C8F51D6725F0015100D83AFE /* AddToBasket.swift */,
+			);
+			path = AddToBasket;
+			sourceTree = "<group>";
+		};
+		C8F51D5325F0004E00D83AFE /* DeleteFromBasket */ = {
+			isa = PBXGroup;
+			children = (
+				C8F51D5D25F0011000D83AFE /* DeleteFromBasketRequestFactory.swift */,
+				C8F51D6C25F0016C00D83AFE /* DeleteFromBasket.swift */,
+			);
+			path = DeleteFromBasket;
+			sourceTree = "<group>";
+		};
+		C8F51D5425F0006E00D83AFE /* PayBasket */ = {
+			isa = PBXGroup;
+			children = (
+				C8F51D6225F0013300D83AFE /* PayBasketRequestFactory.swift */,
+				C8F51D7125F0018300D83AFE /* PayBasket.swift */,
+			);
+			path = PayBasket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,10 +634,14 @@
 				C833563B25DEC45800205932 /* Logout.swift in Sources */,
 				C83355C925DCC4F000205932 /* RequestRouter.swift in Sources */,
 				C833569825E2956900205932 /* GetGoodById.swift in Sources */,
+				C8F51D3B25EFFEA900D83AFE /* AddToBasketResult.swift in Sources */,
 				C8CC19F925EB990C006F375C /* ReviewListRequestFactory.swift in Sources */,
 				C833563625DEC44100205932 /* ChangeUserData.swift in Sources */,
+				C8F51D6D25F0016C00D83AFE /* DeleteFromBasket.swift in Sources */,
 				C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */,
+				C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */,
 				C83355FC25DE466F00205932 /* SignUp.swift in Sources */,
+				C8F51D6325F0013300D83AFE /* PayBasketRequestFactory.swift in Sources */,
 				C83355BF25DCB61600205932 /* ResponseCodable.swift in Sources */,
 				C83355DD25DCCBCF00205932 /* AbstractRequestFactory.swift in Sources */,
 				C833569125E28E1200205932 /* GetGoodByIdResult.swift in Sources */,
@@ -602,14 +657,19 @@
 				C83355D825DCCB2100205932 /* ErrorParser.swift in Sources */,
 				C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */,
 				C833561C25DEAA4D00205932 /* LogoutResult.swift in Sources */,
+				C8F51D7225F0018300D83AFE /* PayBasket.swift in Sources */,
 				C8CC1A0325EB9979006F375C /* RemoveReviewRequestFactory.swift in Sources */,
 				C8CC19F425EB98E1006F375C /* ReviewList.swift in Sources */,
 				C833569D25E295DE00205932 /* CatalogData.swift in Sources */,
 				C83355C425DCB91300205932 /* Auth.swift in Sources */,
 				C8CC1A0825EB99A0006F375C /* AddReview.swift in Sources */,
+				C8F51D5E25F0011000D83AFE /* DeleteFromBasketRequestFactory.swift in Sources */,
+				C8F51D4025EFFEE200D83AFE /* DeleteFromBasketResult.swift in Sources */,
 				C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */,
 				C83355D325DCCA5100205932 /* AbstractErrorParser.swift in Sources */,
+				C8F51D6825F0015100D83AFE /* AddToBasket.swift in Sources */,
 				C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */,
+				C8F51D5625F000EA00D83AFE /* AddToBasketRequestFactory.swift in Sources */,
 				C824664F25D4769C00D3B8E5 /* SceneDelegate.swift in Sources */,
 				C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */,
 				C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */,
