@@ -16,7 +16,8 @@ class CatalogDataTests: XCTestCase {
     func testCatalogData() throws {
         // Given
         // Initialize test date and system under test
-        let baseUrl = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/"))
+        let baseUrl = AppDelegate.baseUrlGitGB
+        // let baseUrl = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/"))
 
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false

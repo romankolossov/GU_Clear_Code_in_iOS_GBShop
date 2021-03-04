@@ -9,16 +9,21 @@ import Foundation
 import Alamofire
 
 class GetGoodById: AbstractRequestFactory {
+
+    // MARK: - Public properties
+
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
 
+    // MARK: - Initializers
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/") ?? URL(fileURLWithPath: "")
+        baseUrl: URL = AppDelegate.baseUrlGitGB
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager

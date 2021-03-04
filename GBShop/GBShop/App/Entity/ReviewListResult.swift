@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - ReviewListResultElement
+
 struct ReviewListResultElement: Codable {
     let idUser: Int
     let idComment: Int

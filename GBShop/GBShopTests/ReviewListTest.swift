@@ -14,7 +14,7 @@ class ReviewListTest: XCTestCase {
     func testReviewList() throws {
         // Given
         // Initialize test date and system under test
-        let baseUrl = try XCTUnwrap(URL(string: "https://sheltered-castle-91706.herokuapp.com/"))
+        let baseUrl = AppDelegate.baseUrlHeroku
 
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
