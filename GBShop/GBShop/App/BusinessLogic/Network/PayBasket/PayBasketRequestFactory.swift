@@ -9,5 +9,5 @@ import Foundation
 import Alamofire
 
 protocol PayBasketRequestFactory {
-    func payBasket(completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void)
+    func payBasket(idPayProve: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void)
 }

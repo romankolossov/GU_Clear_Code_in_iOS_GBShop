@@ -68,6 +68,9 @@
 		C8F51D6825F0015100D83AFE /* AddToBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D6725F0015100D83AFE /* AddToBasket.swift */; };
 		C8F51D6D25F0016C00D83AFE /* DeleteFromBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D6C25F0016C00D83AFE /* DeleteFromBasket.swift */; };
 		C8F51D7225F0018300D83AFE /* PayBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D7125F0018300D83AFE /* PayBasket.swift */; };
+		C8F51DE825F0C8D800D83AFE /* AddToBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DE725F0C8D800D83AFE /* AddToBasketTest.swift */; };
+		C8F51DED25F0C90C00D83AFE /* DeleteFromBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DEC25F0C90C00D83AFE /* DeleteFromBasketTest.swift */; };
+		C8F51DF225F0C92A00D83AFE /* PayBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DF125F0C92A00D83AFE /* PayBasketTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,9 @@
 		C8F51D6725F0015100D83AFE /* AddToBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasket.swift; sourceTree = "<group>"; };
 		C8F51D6C25F0016C00D83AFE /* DeleteFromBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteFromBasket.swift; path = GBShop/App/BusinessLogic/Network/AddToBasket/DeleteFromBasket.swift; sourceTree = SOURCE_ROOT; };
 		C8F51D7125F0018300D83AFE /* PayBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasket.swift; sourceTree = "<group>"; };
+		C8F51DE725F0C8D800D83AFE /* AddToBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasketTest.swift; sourceTree = "<group>"; };
+		C8F51DEC25F0C90C00D83AFE /* DeleteFromBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasketTest.swift; sourceTree = "<group>"; };
+		C8F51DF125F0C92A00D83AFE /* PayBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +233,9 @@
 				C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */,
 				C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */,
 				C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */,
+				C8F51DE725F0C8D800D83AFE /* AddToBasketTest.swift */,
+				C8F51DEC25F0C90C00D83AFE /* DeleteFromBasketTest.swift */,
+				C8F51DF125F0C92A00D83AFE /* PayBasketTest.swift */,
 				C824666525D476A000D3B8E5 /* Info.plist */,
 			);
 			path = GBShopTests;
@@ -683,13 +692,16 @@
 				C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */,
 				C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */,
 				C833566725E17CE400205932 /* RequestFactoryTests.swift in Sources */,
+				C8F51DE825F0C8D800D83AFE /* AddToBasketTest.swift in Sources */,
 				C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */,
 				C833568125E2170200205932 /* LogoutTests.swift in Sources */,
 				C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */,
 				C833567C25E216D000205932 /* ChangeUserDataTests.swift in Sources */,
 				C833567725E2169700205932 /* SignUpTests.swift in Sources */,
 				C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */,
+				C8F51DED25F0C90C00D83AFE /* DeleteFromBasketTest.swift in Sources */,
 				C833566F25E2161000205932 /* AuthTests.swift in Sources */,
+				C8F51DF225F0C92A00D83AFE /* PayBasketTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

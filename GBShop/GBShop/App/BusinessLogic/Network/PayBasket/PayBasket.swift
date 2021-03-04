@@ -19,6 +19,7 @@ class PayBasket: AbstractRequestFactory {
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
         baseUrl: URL = URL(string: "https://sheltered-castle-91706.herokuapp.com/") ?? URL(fileURLWithPath: "")
+        // baseUrl: URL = URL(string: "http://127.0.0.1:8080/") ?? URL(fileURLWithPath: "")
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
@@ -30,13 +31,11 @@ class PayBasket: AbstractRequestFactory {
 // MARK: - Extensions PayBasket
 
 extension PayBasket: PayBasketRequestFactory {
-    func payBasket(completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void) {
-        let requestModel = PayBasketRequest(baseUrl: baseUrl)
-        
+    func payBasket(idPayProve: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void) {
+        let requestModel = PayBasketRequest(baseUrl: baseUrl, idPayProve: idPayProve)
+
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-    
 }
 
 extension PayBasket {
@@ -45,12 +44,13 @@ extension PayBasket {
 
     struct PayBasketRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "deleteFromBasket"
+        let method: HTTPMethod = .post
+        let path: String = "payBasket"
 
-        var parameters: Parameters? { [:] }
+        let idPayProve: Int
+
+        var parameters: Parameters? {
+            [ "idPayProve": idPayProve ]
+        }
     }
 }
-
-
-
