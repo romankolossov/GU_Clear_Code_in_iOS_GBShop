@@ -46,6 +46,9 @@
 		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
 		C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */; };
 		C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */; };
+		C84A4A2825F533B800DAD5AE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84A4A2725F533B800DAD5AE /* SearchViewController.swift */; };
+		C84A4A2D25F536BB00DAD5AE /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */; };
+		C84A4A3225F53B7800DAD5AE /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84A4A3125F53B7800DAD5AE /* UserViewController.swift */; };
 		C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */; };
 		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
 		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
@@ -59,6 +62,7 @@
 		C8CC1A0325EB9979006F375C /* RemoveReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */; };
 		C8CC1A0825EB99A0006F375C /* AddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0725EB99A0006F375C /* AddReview.swift */; };
 		C8CC1A1025EB99BB006F375C /* AddReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */; };
+		C8D3D86E25F4D70E00AE6896 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D3D86D25F4D70E00AE6896 /* TabBarController.swift */; };
 		C8F51D3B25EFFEA900D83AFE /* AddToBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D3A25EFFEA900D83AFE /* AddToBasketResult.swift */; };
 		C8F51D4025EFFEE200D83AFE /* DeleteFromBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D3F25EFFEE200D83AFE /* DeleteFromBasketResult.swift */; };
 		C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51D4425EFFF1500D83AFE /* PayBasketResult.swift */; };
@@ -135,6 +139,9 @@
 		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
 		C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
 		C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdTests.swift; sourceTree = "<group>"; };
+		C84A4A2725F533B800DAD5AE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		C84A4A3125F53B7800DAD5AE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 		C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewRequestFactory.swift; sourceTree = "<group>"; };
 		C8CC1A0725EB99A0006F375C /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
 		C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequestFactory.swift; sourceTree = "<group>"; };
+		C8D3D86D25F4D70E00AE6896 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C8F51D3A25EFFEA900D83AFE /* AddToBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasketResult.swift; sourceTree = "<group>"; };
 		C8F51D3F25EFFEE200D83AFE /* DeleteFromBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasketResult.swift; sourceTree = "<group>"; };
 		C8F51D4425EFFF1500D83AFE /* PayBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketResult.swift; sourceTree = "<group>"; };
@@ -387,7 +395,8 @@
 		C8911FD925D51BD100F5E594 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
+				C8D3D86C25F4D6AB00AE6896 /* Common */,
+				C8D3D87625F50A2600AE6896 /* Screens */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -450,6 +459,25 @@
 				C8CC19FD25EB995A006F375C /* RemoveReview.swift */,
 			);
 			path = RemoveReview;
+			sourceTree = "<group>";
+		};
+		C8D3D86C25F4D6AB00AE6896 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C8D3D86D25F4D70E00AE6896 /* TabBarController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C8D3D87625F50A2600AE6896 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
+				C84A4A2725F533B800DAD5AE /* SearchViewController.swift */,
+				C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */,
+				C84A4A3125F53B7800DAD5AE /* UserViewController.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		C8F51D5225F0001F00D83AFE /* AddToBasket */ = {
@@ -638,6 +666,7 @@
 			files = (
 				C8CC19E925EB907B006F375C /* ReviewListResult.swift in Sources */,
 				C83355E225DCCCB500205932 /* User.swift in Sources */,
+				C84A4A2D25F536BB00DAD5AE /* CartViewController.swift in Sources */,
 				C83355CE25DCC8FE00205932 /* RequestFactory.swift in Sources */,
 				C833560F25DE761800205932 /* SignUpResult.swift in Sources */,
 				C833563B25DEC45800205932 /* Logout.swift in Sources */,
@@ -656,10 +685,12 @@
 				C833569125E28E1200205932 /* GetGoodByIdResult.swift in Sources */,
 				C83355F425DE462A00205932 /* SignUpRequestFactory.swift in Sources */,
 				C824664D25D4769C00D3B8E5 /* AppDelegate.swift in Sources */,
+				C84A4A3225F53B7800DAD5AE /* UserViewController.swift in Sources */,
 				C833562C25DEADF200205932 /* LogoutRequestFactory.swift in Sources */,
 				C8CC1A1025EB99BB006F375C /* AddReviewRequestFactory.swift in Sources */,
 				C8CC19FE25EB995A006F375C /* RemoveReview.swift in Sources */,
 				C83355BA25DCB24100205932 /* LoginResult.swift in Sources */,
+				C8D3D86E25F4D70E00AE6896 /* TabBarController.swift in Sources */,
 				C833562125DEAA8C00205932 /* ChangeUserDataResult.swift in Sources */,
 				C833568C25E2825A00205932 /* CatalogDataResult.swift in Sources */,
 				C833563125DEAE1C00205932 /* ChangeUserDataRequestFactory.swift in Sources */,
@@ -677,6 +708,7 @@
 				C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */,
 				C83355D325DCCA5100205932 /* AbstractErrorParser.swift in Sources */,
 				C8F51D6825F0015100D83AFE /* AddToBasket.swift in Sources */,
+				C84A4A2825F533B800DAD5AE /* SearchViewController.swift in Sources */,
 				C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */,
 				C8F51D5625F000EA00D83AFE /* AddToBasketRequestFactory.swift in Sources */,
 				C824664F25D4769C00D3B8E5 /* SceneDelegate.swift in Sources */,
