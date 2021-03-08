@@ -1,15 +1,16 @@
 //
-//  CartViewController.swift
+//  ReviewViewController.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 07.03.2021.
+//  Created by Roman Kolosov on 08.03.2021.
 //
 
 import UIKit
 
-class CartViewController: UIViewController {
-    // MARK: TO DO: Delete from basket
-    // MARK: TO DO: Pay basket
+class ReviewViewController: UIViewController {
+    // MARK: TO DO: Review list
+    // MARK: TO DO: Add review
+    // MARK: TO DO: Remove review
 
     // MARK: - Lifecycle
 
@@ -17,12 +18,12 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        self.configureCartVC()
+        self.configureReviewVC()
     }
 
     // MARK: - Actions
 
-    @objc private func payBasket() {
+    @objc private func addReview() {
         // MARK: TO DO
 
     }
@@ -31,7 +32,7 @@ class CartViewController: UIViewController {
 
     // MARK: Configure
 
-    private func configureCartVC() {
+    private func configureReviewVC() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -39,11 +40,11 @@ class CartViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
 
-        let payBasketItem = UIBarButtonItem(image: UIImage(systemName: "creditcard"), style: .plain, target: self, action: #selector(payBasket))
+        let addReviewItem = UIBarButtonItem(image: UIImage(systemName: "plus.bubble"), style: .plain, target: self, action: #selector(addReview))
 
-        navigationItem.rightBarButtonItems = [payBasketItem]
+        navigationItem.rightBarButtonItems = [addReviewItem]
 
-        self.title = "Cart"
+        self.title = "Review"
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }

@@ -12,6 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Public properties
 
+    enum TypeInterfaceOrientationMask {
+        case all
+        case portrait
+        case landscape
+    }
+    var restrictRotation: TypeInterfaceOrientationMask = .portrait
+
     static let baseUrlGitGB = URL(
         string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/") ?? URL(fileURLWithPath: ""
         )
@@ -23,7 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
     // let requestFactory = RequestFactory()
 
-    // MARK: - Major methods
+    // MARK: - Public methods
+
+    // MARK: InterfaceOrientations
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        switch self.restrictRotation {
+        case .all:
+            return UIInterfaceOrientationMask.all
+        case .portrait:
+            return UIInterfaceOrientationMask.portrait
+        case .landscape:
+            return UIInterfaceOrientationMask.landscape
+        }
+    }
+
+    // MARK: DidFinishLaunchingWithOptions
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 

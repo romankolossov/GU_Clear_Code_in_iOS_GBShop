@@ -8,15 +8,16 @@
 import UIKit
 
 class UserViewController: UIViewController {
+    // MARK: TO DO: Change user data
+    // MARK: TO DO: Logout
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureUserVC()
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        // MARK: TO DO: Change user data
-        // MARK: TO DO: Logout
+        self.configureUserVC()
     }
 
     // MARK: - Actions
@@ -38,17 +39,18 @@ class UserViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 0.0, blue: 204 / 255, alpha: 1.0)
 
-        let logoutItem = UIBarButtonItem(image: UIImage(systemName: "arrow.right.square"), style: .done, target: self, action: #selector(logout))
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
+
+        let logoutItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.zigzag.right"), style: .done, target: self, action: #selector(logout))
         let changeUserDataItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(changeUserData))
 
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
 
         // MARK: TO DO: "Hi, UserName!"
         self.title = "Hi, User!"
-        self.tabBarItem.title = ""
+        self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }
 

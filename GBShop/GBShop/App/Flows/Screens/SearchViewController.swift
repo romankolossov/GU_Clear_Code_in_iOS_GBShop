@@ -8,16 +8,17 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    // MARK: TO DO: Catalog data
+    // MARK: TO DO: Search good by id
+    // MARK: TO DO: Add to basket
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureSearchVC()
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        // MARK: TO DO: Catalog data
-        // MARK: TO DO: Search by id
-        // MARK: TO DO: Add to basket
+        self.configureSearchVC()
     }
 
     // MARK: - Private methods
@@ -28,10 +29,12 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 0.0, blue: 204 / 255, alpha: 1.0)
+
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
 
         self.title = "Search"
-        self.tabBarItem.title = ""
+        self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }
 

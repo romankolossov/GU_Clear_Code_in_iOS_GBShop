@@ -52,6 +52,7 @@
 		C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */; };
 		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
 		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
+		C8BB1C4E25F67A3F0000E8E6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */; };
 		C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C8CC19D025EAB65E006F375C /* .swiftlint.yml */; };
 		C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */; };
 		C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */; };
@@ -145,6 +146,7 @@
 		C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
+		C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		C8CC19D025EAB65E006F375C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
 		C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			children = (
 				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
 				C84A4A2725F533B800DAD5AE /* SearchViewController.swift */,
+				C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */,
 				C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */,
 				C84A4A3125F53B7800DAD5AE /* UserViewController.swift */,
 			);
@@ -655,7 +658,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  # swiftlint autocorrect && swiftlint\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -678,6 +681,7 @@
 				C8F51D6D25F0016C00D83AFE /* DeleteFromBasket.swift in Sources */,
 				C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */,
 				C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */,
+				C8BB1C4E25F67A3F0000E8E6 /* ReviewViewController.swift in Sources */,
 				C83355FC25DE466F00205932 /* SignUp.swift in Sources */,
 				C8F51D6325F0013300D83AFE /* PayBasketRequestFactory.swift in Sources */,
 				C83355BF25DCB61600205932 /* ResponseCodable.swift in Sources */,

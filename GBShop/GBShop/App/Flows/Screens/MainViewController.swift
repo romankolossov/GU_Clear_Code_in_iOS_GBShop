@@ -8,15 +8,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: TO DO: Auth
+    // MARK: TO DO: Sign Up
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureMainVC()
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        // MARK: TO DO: Auth
-        // MARK: TO DO: Sign Up
+        configureMainVC()
     }
 
     // MARK: - Actions
@@ -38,16 +39,17 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 0.0, blue: 204 / 255, alpha: 1.0)
 
-        let registerNewUserItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.badge.plus"), style: .plain, target: self, action: #selector(signUp))
-        let loginItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle.badge.checkmark"), style: .done, target: self, action: #selector(login))
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
+
+        let registerNewUserItem = UIBarButtonItem(image: UIImage(systemName: "person.fill.badge.plus"), style: .plain, target: self, action: #selector(signUp))
+        let loginItem = UIBarButtonItem(image: UIImage(systemName: "checkmark.seal"), style: .done, target: self, action: #selector(login))
 
         navigationItem.rightBarButtonItems = [registerNewUserItem, loginItem]
 
         self.title = "GB Shop"
-        self.tabBarItem.title = ""
+        self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }
 

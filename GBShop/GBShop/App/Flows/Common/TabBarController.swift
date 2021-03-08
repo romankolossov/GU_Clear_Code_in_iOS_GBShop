@@ -30,6 +30,7 @@ class TabBarController: UITabBarController {
         var controllers: [UIViewController] = [UIViewController]()
 
         // Main tab
+
         let mainViewController = MainViewController()
         let mainVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
 
@@ -39,6 +40,7 @@ class TabBarController: UITabBarController {
         controllers.append(mainNavigationController)
 
         // Search tab
+
         let searchViewController = SearchViewController()
         let searchVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
 
@@ -48,6 +50,7 @@ class TabBarController: UITabBarController {
         controllers.append(searchNavigationController)
 
         // Cart tab
+
         let cartViewController = CartViewController()
         let cartVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
 
@@ -56,7 +59,18 @@ class TabBarController: UITabBarController {
 
         controllers.append(cartNavigationController)
 
+        // Review tab
+
+        let reviewViewController = ReviewViewController()
+        let reviewVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "text.bubble"), selectedImage: UIImage(systemName: "text.bubble.fill"))
+
+        reviewViewController.tabBarItem = reviewVCTabBarItem
+        let reviewNavigationController = UINavigationController(rootViewController: reviewViewController)
+
+        controllers.append(reviewNavigationController)
+
         // User tab
+
         let userViewController = UserViewController()
         let userVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.crop.circle"), selectedImage: UIImage(systemName: "person.crop.circle.fill"))
 
