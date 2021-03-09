@@ -13,6 +13,8 @@
 		C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C824665525D4769F00D3B8E5 /* Assets.xcassets */; };
 		C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */; };
 		C824666F25D476A000D3B8E5 /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824666E25D476A000D3B8E5 /* GBShopUITests.swift */; };
+		C8267EB125F7502900F2C8FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8267EB325F7502900F2C8FE /* Localizable.strings */; };
+		C8267EBA25F7601C00F2C8FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8267EB825F7601C00F2C8FE /* InfoPlist.strings */; };
 		C83355A925DB275F00205932 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C83355A825DB275F00205932 /* Alamofire */; };
 		C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B425DCB08E00205932 /* AuthRequestFactory.swift */; };
 		C83355BA25DCB24100205932 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B925DCB24100205932 /* LoginResult.swift */; };
@@ -108,6 +110,12 @@
 		C824666A25D476A000D3B8E5 /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C824666E25D476A000D3B8E5 /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		C824667025D476A000D3B8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8267EA825F74FA400F2C8FE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C8267EB225F7502900F2C8FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C8267EB425F7502F00F2C8FE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C8267EB925F7601C00F2C8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8267EBE25F7602A00F2C8FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8267EBF25F7602C00F2C8FE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C83355B425DCB08E00205932 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
 		C83355B925DCB24100205932 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		C83355BE25DCB61600205932 /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
@@ -258,6 +266,14 @@
 				C824667025D476A000D3B8E5 /* Info.plist */,
 			);
 			path = GBShopUITests;
+			sourceTree = "<group>";
+		};
+		C8267EA725F74F3000F2C8FE /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				C8267EB325F7502900F2C8FE /* Localizable.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		C83355B225DCAF4200205932 /* Network */ = {
@@ -415,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				C8911FDD25D51E1700F5E594 /* BaseLprojIsHere */,
+				C8267EA725F74F3000F2C8FE /* Localizations */,
 				C824665525D4769F00D3B8E5 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -432,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */,
+				C8267EB825F7601C00F2C8FE /* InfoPlist.strings */,
 			);
 			path = BaseLprojIsHere;
 			sourceTree = "<group>";
@@ -476,8 +494,8 @@
 			children = (
 				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
 				C84A4A2725F533B800DAD5AE /* SearchViewController.swift */,
-				C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */,
 				C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */,
+				C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */,
 				C84A4A3125F53B7800DAD5AE /* UserViewController.swift */,
 			);
 			path = Screens;
@@ -599,6 +617,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = C824664025D4769C00D3B8E5;
 			packageReferences = (
@@ -621,8 +640,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */,
+				C8267EB125F7502900F2C8FE /* Localizable.strings in Resources */,
 				C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */,
 				C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */,
+				C8267EBA25F7601C00F2C8FE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +679,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  # swiftlint autocorrect && swiftlint\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  # swiftlint autocorrect && swiftlint # Recomended settings for autocorrect but issue with no highlighting in code text\n  swiftlint # Settings with no autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -769,8 +790,28 @@
 			isa = PBXVariantGroup;
 			children = (
 				C824665825D4769F00D3B8E5 /* Base */,
+				C8267EA825F74FA400F2C8FE /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C8267EB325F7502900F2C8FE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8267EB225F7502900F2C8FE /* en */,
+				C8267EB425F7502F00F2C8FE /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C8267EB825F7601C00F2C8FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8267EB925F7601C00F2C8FE /* Base */,
+				C8267EBE25F7602A00F2C8FE /* en */,
+				C8267EBF25F7602C00F2C8FE /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -780,6 +821,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -841,6 +883,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

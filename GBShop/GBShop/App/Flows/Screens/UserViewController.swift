@@ -7,9 +7,9 @@
 
 import UIKit
 
+// for Change user data and Logout
+
 class UserViewController: UIViewController {
-    // MARK: TO DO: Change user data
-    // MARK: TO DO: Logout
 
     // MARK: - Lifecycle
 
@@ -49,7 +49,7 @@ class UserViewController: UIViewController {
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
 
         // MARK: TO DO: "Hi, UserName!"
-        self.title = "Hi, User!"
+        self.title = "\(NSLocalizedString("userVCName", comment: "Hi")), User"
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }

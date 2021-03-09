@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  GBShop
+
+  Created by Roman Kolosov on 09.03.2021.
+  
+*/
+
+// TabBarController
+/*
+"mainTab" = "Home";
+"searchTab" = "Search";
+"cartTab" = "Cart";
+"reviewTab" = "Review";
+"userTab" = "User";
+*/
+
+// MainViewController
+
+"mainVCName" = "GB Shop";
+//"reloadData" = "Reloading data...";
+
+//MARK: TO DO
+// FirstViewController
+/*
+"aboutAppHeader" = "ABOUT";
+"searchHeader" = "SEARCH";
+"cartHeader" = "CART";
+"reviewHeader" = "REVIEW";
+"userHeader" = "USER";
+
+"aboutAppDescribe" = "\"GB Shop\" is an online shop application for buying goods easily from your home";
+"searchDescribe" = "";
+"cartDescribe" = "";
+"reviewDescribe" = "";
+"userDescribe" = "";
+
+"nextButton" = "NEXT";
+"doneButton" = "DONE";
+*/
+
+// SearchViewController
+
+"searchVCName" = "Search";
+
+// CartViewController
+
+"cartVCName" = "Cart";
+
+// ReviewViewController
+
+"reviewVCName" = "Review";
+
+// UserViewController
+
+"userVCName" = "Hi";
+
+// Alerts
+
+//"error" = "Error";
+//MARK: TO DO
+/*
+"actionsWithSomething" = "Some action";
+"actionsWithSomethingDescribe" = "What do You want to do with the Something?";
+"addToSomewhere" = "Add to somewhere";
+"removeFromSomewhere" = "Remove from somewhere";
+"success" = "Success";
+"close" = "Close";
+*/

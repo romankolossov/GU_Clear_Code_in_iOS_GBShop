@@ -7,10 +7,9 @@
 
 import UIKit
 
+// for display Catalog data, Search good by id and Add good to basket
+
 class SearchViewController: UIViewController {
-    // MARK: TO DO: Catalog data
-    // MARK: TO DO: Search good by id
-    // MARK: TO DO: Add to basket
 
     // MARK: - Lifecycle
 
@@ -33,7 +32,7 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
 
-        self.title = "Search"
+        self.title = NSLocalizedString("searchVCName", comment: "Search")
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }

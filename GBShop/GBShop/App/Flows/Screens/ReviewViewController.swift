@@ -7,10 +7,9 @@
 
 import UIKit
 
+// for display Review list, Add review and  Remove review
+
 class ReviewViewController: UIViewController {
-    // MARK: TO DO: Review list
-    // MARK: TO DO: Add review
-    // MARK: TO DO: Remove review
 
     // MARK: - Lifecycle
 
@@ -44,7 +43,7 @@ class ReviewViewController: UIViewController {
 
         navigationItem.rightBarButtonItems = [addReviewItem]
 
-        self.title = "Review"
+        self.title = NSLocalizedString("reviewVCName", comment: "Review")
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }

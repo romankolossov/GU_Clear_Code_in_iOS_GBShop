@@ -7,9 +7,9 @@
 
 import UIKit
 
+// for Delete from basket and Pay basket
+
 class CartViewController: UIViewController {
-    // MARK: TO DO: Delete from basket
-    // MARK: TO DO: Pay basket
 
     // MARK: - Lifecycle
 
@@ -43,7 +43,7 @@ class CartViewController: UIViewController {
 
         navigationItem.rightBarButtonItems = [payBasketItem]
 
-        self.title = "Cart"
+        self.title = NSLocalizedString("cartVCName", comment: "Cart")
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }

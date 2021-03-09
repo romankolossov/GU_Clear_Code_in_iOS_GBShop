@@ -7,9 +7,9 @@
 
 import UIKit
 
+// for Sign in and Sign up
+
 class MainViewController: UIViewController {
-    // MARK: TO DO: Auth
-    // MARK: TO DO: Sign Up
 
     // MARK: - Lifecycle
 
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         // MARK: TO DO
 
     }
-    @objc private func login() {
+    @objc private func signIn() {
         // MARK: TO DO
 
     }
@@ -44,11 +44,11 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
 
         let registerNewUserItem = UIBarButtonItem(image: UIImage(systemName: "person.fill.badge.plus"), style: .plain, target: self, action: #selector(signUp))
-        let loginItem = UIBarButtonItem(image: UIImage(systemName: "checkmark.seal"), style: .done, target: self, action: #selector(login))
+        let loginItem = UIBarButtonItem(image: UIImage(systemName: "checkmark.seal"), style: .done, target: self, action: #selector(signIn))
 
         navigationItem.rightBarButtonItems = [registerNewUserItem, loginItem]
 
-        self.title = "GB Shop"
+        self.title = NSLocalizedString("mainVCName", comment: "GB Shop")
         self.tabBarItem.title = nil
         self.view.backgroundColor = .systemPurple
     }
