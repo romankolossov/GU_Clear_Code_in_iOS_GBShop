@@ -12,12 +12,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Public properties
 
+    // Restrict InterfaceOrientation with portrait type only for all screens
+    // InterfaceOrientation type for particular screen may be change inside its view controller
+
     enum TypeInterfaceOrientationMask {
         case all
         case portrait
         case landscape
     }
     var restrictRotation: TypeInterfaceOrientationMask = .portrait
+
+    // Define base URL
 
     static let baseUrlGitGB = URL(
         string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/") ?? URL(fileURLWithPath: ""
