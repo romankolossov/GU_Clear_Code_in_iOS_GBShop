@@ -36,21 +36,30 @@ class MainViewController: UIViewController {
     // MARK: Configure
 
     private func configureMainVC() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = NSLocalizedString("mainVCName", comment: "GB Shop")
 
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
 
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        let registerNewUserItem = UIBarButtonItem(image: UIImage(systemName: "person.fill.badge.plus"), style: .plain, target: self, action: #selector(signUp))
-        let loginItem = UIBarButtonItem(image: UIImage(systemName: "checkmark.seal"), style: .done, target: self, action: #selector(signIn))
-
+        let registerNewUserItem = UIBarButtonItem(
+            image: UIImage(systemName: "person.fill.badge.plus"),
+            style: .plain,
+            target: self,
+            action: #selector(signUp)
+        )
+        let loginItem = UIBarButtonItem(
+            image: UIImage(systemName: "checkmark.seal"),
+            style: .done,
+            target: self,
+            action: #selector(signIn)
+        )
         navigationItem.rightBarButtonItems = [registerNewUserItem, loginItem]
 
-        self.title = NSLocalizedString("mainVCName", comment: "GB Shop")
+        self.view.backgroundColor = UIColor.rootViewBackgroundColor
         self.tabBarItem.title = nil
-        self.view.backgroundColor = .systemPurple
     }
 
 }

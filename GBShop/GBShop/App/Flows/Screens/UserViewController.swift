@@ -11,6 +11,13 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    private let userView: UserView = {
+        let view = UserView()
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -18,6 +25,8 @@ class UserViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         self.configureUserVC()
+        self.configureSubviews()
+
     }
 
     // MARK: - Actions
@@ -36,22 +45,44 @@ class UserViewController: UIViewController {
     // MARK: Configure
 
     private func configureUserVC() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        // MARK: TO DO: "Hi, UserName!"
+        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), User"
 
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
 
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        let logoutItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.zigzag.right"), style: .done, target: self, action: #selector(logout))
-        let changeUserDataItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .plain, target: self, action: #selector(changeUserData))
-
+        let logoutItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrowshape.zigzag.right"),
+            style: .done,
+            target: self,
+            action: #selector(logout)
+        )
+        let changeUserDataItem = UIBarButtonItem(
+            image: UIImage(systemName: "gearshape"),
+            style: .plain,
+            target: self,
+            action: #selector(changeUserData)
+        )
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
 
-        // MARK: TO DO: "Hi, UserName!"
-        self.title = "\(NSLocalizedString("userVCName", comment: "Hi")), User"
+        self.view.backgroundColor = UIColor.rootViewBackgroundColor
         self.tabBarItem.title = nil
-        self.view.backgroundColor = .systemPurple
+    }
+
+    private func configureSubviews() {
+        view.addSubview(userView)
+
+        let safeArea = view.safeAreaLayoutGuide
+        let userViewConstraints = [
+            userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            userView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            userView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(userViewConstraints)
     }
 
 }

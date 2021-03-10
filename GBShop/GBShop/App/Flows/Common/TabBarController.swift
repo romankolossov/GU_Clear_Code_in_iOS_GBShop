@@ -15,8 +15,8 @@ class TabBarController: UITabBarController {
         super .init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.viewControllers = createViewControllers()
 
-        self.tabBar.backgroundColor = .init(white: 0.1, alpha: 1.0)
-        self.tabBar.tintColor = .systemPurple
+        self.tabBar.backgroundColor = UIColor.tabBarBackgroundColor
+        self.tabBar.tintColor = UIColor.tabBarTintColor
     }
     @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -32,51 +32,66 @@ class TabBarController: UITabBarController {
         // Main tab
 
         let mainViewController = MainViewController()
-        let mainVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-
+        let mainVCTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "house"),
+            selectedImage: UIImage(systemName: "house.fill")
+        )
         mainViewController.tabBarItem = mainVCTabBarItem
-        let mainNavigationController = UINavigationController(rootViewController: mainViewController)
 
+        let mainNavigationController = UINavigationController(rootViewController: mainViewController)
         controllers.append(mainNavigationController)
 
         // Search tab
 
         let searchViewController = SearchViewController()
-        let searchVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
-
+        let searchVCTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "magnifyingglass"),
+            selectedImage: UIImage(systemName: "magnifyingglass.circle.fill")
+        )
         searchViewController.tabBarItem = searchVCTabBarItem
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
 
+        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
         controllers.append(searchNavigationController)
 
         // Cart tab
 
         let cartViewController = CartViewController()
-        let cartVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
-
+        let cartVCTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "cart"),
+            selectedImage: UIImage(systemName: "cart.fill")
+        )
         cartViewController.tabBarItem = cartVCTabBarItem
-        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
 
+        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
         controllers.append(cartNavigationController)
 
         // Review tab
 
         let reviewViewController = ReviewViewController()
-        let reviewVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "text.bubble"), selectedImage: UIImage(systemName: "text.bubble.fill"))
-
+        let reviewVCTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "text.bubble"),
+            selectedImage: UIImage(systemName: "text.bubble.fill")
+        )
         reviewViewController.tabBarItem = reviewVCTabBarItem
-        let reviewNavigationController = UINavigationController(rootViewController: reviewViewController)
 
+        let reviewNavigationController = UINavigationController(rootViewController: reviewViewController)
         controllers.append(reviewNavigationController)
 
         // User tab
 
         let userViewController = UserViewController()
-        let userVCTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.crop.circle"), selectedImage: UIImage(systemName: "person.crop.circle.fill"))
-
+        let userVCTabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "person.crop.circle"),
+            selectedImage: UIImage(systemName: "person.crop.circle.fill")
+        )
         userViewController.tabBarItem = userVCTabBarItem
-        let userNavigationController = UINavigationController(rootViewController: userViewController)
 
+        let userNavigationController = UINavigationController(rootViewController: userViewController)
         controllers.append(userNavigationController)
 
         return controllers

@@ -32,20 +32,24 @@ class CartViewController: UIViewController {
     // MARK: Configure
 
     private func configureCartVC() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
 
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
 
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .init(red: 102 / 255, green: 26 / 255, blue: 136 / 255, alpha: 1.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        let payBasketItem = UIBarButtonItem(image: UIImage(systemName: "creditcard"), style: .plain, target: self, action: #selector(payBasket))
-
+        let payBasketItem = UIBarButtonItem(
+            image: UIImage(systemName: "creditcard"),
+            style: .plain,
+            target: self,
+            action: #selector(payBasket)
+        )
         navigationItem.rightBarButtonItems = [payBasketItem]
 
-        self.title = NSLocalizedString("cartVCName", comment: "Cart")
+        self.view.backgroundColor = UIColor.rootViewBackgroundColor
         self.tabBarItem.title = nil
-        self.view.backgroundColor = .systemPurple
     }
 
 }
