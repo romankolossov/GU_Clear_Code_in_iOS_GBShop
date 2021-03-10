@@ -35,7 +35,9 @@ class CartViewController: UIViewController {
         navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.navigationBarLargeTitleTextColor
+        ]
 
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
@@ -48,7 +50,7 @@ class CartViewController: UIViewController {
         )
         navigationItem.rightBarButtonItems = [payBasketItem]
 
-        self.view.backgroundColor = UIColor.rootViewBackgroundColor
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil
     }
 

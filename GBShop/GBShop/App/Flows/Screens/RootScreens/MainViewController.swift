@@ -23,7 +23,10 @@ class MainViewController: UIViewController {
     // MARK: - Actions
 
     @objc private func signUp() {
-        // MARK: TO DO
+        let signUpViewController = SignUpViewController()
+
+        signUpViewController.modalPresentationStyle = .formSheet
+        self.navigationController?.present(signUpViewController, animated: true, completion: nil)
 
     }
     @objc private func signIn() {
@@ -39,7 +42,9 @@ class MainViewController: UIViewController {
         navigationItem.title = NSLocalizedString("mainVCName", comment: "GB Shop")
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.navigationBarLargeTitleTextColor
+        ]
 
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
@@ -58,7 +63,7 @@ class MainViewController: UIViewController {
         )
         navigationItem.rightBarButtonItems = [registerNewUserItem, loginItem]
 
-        self.view.backgroundColor = UIColor.rootViewBackgroundColor
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil
     }
 

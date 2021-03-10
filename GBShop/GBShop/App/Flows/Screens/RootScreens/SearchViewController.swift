@@ -28,12 +28,14 @@ class SearchViewController: UIViewController {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.navigationBarLargeTitleTextColor
+        ]
 
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        self.view.backgroundColor = UIColor.rootViewBackgroundColor
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil
     }
 

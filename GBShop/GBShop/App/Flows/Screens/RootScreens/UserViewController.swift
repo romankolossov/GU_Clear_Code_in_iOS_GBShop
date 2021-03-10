@@ -11,6 +11,8 @@ import UIKit
 
 class UserViewController: UIViewController {
 
+    // MARK: - Private properties
+
     private let userView: UserView = {
         let view = UserView()
         view.clipsToBounds = true
@@ -26,7 +28,6 @@ class UserViewController: UIViewController {
 
         self.configureUserVC()
         self.configureSubviews()
-
     }
 
     // MARK: - Actions
@@ -49,7 +50,9 @@ class UserViewController: UIViewController {
         self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), User"
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.navigationBarTitleTextForegroundColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.navigationBarLargeTitleTextColor
+        ]
 
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
@@ -68,7 +71,7 @@ class UserViewController: UIViewController {
         )
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
 
-        self.view.backgroundColor = UIColor.rootViewBackgroundColor
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil
     }
 
