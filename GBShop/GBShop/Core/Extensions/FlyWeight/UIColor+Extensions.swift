@@ -38,7 +38,9 @@ extension UIColor {
     // yellow
     static let suplimentaryViewBackgroundColor: UIColor = .init(red: 204 / 255, green: 155 / 255, blue: 33 / 255, alpha: 1.0)
 
-    static let  navigationBarTintColor: UIColor = .magenta
     static let  navigationBarTitleTextColor: UIColor = .white
+
+    // purple
+    static let  navigationBarTintColor: UIColor = .init(red: 210 / 255, green: 0 / 255, blue: 185 / 255, alpha: 1.0)
 
 }
