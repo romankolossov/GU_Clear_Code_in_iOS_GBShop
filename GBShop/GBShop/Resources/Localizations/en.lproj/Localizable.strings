@@ -55,6 +55,10 @@
 
 "userVCName" = "Hi";
 
+// SignUpViewController
+
+"signUp" = "Sign up";
+
 // Alerts
 
 //"error" = "Error";

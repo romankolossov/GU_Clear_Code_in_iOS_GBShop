@@ -11,8 +11,8 @@ extension UIFont {
 
     // for User Data
 
-    static let userDataLableFont: UIFont = .preferredFont(forTextStyle: .title3)
-    static let userDataTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
+    static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
+    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
 
     // for titleLables
 

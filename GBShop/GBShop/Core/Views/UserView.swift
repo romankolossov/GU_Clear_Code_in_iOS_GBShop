@@ -43,45 +43,45 @@ class UserView: UIView {
     private func addSubviews() {
         idLabel.translatesAutoresizingMaskIntoConstraints = false
         idLabel.text = "idLabel test text"
-        idLabel.textColor = UIColor.userDataLableTextColor
+        idLabel.textColor = UIColor.userLableTextColor
         idLabel.textAlignment = .left
-        idLabel.font = UIFont.userDataLableFont
+        idLabel.font = UIFont.userLableFont
 
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = "userNameLabel test text"
-        userNameLabel.textColor = UIColor.userDataLableTextColor
+        userNameLabel.textColor = UIColor.userLableTextColor
         userNameLabel.textAlignment = .left
-        userNameLabel.font = UIFont.userDataLableFont
+        userNameLabel.font = UIFont.userLableFont
 
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
         passwordLabel.text = "passwordLabel test text"
-        passwordLabel.textColor = UIColor.userDataLableTextColor
+        passwordLabel.textColor = UIColor.userLableTextColor
         passwordLabel.textAlignment = .left
-        passwordLabel.font = UIFont.userDataLableFont
+        passwordLabel.font = UIFont.userLableFont
 
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         emailLabel.text = "emailLabel test text"
-        emailLabel.textColor = UIColor.userDataLableTextColor
+        emailLabel.textColor = UIColor.userLableTextColor
         emailLabel.textAlignment = .left
-        emailLabel.font = UIFont.userDataLableFont
+        emailLabel.font = UIFont.userLableFont
 
         genderLabel.translatesAutoresizingMaskIntoConstraints = false
         genderLabel.text = "genderLabel test text"
-        genderLabel.textColor = UIColor.userDataLableTextColor
+        genderLabel.textColor = UIColor.userLableTextColor
         genderLabel.textAlignment = .left
-        genderLabel.font = UIFont.userDataLableFont
+        genderLabel.font = UIFont.userLableFont
 
         creditCardLabel.translatesAutoresizingMaskIntoConstraints = false
         creditCardLabel.text = "creditCardLabel test text"
-        creditCardLabel.textColor = UIColor.userDataLableTextColor
+        creditCardLabel.textColor = UIColor.userLableTextColor
         creditCardLabel.textAlignment = .left
-        creditCardLabel.font = UIFont.userDataLableFont
+        creditCardLabel.font = UIFont.userLableFont
 
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
         bioLabel.text = "bioLabel test text"
-        bioLabel.textColor = UIColor.userDataLableTextColor
+        bioLabel.textColor = UIColor.userLableTextColor
         bioLabel.textAlignment = .left
-        bioLabel.font = UIFont.userDataLableFont
+        bioLabel.font = UIFont.userLableFont
         bioLabel.numberOfLines = 3
 
         self.addSubview(idLabel)

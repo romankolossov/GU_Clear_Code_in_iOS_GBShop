@@ -44,52 +44,52 @@ class SignUpView: UIView {
 
     private func addSubviews() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Sign up"
+        titleLabel.text = NSLocalizedString("signUp", comment: "Sign up")
         titleLabel.textColor = UIColor.titleLableTextColor
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont.titleLabelFont
 
         idTextField.translatesAutoresizingMaskIntoConstraints = false
         idTextField.text = "123"
-        idTextField.textColor = UIColor.userDataTextFieldTextColor
+        idTextField.textColor = UIColor.userTextFieldTextColor
         idTextField.textAlignment = .left
-        idTextField.font = UIFont.userDataTextFieldFont
+        idTextField.font = UIFont.userTextFieldFont
 
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.text = "Somebody"
-        userNameTextField.textColor = UIColor.userDataTextFieldTextColor
+        userNameTextField.textColor = UIColor.userTextFieldTextColor
         userNameTextField.textAlignment = .left
-        userNameTextField.font = UIFont.userDataTextFieldFont
+        userNameTextField.font = UIFont.userTextFieldFont
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.text = "mypassword"
-        passwordTextField.textColor = UIColor.userDataTextFieldTextColor
+        passwordTextField.textColor = UIColor.userTextFieldTextColor
         passwordTextField.textAlignment = .left
-        passwordTextField.font = UIFont.userDataTextFieldFont
+        passwordTextField.font = UIFont.userTextFieldFont
 
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.text = "some@some.ru"
-        emailTextField.textColor = UIColor.userDataTextFieldTextColor
+        emailTextField.textColor = UIColor.userTextFieldTextColor
         emailTextField.textAlignment = .left
-        emailTextField.font = UIFont.userDataTextFieldFont
+        emailTextField.font = UIFont.userTextFieldFont
 
         genderTextField.translatesAutoresizingMaskIntoConstraints = false
         genderTextField.text = "m"
-        genderTextField.textColor = UIColor.userDataTextFieldTextColor
+        genderTextField.textColor = UIColor.userTextFieldTextColor
         genderTextField.textAlignment = .left
-        genderTextField.font = UIFont.userDataTextFieldFont
+        genderTextField.font = UIFont.userTextFieldFont
 
         creditCardTextField.translatesAutoresizingMaskIntoConstraints = false
         creditCardTextField.text = "9872389-2424-234224-234"
-        creditCardTextField.textColor = UIColor.userDataTextFieldTextColor
+        creditCardTextField.textColor = UIColor.userTextFieldTextColor
         creditCardTextField.textAlignment = .left
-        creditCardTextField.font = UIFont.userDataTextFieldFont
+        creditCardTextField.font = UIFont.userTextFieldFont
 
         bioTextField.translatesAutoresizingMaskIntoConstraints = false
         bioTextField.text = "This is good! I think I will switch to another language"
-        bioTextField.textColor = UIColor.userDataTextFieldTextColor
+        bioTextField.textColor = UIColor.userTextFieldTextColor
         bioTextField.textAlignment = .left
-        bioTextField.font = UIFont.userDataTextFieldFont
+        bioTextField.font = UIFont.userTextFieldFont
 
         self.addSubview(titleLabel)
         self.addSubview(idTextField)
