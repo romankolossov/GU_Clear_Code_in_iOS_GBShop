@@ -100,31 +100,31 @@ class UserView: UIView {
         NSLayoutConstraint.activate([
             idLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
             idLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            idLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            idLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             userNameLabel.topAnchor.constraint(equalTo: idLabel.bottomAnchor, constant: indent),
             userNameLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            userNameLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            userNameLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             passwordLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: indent),
             passwordLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            passwordLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            passwordLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             emailLabel.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: indent),
             emailLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            emailLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            emailLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             genderLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: indent),
             genderLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            genderLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            genderLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             creditCardLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: indent),
             creditCardLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            creditCardLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            creditCardLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             bioLabel.topAnchor.constraint(equalTo: creditCardLabel.bottomAnchor, constant: indent),
             bioLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            bioLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent)
+            bioLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent)
         ])
     }
 

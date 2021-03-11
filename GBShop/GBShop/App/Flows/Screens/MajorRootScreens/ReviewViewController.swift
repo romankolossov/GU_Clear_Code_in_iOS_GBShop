@@ -38,8 +38,9 @@ class ReviewViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-
         self.navigationController?.navigationBar.tintColor = .white
+
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
         let addReviewItem = UIBarButtonItem(

@@ -53,8 +53,9 @@ class UserViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-
         self.navigationController?.navigationBar.tintColor = .white
+
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
         let logoutItem = UIBarButtonItem(
@@ -81,8 +82,8 @@ class UserViewController: UIViewController {
         let safeArea = view.safeAreaLayoutGuide
         let userViewConstraints = [
             userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            userView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            userView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            userView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            userView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
         NSLayoutConstraint.activate(userViewConstraints)

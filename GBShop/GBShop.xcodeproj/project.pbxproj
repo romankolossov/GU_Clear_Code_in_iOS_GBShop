@@ -312,7 +312,7 @@
 			path = FlyWeight;
 			sourceTree = "<group>";
 		};
-		C8267EDD25F90AC700F2C8FE /* RootScreens */ = {
+		C8267EDD25F90AC700F2C8FE /* MajorRootScreens */ = {
 			isa = PBXGroup;
 			children = (
 				C824665025D4769C00D3B8E5 /* MainViewController.swift */,
@@ -321,7 +321,15 @@
 				C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */,
 				C84A4A3125F53B7800DAD5AE /* UserViewController.swift */,
 			);
-			path = RootScreens;
+			path = MajorRootScreens;
+			sourceTree = "<group>";
+		};
+		C8267EE825FA5B5200F2C8FE /* SuplimentaryScreens */ = {
+			isa = PBXGroup;
+			children = (
+				C8267EDE25F90B6F00F2C8FE /* SignUpViewController.swift */,
+			);
+			path = SuplimentaryScreens;
 			sourceTree = "<group>";
 		};
 		C83355B225DCAF4200205932 /* Network */ = {
@@ -542,8 +550,8 @@
 		C8D3D87625F50A2600AE6896 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C8267EDD25F90AC700F2C8FE /* RootScreens */,
-				C8267EDE25F90B6F00F2C8FE /* SignUpViewController.swift */,
+				C8267EDD25F90AC700F2C8FE /* MajorRootScreens */,
+				C8267EE825FA5B5200F2C8FE /* SuplimentaryScreens */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

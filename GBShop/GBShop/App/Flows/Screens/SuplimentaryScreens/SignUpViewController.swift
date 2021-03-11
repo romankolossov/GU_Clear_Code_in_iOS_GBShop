@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     private let signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("signUp", comment: "Sign up"), for: .normal)
-        button.setTitleColor(UIColor.tabBarTintColor, for: .normal)
+        button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.tabBarBackgroundColor
         button.clipsToBounds = true
@@ -51,10 +51,8 @@ class SignUpViewController: UIViewController {
     // MARK: Configure
 
     private func configureSubviews() {
-        let safeArea = view.safeAreaLayoutGuide
-
-        let signUpButtonHeight: CGFloat = 56.0
-        let navigationBarHeight: CGFloat = 68.0
+        let navigationBarHeight: CGFloat = 53.0
+        let signUpButtonHeight: CGFloat = 53.0
 
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
@@ -71,6 +69,11 @@ class SignUpViewController: UIViewController {
         navigationBar = UINavigationBar(frame: frame)
         navigationBar.items = [navigationItem]
 
+        navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
+        ]
+        navigationBar.barTintColor = UIColor.navigationBarTintColor
+
         // Add subviews
 
         view.addSubview(signUpView)
@@ -78,17 +81,17 @@ class SignUpViewController: UIViewController {
         view.addSubview(navigationBar)
 
         // Set constraints
-
+        let safeArea = view.safeAreaLayoutGuide
         let userViewConstraints = [
-            signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            signUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
+            signUpView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            signUpView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             signUpView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor)
         ]
         let signUpButtonConstraints = [
             signUpButton.topAnchor.constraint(equalTo: signUpView.bottomAnchor),
-            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpButton.widthAnchor.constraint(equalTo: view.widthAnchor),
+            signUpButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            signUpButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: signUpButtonHeight),
             signUpButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]

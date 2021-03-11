@@ -27,7 +27,6 @@ class MainViewController: UIViewController {
 
         signUpViewController.modalPresentationStyle = .formSheet
         self.navigationController?.present(signUpViewController, animated: true, completion: nil)
-
     }
     @objc private func signIn() {
         // MARK: TO DO
@@ -45,8 +44,9 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-
         self.navigationController?.navigationBar.tintColor = .white
+
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
         let registerNewUserItem = UIBarButtonItem(

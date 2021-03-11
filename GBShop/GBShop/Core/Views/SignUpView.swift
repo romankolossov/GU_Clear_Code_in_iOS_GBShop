@@ -99,31 +99,31 @@ class SignUpView: UIView {
         NSLayoutConstraint.activate([
             idTextField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
             idTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            idTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            idTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             userNameTextField.topAnchor.constraint(equalTo: idTextField.bottomAnchor, constant: indent),
             userNameTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            userNameTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            userNameTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: indent),
             passwordTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            passwordTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            passwordTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             emailTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: indent),
             emailTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            emailTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            emailTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             genderTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: indent),
             genderTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            genderTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            genderTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             creditCardTextField.topAnchor.constraint(equalTo: genderTextField.bottomAnchor, constant: indent),
             creditCardTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            creditCardTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
+            creditCardTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent),
 
             bioTextField.topAnchor.constraint(equalTo: creditCardTextField.bottomAnchor, constant: indent),
             bioTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            bioTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent)
+            bioTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent)
         ])
     }
 
