@@ -34,7 +34,7 @@ class UserView: UIView {
     // MARK: - Private methods
 
     private func configureUI() {
-        self.backgroundColor = UIColor.userViewBackgroundColor
+        self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
 
         self.addSubviews()
         self.setupConstraints()

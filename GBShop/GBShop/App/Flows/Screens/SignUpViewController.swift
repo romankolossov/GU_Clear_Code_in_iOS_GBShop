@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    private var navigationBar = UINavigationBar()
 
     // MARK: - Lifecycle
 
@@ -50,11 +51,33 @@ class SignUpViewController: UIViewController {
     // MARK: Configure
 
     private func configureSubviews() {
+        let safeArea = view.safeAreaLayoutGuide
+
+        let signUpButtonHeight: CGFloat = 56.0
+        let navigationBarHeight: CGFloat = 68.0
+
+        // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
+
+        let frame = CGRect(
+            x: 0.0,
+            y: 0.0,
+            width: self.view.bounds.size.width,
+            height: navigationBarHeight
+        )
+        let navigationItem = UINavigationItem()
+
+        navigationItem.title = NSLocalizedString("signUp", comment: "Sign up")
+
+        navigationBar = UINavigationBar(frame: frame)
+        navigationBar.items = [navigationItem]
+
+        // Add subviews
+
         view.addSubview(signUpView)
         view.addSubview(signUpButton)
+        view.addSubview(navigationBar)
 
-        let safeArea = view.safeAreaLayoutGuide
-        let signUpButtonHeight: CGFloat = 56.0
+        // Set constraints
 
         let userViewConstraints = [
             signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor),

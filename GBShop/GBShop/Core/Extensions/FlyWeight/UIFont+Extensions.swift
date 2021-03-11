@@ -14,10 +14,6 @@ extension UIFont {
     static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
     static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
 
-    // for titleLables
-
-    static let titleLabelFont: UIFont =  .boldSystemFont(ofSize: 33)
-
     // MARK: Reserve
     // for RefreshControl
 

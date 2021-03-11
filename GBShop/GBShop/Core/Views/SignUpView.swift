@@ -13,8 +13,6 @@ class SignUpView: UIView {
 
     // MARK: Subviews
 
-    let titleLabel = UILabel()
-
     let idTextField = UITextField()
     let userNameTextField = UITextField()
     let passwordTextField = UITextField()
@@ -36,19 +34,13 @@ class SignUpView: UIView {
     // MARK: - Private methods
 
     private func configureUI() {
-        self.backgroundColor = UIColor.signUpViewBackgroundColor
+        self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
 
         self.addSubviews()
         self.setupConstraints()
     }
 
     private func addSubviews() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = NSLocalizedString("signUp", comment: "Sign up")
-        titleLabel.textColor = UIColor.titleLableTextColor
-        titleLabel.textAlignment = .left
-        titleLabel.font = UIFont.titleLabelFont
-
         idTextField.translatesAutoresizingMaskIntoConstraints = false
         idTextField.text = "123"
         idTextField.textColor = UIColor.userTextFieldTextColor
@@ -91,7 +83,6 @@ class SignUpView: UIView {
         bioTextField.textAlignment = .left
         bioTextField.font = UIFont.userTextFieldFont
 
-        self.addSubview(titleLabel)
         self.addSubview(idTextField)
         self.addSubview(userNameTextField)
         self.addSubview(passwordTextField)
@@ -106,11 +97,7 @@ class SignUpView: UIView {
         let indent: CGFloat = 21.0
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
-            titleLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
-            titleLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
-
-            idTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: indent * 2),
+            idTextField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
             idTextField.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
             idTextField.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: indent),
 
