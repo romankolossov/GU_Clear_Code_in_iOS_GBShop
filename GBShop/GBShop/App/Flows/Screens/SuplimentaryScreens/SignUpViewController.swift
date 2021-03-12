@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     }()
     private let signUpButton: UIButton = {
         let button = UIButton()
-        button.setTitle(NSLocalizedString("signUp", comment: "Sign up"), for: .normal)
+        button.setTitle(NSLocalizedString("toSignUp", comment: "Sign up"), for: .normal)
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.buttonBackgroundColor
@@ -28,6 +28,8 @@ class SignUpViewController: UIViewController {
         return button
     }()
     private var navigationBar = UINavigationBar()
+    
+    private let requestFactory = RequestFactory()
 
     // MARK: - Lifecycle
 
@@ -43,7 +45,49 @@ class SignUpViewController: UIViewController {
     // MARK: - Actions
 
     @objc private func signUp() {
-        self.dismiss(animated: true, completion: nil)
+        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
+
+        signUpFactory.signUp(
+            id: signUpView.idTextField.text ?? "",
+            userName: signUpView.userNameTextField.text ?? "",
+            password: signUpView.passwordTextField.text ?? "",
+            email: signUpView.emailTextField.text ?? "",
+            gender: signUpView.genderTextField.text ?? "",
+            creditCard: signUpView.creditCardTextField.text ?? "",
+            bio: signUpView.bioTextField.text ?? ""
+        ) { response in
+            switch response.result {
+            case .success(let model):
+                let expectedResultWithSuccess: Int = 1
+                #if DEBUG
+                print(model)
+                #endif
+                DispatchQueue.main.async { [weak self] in
+                    let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
+                    }
+                    guard model.result == expectedResultWithSuccess else {
+                        self?.showAlert(
+                            title: NSLocalizedString("signup", comment: "Signup"),
+                            message: NSLocalizedString("signupFailure", comment: ""),
+                            handler: handler,
+                            completion: nil
+                        )
+                        return
+                    }
+                    self?.showAlert(
+                        title: NSLocalizedString("signup", comment: "Signup"),
+                        message: NSLocalizedString("signupSuccess", comment: ""),
+                        handler: handler,
+                        completion: nil
+                    )
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                DispatchQueue.main.async { [weak self] in
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     // MARK: - Private methods
@@ -64,7 +108,7 @@ class SignUpViewController: UIViewController {
         )
         let navigationItem = UINavigationItem()
 
-        navigationItem.title = NSLocalizedString("signUp", comment: "Sign up")
+        navigationItem.title = NSLocalizedString("signup", comment: "Signup")
 
         navigationBar = UINavigationBar(frame: frame)
         navigationBar.items = [navigationItem]

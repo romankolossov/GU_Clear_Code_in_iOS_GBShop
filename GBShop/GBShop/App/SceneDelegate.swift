@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let windowScene = scene as? UIWindowScene
         self.window?.windowScene = windowScene
 
-        // Set dark InterfaceStyle
+        // MARK: Set dark InterfaceStyle
 
         self.window?.overrideUserInterfaceStyle = .dark
 

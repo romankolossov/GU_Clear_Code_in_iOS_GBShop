@@ -56,8 +56,13 @@
 "userVCName" = "Привет";
 
 // SignUpViewController
+// state
+"signup" = "Регистрация";
+// action
+"toSignUp" = "Зарегистрироваться";
 
-"signUp" = "Регистрация";
+"signupSuccess" = "Регистрация прошла успешно";
+"signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, попробуйте пройти регистрацию позже";
 
 // Alerts
 

@@ -26,7 +26,7 @@ extension UIColor {
     // for Buttons
 
     static let  buttonBackgroundColor: UIColor = tabBarBackgroundColor
-    static let  buttonTitleColor: UIColor = .systemBlue
+    static let  buttonTitleColor: UIColor = tabBarTintColor
     static let  buttonTitleColorWhenHighlighted: UIColor = .systemGreen
 
     // for Subviews showing User Data
@@ -43,5 +43,10 @@ extension UIColor {
 
     // custom purple 2
     static let  navigationBarTintColor: UIColor = .init(red: 210 / 255, green: 0 / 255, blue: 185 / 255, alpha: 1.0)
+
+    // for Alerts
+
+    static let alertTitleTextColor: UIColor = tabBarTintColor
+    static let alertViewTintColor: UIColor = tabBarTintColor
 
 }

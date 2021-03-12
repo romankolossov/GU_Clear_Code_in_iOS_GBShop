@@ -56,8 +56,13 @@
 "userVCName" = "Hi";
 
 // SignUpViewController
+// state
+"signup" = "Signup";
+// action
+"toSignUp" = "Sign up";
 
-"signUp" = "Sign up";
+"signupSuccess" = "Registration passed";
+"signupFailure" = "Registration failed. Plese, try later";
 
 // Alerts
 

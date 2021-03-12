@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let baseUrlLocal = URL(
         string: "http://127.0.0.1:8080/") ?? URL(fileURLWithPath: ""
         )
-    // let requestFactory = RequestFactory()
 
     // MARK: - Public methods
 
@@ -53,22 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: DidFinishLaunchingWithOptions
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        // the commented code Auth RequestFactory bellow done as an example. There is no need in it since it is covered by the RequestFactory tests
-
-        // MARK: - Auth RequestFactory
-
-        //        let authFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
-        //
-        //        authFactory.login(userName: "Somebody", password: "mypassword") { response in
-        //            switch response.result {
-        //            case .success(let login):
-        //                print("\n", login)
-        //            case .failure(let error):
-        //                print(error.localizedDescription)
-        //            }
-        //        }
-
+        // Override point for customization after application launch.
         return true
     }
 
