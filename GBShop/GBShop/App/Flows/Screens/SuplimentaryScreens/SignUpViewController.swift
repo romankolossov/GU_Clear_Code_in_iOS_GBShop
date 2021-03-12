@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
         button.setTitle(NSLocalizedString("signUp", comment: "Sign up"), for: .normal)
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
-        button.backgroundColor = UIColor.tabBarBackgroundColor
+        button.backgroundColor = UIColor.buttonBackgroundColor
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -51,8 +51,8 @@ class SignUpViewController: UIViewController {
     // MARK: Configure
 
     private func configureSubviews() {
-        let navigationBarHeight: CGFloat = 53.0
-        let signUpButtonHeight: CGFloat = 53.0
+        let navigationBarHeight: CGFloat = 56.0
+        let signUpButtonHeight: CGFloat = 56.0
 
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
