@@ -1,42 +1,49 @@
 //
-//  LogoutTests.swift
+//  ReviewListTest.swift
 //  GBShopTests
 //
-//  Created by Roman Kolosov on 21.02.2021.
+//  Created by Roman Kolosov on 28.02.2021.
 //
 
 import XCTest
 import Alamofire
 @testable import GBShop
 
-class LogoutTests: XCTestCase {
+class ReviewListTest: XCTestCase {
 
-    func testLogout() throws {
+    func testReviewList() throws {
         // Given
         // Initialize test date and system under test
-        let baseUrl = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/"))
+        let baseUrl = try XCTUnwrap(URL(string: "https://sheltered-castle-91706.herokuapp.com/"))
 
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let logout = Logout(errorParser: ErrorParser(),
+        let reviewList = ReviewList(errorParser: ErrorParser(),
                                     sessionManager: session,
                                     queue: DispatchQueue.global(qos: .utility),
                                     baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let loggedOut = expectation(description: "logged out")
+        let gotReviewList = expectation(description: "got review list")
 
-        logout.logout(id: "123") { response in
+        reviewList.reviewList(idUser: 1, pageNumber: 1) { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                XCTAssertEqual(model.result, 1)
-                loggedOut.fulfill()
+                guard let elemrntFirst: ReviewListResultElement = model.first else { return }
+                guard let elemrntLast: ReviewListResultElement = model.last else { return }
+                XCTAssertEqual(elemrntFirst.idUser, 1)
+                XCTAssertEqual(elemrntFirst.idComment, 123)
+                XCTAssertEqual(elemrntFirst.commentText, "Хороший ноутбук")
+                XCTAssertEqual(elemrntLast.idUser, 1)
+                XCTAssertEqual(elemrntLast.idComment, 456)
+                XCTAssertEqual(elemrntLast.commentText, "Хорошая мышка")
+                gotReviewList.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -46,7 +53,7 @@ class LogoutTests: XCTestCase {
 
     // MARK: - Negative tests
 
-    func testFailedLogIn() throws {
+    func testFailedReviewList() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
@@ -56,23 +63,23 @@ class LogoutTests: XCTestCase {
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let logout = Logout(errorParser: ErrorParser(),
+        let reviewList = ReviewList(errorParser: ErrorParser(),
                                     sessionManager: session,
                                     queue: DispatchQueue.global(qos: .utility),
                                     baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let failedToLogout = expectation(description: "failed to log out")
+        let failedGotReviewListt = expectation(description: "failed to get review list")
 
-        logout.logout(id: "123") { response in
+        reviewList.reviewList(idUser: 1, pageNumber: 1) { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTFail("Must to have failed: \(model)")
             case .failure:
-                failedToLogout.fulfill()
+                failedGotReviewListt.fulfill()
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)

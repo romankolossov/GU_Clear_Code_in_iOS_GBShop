@@ -10,18 +10,21 @@ import Alamofire
 
 class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
     private let errorParser: AbstractErrorParser
-    
+
     // MARK: - Initializer
 
     init(errorParser: AbstractErrorParser) {
         self.errorParser = errorParser
     }
-    
+
     // MARK: - Major methods
 
-    func serialize(request: URLRequest?,
-                   response: HTTPURLResponse?,
-                   data: Data?, error: Error?) throws -> T {
+    func serialize(
+        request: URLRequest?,
+        response: HTTPURLResponse?,
+        data: Data?,
+        error: Error?
+    ) throws -> T {
         if let error = errorParser.parse(response: response, data: data, error: error) {
             throw error
         }
@@ -40,14 +43,14 @@ class CustomDecodableSerializer<T: Decodable>: DataResponseSerializerProtocol {
 
 extension DataRequest {
     @discardableResult
-    
+
     func responseCodable<T: Decodable>(
         errorParser: AbstractErrorParser,
         queue: DispatchQueue = .main,
-        completionHandler: @escaping (AFDataResponse<T>) -> Void)
-        -> Self {
-            let responseSerializer = CustomDecodableSerializer<T>(errorParser: errorParser)
-        
-            return response(queue: queue, responseSerializer: responseSerializer, completionHandler: completionHandler)
+        completionHandler: @escaping (AFDataResponse<T>) -> Void
+    ) -> Self {
+        let responseSerializer = CustomDecodableSerializer<T>(errorParser: errorParser)
+
+        return response(queue: queue, responseSerializer: responseSerializer, completionHandler: completionHandler)
     }
 }

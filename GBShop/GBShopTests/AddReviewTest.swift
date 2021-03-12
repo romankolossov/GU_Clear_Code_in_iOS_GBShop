@@ -1,17 +1,17 @@
 //
-//  LogoutTests.swift
+//  AddReviewTest.swift
 //  GBShopTests
 //
-//  Created by Roman Kolosov on 21.02.2021.
+//  Created by Roman Kolosov on 28.02.2021.
 //
 
 import XCTest
 import Alamofire
 @testable import GBShop
 
-class LogoutTests: XCTestCase {
+class AddReviewTest: XCTestCase {
 
-    func testLogout() throws {
+    func testAddReview() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/"))
@@ -21,22 +21,23 @@ class LogoutTests: XCTestCase {
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let logout = Logout(errorParser: ErrorParser(),
-                                    sessionManager: session,
-                                    queue: DispatchQueue.global(qos: .utility),
-                                    baseUrl: baseUrl)
+        let addReview = AddReview(errorParser: ErrorParser(),
+                                  sessionManager: session,
+                                  queue: DispatchQueue.global(qos: .utility),
+                                  baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let loggedOut = expectation(description: "logged out")
+        let addedReview = expectation(description: "review added")
 
-        logout.logout(id: "123") { response in
+        addReview.addReview(idUser: 123, reviewText: "Текст отзыва") { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                loggedOut.fulfill()
+                XCTAssertEqual(model.userMessage, "Ваш отзыв был передан на модерацию")
+                addedReview.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -46,7 +47,7 @@ class LogoutTests: XCTestCase {
 
     // MARK: - Negative tests
 
-    func testFailedLogIn() throws {
+    func testFailedAddReview() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
@@ -56,23 +57,23 @@ class LogoutTests: XCTestCase {
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let logout = Logout(errorParser: ErrorParser(),
-                                    sessionManager: session,
-                                    queue: DispatchQueue.global(qos: .utility),
-                                    baseUrl: baseUrl)
+        let addReview = AddReview(errorParser: ErrorParser(),
+                                  sessionManager: session,
+                                  queue: DispatchQueue.global(qos: .utility),
+                                  baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let failedToLogout = expectation(description: "failed to log out")
+        let failedAddReview = expectation(description: "failed add review")
 
-        logout.logout(id: "123") { response in
+        addReview.addReview(idUser: 123, reviewText: "Текст отзыва") { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTFail("Must to have failed: \(model)")
             case .failure:
-                failedToLogout.fulfill()
+                failedAddReview.fulfill()
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)

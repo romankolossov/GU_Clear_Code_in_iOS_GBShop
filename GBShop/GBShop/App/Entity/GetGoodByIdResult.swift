@@ -22,4 +22,3 @@ struct GetGoodByIdResult: Codable {
         case productDescription = "product_description"
     }
 }
-

@@ -12,7 +12,6 @@
 		C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824665025D4769C00D3B8E5 /* MainViewController.swift */; };
 		C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C824665525D4769F00D3B8E5 /* Assets.xcassets */; };
 		C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C824665725D4769F00D3B8E5 /* LaunchScreen.storyboard */; };
-		C824666425D476A000D3B8E5 /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824666325D476A000D3B8E5 /* GBShopTests.swift */; };
 		C824666F25D476A000D3B8E5 /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C824666E25D476A000D3B8E5 /* GBShopUITests.swift */; };
 		C83355A925DB275F00205932 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C83355A825DB275F00205932 /* Alamofire */; };
 		C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B425DCB08E00205932 /* AuthRequestFactory.swift */; };
@@ -47,6 +46,19 @@
 		C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */; };
 		C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */; };
 		C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */; };
+		C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */; };
+		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
+		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
+		C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C8CC19D025EAB65E006F375C /* .swiftlint.yml */; };
+		C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */; };
+		C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */; };
+		C8CC19E925EB907B006F375C /* ReviewListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19E825EB907B006F375C /* ReviewListResult.swift */; };
+		C8CC19F425EB98E1006F375C /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19F325EB98E1006F375C /* ReviewList.swift */; };
+		C8CC19F925EB990C006F375C /* ReviewListRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19F825EB990C006F375C /* ReviewListRequestFactory.swift */; };
+		C8CC19FE25EB995A006F375C /* RemoveReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19FD25EB995A006F375C /* RemoveReview.swift */; };
+		C8CC1A0325EB9979006F375C /* RemoveReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */; };
+		C8CC1A0825EB99A0006F375C /* AddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0725EB99A0006F375C /* AddReview.swift */; };
+		C8CC1A1025EB99BB006F375C /* AddReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +87,6 @@
 		C824665825D4769F00D3B8E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C824665A25D4769F00D3B8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C824665F25D476A000D3B8E5 /* GBShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C824666325D476A000D3B8E5 /* GBShopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopTests.swift; sourceTree = "<group>"; };
 		C824666525D476A000D3B8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C824666A25D476A000D3B8E5 /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C824666E25D476A000D3B8E5 /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
@@ -112,6 +123,19 @@
 		C83356A625E2967000205932 /* GetGoodByIdRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdRequestFactory.swift; sourceTree = "<group>"; };
 		C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogDataTests.swift; sourceTree = "<group>"; };
 		C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdTests.swift; sourceTree = "<group>"; };
+		C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewTest.swift; sourceTree = "<group>"; };
+		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
+		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
+		C8CC19D025EAB65E006F375C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
+		C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
+		C8CC19E825EB907B006F375C /* ReviewListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListResult.swift; sourceTree = "<group>"; };
+		C8CC19F325EB98E1006F375C /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
+		C8CC19F825EB990C006F375C /* ReviewListRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListRequestFactory.swift; sourceTree = "<group>"; };
+		C8CC19FD25EB995A006F375C /* RemoveReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReview.swift; sourceTree = "<group>"; };
+		C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewRequestFactory.swift; sourceTree = "<group>"; };
+		C8CC1A0725EB99A0006F375C /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
+		C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +171,7 @@
 				C824666225D476A000D3B8E5 /* GBShopTests */,
 				C824666D25D476A000D3B8E5 /* GBShopUITests */,
 				C824664A25D4769C00D3B8E5 /* Products */,
+				C8CC19D025EAB65E006F375C /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,7 +199,6 @@
 		C824666225D476A000D3B8E5 /* GBShopTests */ = {
 			isa = PBXGroup;
 			children = (
-				C824666325D476A000D3B8E5 /* GBShopTests.swift */,
 				C833566625E17CE400205932 /* RequestFactoryTests.swift */,
 				C83356AE25E2CE5E00205932 /* CatalogDataTests.swift */,
 				C83356B325E2CE8D00205932 /* GetGoodByIdTests.swift */,
@@ -182,6 +206,9 @@
 				C833567625E2169700205932 /* SignUpTests.swift */,
 				C833567B25E216D000205932 /* ChangeUserDataTests.swift */,
 				C833568025E2170200205932 /* LogoutTests.swift */,
+				C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */,
+				C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */,
+				C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */,
 				C824666525D476A000D3B8E5 /* Info.plist */,
 			);
 			path = GBShopTests;
@@ -206,6 +233,9 @@
 				C83355F225DE452A00205932 /* SignUp */,
 				C833561725DEA95100205932 /* ChangeUserData */,
 				C833561625DEA93100205932 /* Logout */,
+				C8CC19ED25EB91BB006F375C /* AddReview */,
+				C8CC19EF25EB91F3006F375C /* RemoveReview */,
+				C8CC19EE25EB91D4006F375C /* ReviewList */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -307,6 +337,9 @@
 				C833561B25DEAA4D00205932 /* LogoutResult.swift */,
 				C833562025DEAA8C00205932 /* ChangeUserDataResult.swift */,
 				C833560E25DE761800205932 /* SignUpResult.swift */,
+				C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */,
+				C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */,
+				C8CC19E825EB907B006F375C /* ReviewListResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -359,6 +392,33 @@
 			path = BaseLprojIsHere;
 			sourceTree = "<group>";
 		};
+		C8CC19ED25EB91BB006F375C /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				C8CC1A0F25EB99BB006F375C /* AddReviewRequestFactory.swift */,
+				C8CC1A0725EB99A0006F375C /* AddReview.swift */,
+			);
+			path = AddReview;
+			sourceTree = "<group>";
+		};
+		C8CC19EE25EB91D4006F375C /* ReviewList */ = {
+			isa = PBXGroup;
+			children = (
+				C8CC19F825EB990C006F375C /* ReviewListRequestFactory.swift */,
+				C8CC19F325EB98E1006F375C /* ReviewList.swift */,
+			);
+			path = ReviewList;
+			sourceTree = "<group>";
+		};
+		C8CC19EF25EB91F3006F375C /* RemoveReview */ = {
+			isa = PBXGroup;
+			children = (
+				C8CC1A0225EB9979006F375C /* RemoveReviewRequestFactory.swift */,
+				C8CC19FD25EB995A006F375C /* RemoveReview.swift */,
+			);
+			path = RemoveReview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -369,6 +429,7 @@
 				C824664525D4769C00D3B8E5 /* Sources */,
 				C824664625D4769C00D3B8E5 /* Frameworks */,
 				C824664725D4769C00D3B8E5 /* Resources */,
+				C8CC19CC25EAADDB006F375C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -468,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */,
 				C824665925D4769F00D3B8E5 /* LaunchScreen.storyboard in Resources */,
 				C824665625D4769F00D3B8E5 /* Assets.xcassets in Resources */,
 			);
@@ -489,17 +551,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C8CC19CC25EAADDB006F375C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C824664525D4769C00D3B8E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CC19E925EB907B006F375C /* ReviewListResult.swift in Sources */,
 				C83355E225DCCCB500205932 /* User.swift in Sources */,
 				C83355CE25DCC8FE00205932 /* RequestFactory.swift in Sources */,
 				C833560F25DE761800205932 /* SignUpResult.swift in Sources */,
 				C833563B25DEC45800205932 /* Logout.swift in Sources */,
 				C83355C925DCC4F000205932 /* RequestRouter.swift in Sources */,
 				C833569825E2956900205932 /* GetGoodById.swift in Sources */,
+				C8CC19F925EB990C006F375C /* ReviewListRequestFactory.swift in Sources */,
 				C833563625DEC44100205932 /* ChangeUserData.swift in Sources */,
 				C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */,
 				C83355FC25DE466F00205932 /* SignUp.swift in Sources */,
@@ -509,6 +593,8 @@
 				C83355F425DE462A00205932 /* SignUpRequestFactory.swift in Sources */,
 				C824664D25D4769C00D3B8E5 /* AppDelegate.swift in Sources */,
 				C833562C25DEADF200205932 /* LogoutRequestFactory.swift in Sources */,
+				C8CC1A1025EB99BB006F375C /* AddReviewRequestFactory.swift in Sources */,
+				C8CC19FE25EB995A006F375C /* RemoveReview.swift in Sources */,
 				C83355BA25DCB24100205932 /* LoginResult.swift in Sources */,
 				C833562125DEAA8C00205932 /* ChangeUserDataResult.swift in Sources */,
 				C833568C25E2825A00205932 /* CatalogDataResult.swift in Sources */,
@@ -516,12 +602,17 @@
 				C83355D825DCCB2100205932 /* ErrorParser.swift in Sources */,
 				C83356A725E2967000205932 /* GetGoodByIdRequestFactory.swift in Sources */,
 				C833561C25DEAA4D00205932 /* LogoutResult.swift in Sources */,
+				C8CC1A0325EB9979006F375C /* RemoveReviewRequestFactory.swift in Sources */,
+				C8CC19F425EB98E1006F375C /* ReviewList.swift in Sources */,
 				C833569D25E295DE00205932 /* CatalogData.swift in Sources */,
 				C83355C425DCB91300205932 /* Auth.swift in Sources */,
+				C8CC1A0825EB99A0006F375C /* AddReview.swift in Sources */,
+				C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */,
 				C83355D325DCCA5100205932 /* AbstractErrorParser.swift in Sources */,
 				C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */,
 				C824664F25D4769C00D3B8E5 /* SceneDelegate.swift in Sources */,
 				C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */,
+				C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,13 +621,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83356AF25E2CE5E00205932 /* CatalogDataTests.swift in Sources */,
+				C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */,
 				C833566725E17CE400205932 /* RequestFactoryTests.swift in Sources */,
+				C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */,
 				C833568125E2170200205932 /* LogoutTests.swift in Sources */,
+				C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */,
 				C833567C25E216D000205932 /* ChangeUserDataTests.swift in Sources */,
 				C833567725E2169700205932 /* SignUpTests.swift in Sources */,
 				C83356B425E2CE8D00205932 /* GetGoodByIdTests.swift in Sources */,
 				C833566F25E2161000205932 /* AuthTests.swift in Sources */,
-				C824666425D476A000D3B8E5 /* GBShopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,14 @@
 //
-//  CatalogData.swift
+//  AddReview.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 21.02.2021.
+//  Created by Roman Kolosov on 28.02.2021.
 //
 
 import Foundation
 import Alamofire
 
-class CatalogData: AbstractRequestFactory {
+class AddReview: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,32 +27,32 @@ class CatalogData: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions CatalogData
+// MARK: - Extensions AddReview
 
-extension CatalogData: CatalogDataRequestFactory {
-    func catalogData(id: String, pageNumber: String, completionHandler: @escaping (AFDataResponse<CatalogDataResult>) -> Void) {
-        let requestModel = CatalogDataRequest(baseUrl: baseUrl, id: id, pageNumber: pageNumber)
+extension AddReview: AddReviewRequestFactory {
+    func addReview(idUser: Int, reviewText: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
+        let requestModel = AddReviewRequest(baseUrl: baseUrl, idUser: idUser, reviewText: reviewText)
 
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension CatalogData {
+extension AddReview {
 
     // MARK: Nested type
 
-    struct CatalogDataRequest: RequestRouter {
+    struct AddReviewRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let path: String = "addReview.json"
 
-        let id: String
-        let pageNumber: String
+        let idUser: Int
+        let reviewText: String
 
         var parameters: Parameters? {
             [
-                "id_category": id,
-                "page_number": pageNumber
+                "id_user": idUser,
+                "text": reviewText
             ]
         }
     }

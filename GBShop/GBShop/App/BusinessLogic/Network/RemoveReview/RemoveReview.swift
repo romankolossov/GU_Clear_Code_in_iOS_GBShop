@@ -1,14 +1,14 @@
 //
-//  CatalogData.swift
+//  RemoveReview.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 21.02.2021.
+//  Created by Roman Kolosov on 28.02.2021.
 //
 
 import Foundation
 import Alamofire
 
-class CatalogData: AbstractRequestFactory {
+class RemoveReview: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -27,32 +27,30 @@ class CatalogData: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions CatalogData
+// MARK: - Extensions RemoveReview
 
-extension CatalogData: CatalogDataRequestFactory {
-    func catalogData(id: String, pageNumber: String, completionHandler: @escaping (AFDataResponse<CatalogDataResult>) -> Void) {
-        let requestModel = CatalogDataRequest(baseUrl: baseUrl, id: id, pageNumber: pageNumber)
+extension RemoveReview: RemoveReviewRequestFactory {
+    func removeReview(idComment: Int, completionHandler: @escaping (AFDataResponse<RemoveReviewResult>) -> Void) {
+        let requestModel = RemoveReviewRequest(baseUrl: baseUrl, idComment: idComment)
 
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension CatalogData {
+extension RemoveReview {
 
     // MARK: Nested type
 
-    struct CatalogDataRequest: RequestRouter {
+    struct RemoveReviewRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let path: String = "removeReview.json"
 
-        let id: String
-        let pageNumber: String
+        let idComment: Int
 
         var parameters: Parameters? {
             [
-                "id_category": id,
-                "page_number": pageNumber
+                "id_comment": idComment
             ]
         }
     }

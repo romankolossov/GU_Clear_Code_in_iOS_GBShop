@@ -13,12 +13,13 @@ class ChangeUserData: AbstractRequestFactory {
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
-    
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!) {
+        baseUrl: URL = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/") ?? URL(fileURLWithPath: "")
+    ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
         self.queue = queue
@@ -29,7 +30,9 @@ class ChangeUserData: AbstractRequestFactory {
 // MARK: - Extensions ChangeUserData
 
 extension ChangeUserData: ChangeUserDataRequestFactory {
-    func changeUserData(id: String, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
+    func changeUserData(
+        id: String, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void
+    ) {
         let requestModel = ChangeUserDataRequest(baseUrl: baseUrl,
                                                  id: id,
                                                  userName: userName,
@@ -43,14 +46,14 @@ extension ChangeUserData: ChangeUserDataRequestFactory {
 }
 
 extension ChangeUserData {
-    
+
     // MARK: Nested type
-    
+
     struct ChangeUserDataRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "changeUserData.json"
-        
+
         let id: String
         let userName: String
         let password: String
@@ -58,17 +61,17 @@ extension ChangeUserData {
         let gender: String
         let creditCard: String
         let bio: String
-        
+
         var parameters: Parameters? {
-            return [
+            [
                 "id_user": id,
                 "username": userName,
                 "password": password,
                 "email": email,
                 "gender": gender,
                 "creditCard": creditCard,
-                "bio": bio ]
+                "bio": bio
+            ]
         }
     }
 }
-
