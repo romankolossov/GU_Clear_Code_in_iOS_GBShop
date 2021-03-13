@@ -488,8 +488,8 @@
 		C8911FDA25D51BFA00F5E594 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C83355B325DCB01200205932 /* Network */,
 				C8267F0925FB804400F2C8FE /* Protocols */,
+				C83355B325DCB01200205932 /* Network */,
 				C8267ECB25F8687000F2C8FE /* Views */,
 				C8267ED125F8873700F2C8FE /* Extensions */,
 			);

@@ -28,7 +28,6 @@ class SignUpViewController: UIViewController, AlertShowable {
         return button
     }()
     private var navigationBar = UINavigationBar()
-    
     private let requestFactory = RequestFactory()
 
     // MARK: - Lifecycle
@@ -58,14 +57,14 @@ class SignUpViewController: UIViewController, AlertShowable {
         ) { response in
             switch response.result {
             case .success(let model):
-                let expectedResultWithSuccess: Int = 1
+                let resultWithSignUpSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
                     }
-                    guard model.result == expectedResultWithSuccess else {
+                    guard model.result == resultWithSignUpSuccess else {
                         self?.showAlert(
                             title: NSLocalizedString("signup", comment: "Signup"),
                             message: NSLocalizedString("signupFailure", comment: ""),
