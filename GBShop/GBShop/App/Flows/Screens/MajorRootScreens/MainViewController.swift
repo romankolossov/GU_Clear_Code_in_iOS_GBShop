@@ -29,8 +29,10 @@ class MainViewController: UIViewController {
         self.navigationController?.present(signUpViewController, animated: true, completion: nil)
     }
     @objc private func signIn() {
-        // MARK: TO DO
+        let signInViewController = SignInViewController()
 
+        signInViewController.modalPresentationStyle = .formSheet
+        self.navigationController?.present(signInViewController, animated: true, completion: nil)
     }
 
     // MARK: - Private methods

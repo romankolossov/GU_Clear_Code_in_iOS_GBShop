@@ -1,25 +1,25 @@
 //
-//  SignUpViewController.swift
+//  SignInViewController.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 10.03.2021.
+//  Created by Roman Kolosov on 14.03.2021.
 //
 
 import UIKit
 
-class SignUpViewController: UIViewController, AlertShowable {
+class SignInViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
-    private let signUpView: SignUpView = {
-        let view = SignUpView()
+    private let signInView: SignInView = {
+        let view = SignInView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let signUpButton: UIButton = {
+    private let signInButton: UIButton = {
         let button = UIButton()
-        button.setTitle(NSLocalizedString("toSignUp", comment: "Sign up"), for: .normal)
+        button.setTitle(NSLocalizedString("toSignIn", comment: "Sign in"), for: .normal)
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.buttonBackgroundColor
@@ -40,45 +40,40 @@ class SignUpViewController: UIViewController, AlertShowable {
 
         // MARK: Targets
 
-        signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
 
     // MARK: - Actions
 
-    @objc private func signUp() {
-        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
+    @objc private func signIn() {
+        let signUpFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
 
-        signUpFactory.signUp(
-            id: signUpView.idTextField.text ?? "",
-            userName: signUpView.userNameTextField.text ?? "",
-            password: signUpView.passwordTextField.text ?? "",
-            email: signUpView.emailTextField.text ?? "",
-            gender: signUpView.genderTextField.text ?? "",
-            creditCard: signUpView.creditCardTextField.text ?? "",
-            bio: signUpView.bioTextField.text ?? ""
+        signUpFactory.signIn(
+            userName: signInView.userNameTextField.text ?? "",
+            password: signInView.passwordTextField.text ?? ""
         ) { response in
 
             switch response.result {
             case .success(let model):
-                let resultWithSignUpSuccess: Int = 1
+                let resultWithSignInSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
                     }
-                    guard model.result == resultWithSignUpSuccess else {
+                    guard model.result == resultWithSignInSuccess else {
                         self?.showAlert(
-                            title: NSLocalizedString("signup", comment: "Signup"),
-                            message: NSLocalizedString("signupFailure", comment: ""),
+                            title: NSLocalizedString("signin", comment: "Signin"),
+                            message: NSLocalizedString("signinFailure", comment: ""),
                             handler: handler,
                             completion: nil
                         )
                         return
                     }
                     self?.showAlert(
-                        title: NSLocalizedString("signup", comment: "Signup"),
-                        message: NSLocalizedString("signupSuccess", comment: ""),
+                        title: NSLocalizedString("signin", comment: "Signin"),
+                        message: NSLocalizedString("signinSuccess", comment: ""),
                         handler: handler,
                         completion: nil
                     )
@@ -98,7 +93,7 @@ class SignUpViewController: UIViewController, AlertShowable {
 
     private func configureSubviews() {
         let navigationBarHeight: CGFloat = 56.0
-        let signUpButtonHeight: CGFloat = 56.0
+        let signInButtonHeight: CGFloat = 56.0
 
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
@@ -110,7 +105,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         )
         let navigationItem = UINavigationItem()
 
-        navigationItem.title = NSLocalizedString("signup", comment: "Signup")
+        navigationItem.title = NSLocalizedString("signin", comment: "Signin")
 
         navigationBar = UINavigationBar(frame: frame)
         navigationBar.items = [navigationItem]
@@ -122,32 +117,32 @@ class SignUpViewController: UIViewController, AlertShowable {
 
         // for corners of the signUpButton will be rounded
 
-        signUpButton.frame.size.height = signUpButtonHeight
-        signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 4.8
+        signInButton.frame.size.height = signInButtonHeight
+        signInButton.layer.cornerRadius = signInButton.frame.size.height / 4.8
 
         // Add subviews
 
-        view.addSubview(signUpView)
-        view.addSubview(signUpButton)
+        view.addSubview(signInView)
+        view.addSubview(signInButton)
         view.addSubview(navigationBar)
 
         // Set constraints
 
         let safeArea = view.safeAreaLayoutGuide
-        let signUpViewConstraints = [
-            signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
-            signUpView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            signUpView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            signUpView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor)
+        let signInViewConstraints = [
+            signInView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
+            signInView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            signInView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            signInView.bottomAnchor.constraint(equalTo: signInButton.topAnchor)
         ]
-        let signUpButtonConstraints = [
-            signUpButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            signUpButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            signUpButton.heightAnchor.constraint(equalToConstant: signUpButtonHeight),
-            signUpButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        let signInButtonConstraints = [
+            signInButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            signInButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            signInButton.heightAnchor.constraint(equalToConstant: signInButtonHeight),
+            signInButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
-        NSLayoutConstraint.activate(signUpViewConstraints)
-        NSLayoutConstraint.activate(signUpButtonConstraints)
+        NSLayoutConstraint.activate(signInViewConstraints)
+        NSLayoutConstraint.activate(signInButtonConstraints)
     }
 
 }

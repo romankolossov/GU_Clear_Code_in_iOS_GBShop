@@ -64,6 +64,15 @@
 "signupSuccess" = "Registration passed";
 "signupFailure" = "Registration failed. Plese, try later";
 
+// SignInViewController
+// state
+"signin" = "Signin";
+// action
+"toSignIn" = "Sign in";
+
+"signinSuccess" = "Signin success";
+"signinFailure" = "Signin failure. Plese, try later";
+
 // Alerts
 
 //"error" = "Error";

@@ -21,6 +21,8 @@
 		C8267EDF25F90B6F00F2C8FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8267EDE25F90B6F00F2C8FE /* SignUpViewController.swift */; };
 		C8267EE425F93C0E00F2C8FE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8267EE325F93C0E00F2C8FE /* SignUpView.swift */; };
 		C8267F0225FB529900F2C8FE /* AlertShowable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8267F0125FB529900F2C8FE /* AlertShowable+Extension.swift */; };
+		C8267F4125FE70A300F2C8FE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8267F4025FE70A300F2C8FE /* SignInViewController.swift */; };
+		C8267F4625FE70FF00F2C8FE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8267F4525FE70FF00F2C8FE /* SignInView.swift */; };
 		C83355A925DB275F00205932 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C83355A825DB275F00205932 /* Alamofire */; };
 		C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B425DCB08E00205932 /* AuthRequestFactory.swift */; };
 		C83355BA25DCB24100205932 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83355B925DCB24100205932 /* SignInResult.swift */; };
@@ -128,6 +130,8 @@
 		C8267EDE25F90B6F00F2C8FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C8267EE325F93C0E00F2C8FE /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C8267F0125FB529900F2C8FE /* AlertShowable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertShowable+Extension.swift"; sourceTree = "<group>"; };
+		C8267F4025FE70A300F2C8FE /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C8267F4525FE70FF00F2C8FE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C83355B425DCB08E00205932 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
 		C83355B925DCB24100205932 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		C83355BE25DCB61600205932 /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 			children = (
 				C8267ECC25F868F500F2C8FE /* UserView.swift */,
 				C8267EE325F93C0E00F2C8FE /* SignUpView.swift */,
+				C8267F4525FE70FF00F2C8FE /* SignInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				C8267EDE25F90B6F00F2C8FE /* SignUpViewController.swift */,
+				C8267F4025FE70A300F2C8FE /* SignInViewController.swift */,
 			);
 			path = SuplimentaryScreens;
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8267F4625FE70FF00F2C8FE /* SignInView.swift in Sources */,
 				C8CC19E925EB907B006F375C /* ReviewListResult.swift in Sources */,
 				C83355E225DCCCB500205932 /* User.swift in Sources */,
 				C84A4A2D25F536BB00DAD5AE /* CartViewController.swift in Sources */,
@@ -764,6 +771,7 @@
 				C833563B25DEC45800205932 /* Logout.swift in Sources */,
 				C83355C925DCC4F000205932 /* RequestRouter.swift in Sources */,
 				C833569825E2956900205932 /* GetGoodById.swift in Sources */,
+				C8267F4125FE70A300F2C8FE /* SignInViewController.swift in Sources */,
 				C8F51D3B25EFFEA900D83AFE /* AddToBasketResult.swift in Sources */,
 				C8CC19F925EB990C006F375C /* ReviewListRequestFactory.swift in Sources */,
 				C833563625DEC44100205932 /* ChangeUserData.swift in Sources */,

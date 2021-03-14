@@ -64,6 +64,15 @@
 "signupSuccess" = "Регистрация прошла успешно";
 "signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, попробуйте пройти регистрацию позже";
 
+// SignInViewController
+// state
+"signin" = "Вход в аккаунт";
+// action
+"toSignIn" = "Войти";
+
+"signinSuccess" = "Вы успешно вошли аккаунт";
+"signinFailure" = "Войти в аккаунт не удалось. Пожалуйста, повторите вход позже";
+
 // Alerts
 
 //"error" = "Error";
