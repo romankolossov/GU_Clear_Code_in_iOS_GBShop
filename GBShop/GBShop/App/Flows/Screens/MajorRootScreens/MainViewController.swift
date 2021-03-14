@@ -55,13 +55,13 @@ class MainViewController: UIViewController {
             target: self,
             action: #selector(signUp)
         )
-        let loginItem = UIBarButtonItem(
+        let signInItem = UIBarButtonItem(
             image: UIImage(systemName: "checkmark.seal"),
             style: .done,
             target: self,
             action: #selector(signIn)
         )
-        navigationItem.rightBarButtonItems = [registerNewUserItem, loginItem]
+        navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
 
         self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil

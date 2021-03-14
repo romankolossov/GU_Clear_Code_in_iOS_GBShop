@@ -23,6 +23,8 @@ class SignUpViewController: UIViewController, AlertShowable {
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.buttonBackgroundColor
+        button.layer.borderWidth = 1.7
+        button.layer.borderColor = UIColor.buttonBorderColor.cgColor
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -55,6 +57,7 @@ class SignUpViewController: UIViewController, AlertShowable {
             creditCard: signUpView.creditCardTextField.text ?? "",
             bio: signUpView.bioTextField.text ?? ""
         ) { response in
+
             switch response.result {
             case .success(let model):
                 let resultWithSignUpSuccess: Int = 1
@@ -117,6 +120,11 @@ class SignUpViewController: UIViewController, AlertShowable {
         ]
         navigationBar.barTintColor = UIColor.navigationBarTintColor
 
+        // for corners of the signUpButton will be rounded
+
+        signUpButton.frame.size.height = signUpButtonHeight
+        signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 4.8
+
         // Add subviews
 
         view.addSubview(signUpView)
@@ -124,6 +132,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         view.addSubview(navigationBar)
 
         // Set constraints
+
         let safeArea = view.safeAreaLayoutGuide
         let userViewConstraints = [
             signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
@@ -132,7 +141,6 @@ class SignUpViewController: UIViewController, AlertShowable {
             signUpView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor)
         ]
         let signUpButtonConstraints = [
-            signUpButton.topAnchor.constraint(equalTo: signUpView.bottomAnchor),
             signUpButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             signUpButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             signUpButton.heightAnchor.constraint(equalToConstant: signUpButtonHeight),

@@ -35,8 +35,8 @@ class Auth: AbstractRequestFactory {
 // MARK: - Extensions Auth
 
 extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = LoginRequest(baseUrl: baseUrl,
+    func signIn(userName: String, password: String, completionHandler: @escaping (AFDataResponse<SignInResult>) -> Void) {
+        let requestModel = SignInRequest(baseUrl: baseUrl,
                                         login: userName,
                                         password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
@@ -47,7 +47,7 @@ extension Auth {
 
     // MARK: Nested type
 
-    struct LoginRequest: RequestRouter {
+    struct SignInRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "login.json"

@@ -16,8 +16,8 @@ extension UIColor {
 
     // for Navigation Controllers and its root VCs
 
-    static let  navigationBarLargeTitleTextColor: UIColor = .white
-    static let  navigationBarBackgroundColor: UIColor = .init(red: 71 / 255, green: 21 / 255, blue: 111 / 255, alpha: 1.0)
+    static let navigationBarLargeTitleTextColor: UIColor = .white
+    static let navigationBarBackgroundColor: UIColor = .init(red: 71 / 255, green: 21 / 255, blue: 111 / 255, alpha: 1.0)
 
     static let rootVCViewBackgroundColor: UIColor = navigationBarBackgroundColor
     // custom purple
@@ -25,9 +25,10 @@ extension UIColor {
 
     // for Buttons
 
-    static let  buttonBackgroundColor: UIColor = tabBarBackgroundColor
-    static let  buttonTitleColor: UIColor = tabBarTintColor
-    static let  buttonTitleColorWhenHighlighted: UIColor = .systemGreen
+    static let buttonBackgroundColor: UIColor = tabBarBackgroundColor
+    static let buttonTitleColor: UIColor = tabBarTintColor
+    static let buttonTitleColorWhenHighlighted: UIColor = .systemGreen
+    static let buttonBorderColor: UIColor = tabBarTintColor
 
     // for Subviews showing User Data
 
@@ -42,7 +43,7 @@ extension UIColor {
     static let  navigationBarTitleTextColor: UIColor = .white
 
     // custom purple 2
-    static let  navigationBarTintColor: UIColor = .init(red: 210 / 255, green: 0 / 255, blue: 185 / 255, alpha: 1.0)
+    static let navigationBarTintColor: UIColor = .init(red: 210 / 255, green: 0 / 255, blue: 185 / 255, alpha: 1.0)
 
     // for Alerts
 

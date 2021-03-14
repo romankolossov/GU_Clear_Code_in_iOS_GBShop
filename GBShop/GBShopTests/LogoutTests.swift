@@ -46,7 +46,7 @@ class LogoutTests: XCTestCase {
 
     // MARK: - Negative tests
 
-    func testFailedLogIn() throws {
+    func testFailedLogout() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))

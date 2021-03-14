@@ -13,7 +13,7 @@ class AuthTests: XCTestCase {
 
     // MARK: - Positive tests
 
-    func testLogIn() throws {
+    func testSignIn() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = AppDelegate.baseUrlGitGB
@@ -30,9 +30,9 @@ class AuthTests: XCTestCase {
 
         // When
         // Call system under test
-        let loggedIn = expectation(description: "logged in")
+        let signedIn = expectation(description: "signed in")
 
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        auth.signIn(userName: "Somebody", password: "mypassword") { response in
             // Then
             // Verify that output is as expected
             switch response.result {
@@ -43,7 +43,7 @@ class AuthTests: XCTestCase {
                 XCTAssertEqual(model.user.lastname, "Doe")
                 XCTAssertEqual(model.user.id, 123)
 
-                loggedIn.fulfill()
+                signedIn.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -53,7 +53,7 @@ class AuthTests: XCTestCase {
 
     // MARK: - Negative tests
 
-    func testFailedLogIn() throws {
+    func testFailedSignIn() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
@@ -70,16 +70,16 @@ class AuthTests: XCTestCase {
 
         // When
         // Call system under test
-        let failedToLogin = expectation(description: "failed to log in")
+        let failedToSignIn = expectation(description: "failed to sign in")
 
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        auth.signIn(userName: "Somebody", password: "mypassword") { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTFail("Must to have failed: \(model)")
             case .failure:
-                failedToLogin.fulfill()
+                failedToSignIn.fulfill()
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)

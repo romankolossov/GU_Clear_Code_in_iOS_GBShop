@@ -1,5 +1,5 @@
 //
-//  AlertShowable.swift
+//  AlertShowable+Extension.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 12.03.2021.
