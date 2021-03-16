@@ -1,19 +1,17 @@
 //
-//  AuthTests.swift
+//  DeleteFromBasketTest.swift
 //  GBShopTests
 //
-//  Created by Roman Kolosov on 21.02.2021.
+//  Created by Roman Kolosov on 04.03.2021.
 //
 
 import XCTest
 import Alamofire
 @testable import GBShop
 
-class AuthTests: XCTestCase {
+class DeleteFromBasketTest: XCTestCase {
 
-    // MARK: - Positive tests
-
-    func testLogIn() throws {
+    func testDeleteFromBasket() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = AppDelegate.baseUrlGitGB
@@ -23,27 +21,22 @@ class AuthTests: XCTestCase {
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let auth = Auth(errorParser: ErrorParser(),
+        let deleteFromBasket = DeleteFromBasket(errorParser: ErrorParser(),
                                                 sessionManager: session,
                                                 queue: DispatchQueue.global(qos: .utility),
                                                 baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let loggedIn = expectation(description: "logged in")
+        let deletedFromBasket = expectation(description: "product was deleted from basket")
 
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        deleteFromBasket.deleteFromBasket(idProduct: 123) { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                XCTAssertEqual(model.user.login, "geekbrains")
-                XCTAssertEqual(model.user.name, "John")
-                XCTAssertEqual(model.user.lastname, "Doe")
-                XCTAssertEqual(model.user.id, 123)
-
-                loggedIn.fulfill()
+                deletedFromBasket.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
@@ -53,7 +46,7 @@ class AuthTests: XCTestCase {
 
     // MARK: - Negative tests
 
-    func testFailedLogIn() throws {
+    func testFailedDeleteFromBasket() throws {
         // Given
         // Initialize test date and system under test
         let baseUrl = try XCTUnwrap(URL(string: "https://wrong.url.com"))
@@ -63,25 +56,33 @@ class AuthTests: XCTestCase {
         configuration.headers = .default
         let session = Session(configuration: configuration)
 
-        let auth = Auth(errorParser: ErrorParser(),
+        let deleteFromBasket = DeleteFromBasket(errorParser: ErrorParser(),
                                                 sessionManager: session,
                                                 queue: DispatchQueue.global(qos: .utility),
                                                 baseUrl: baseUrl)
 
         // When
         // Call system under test
-        let failedToLogin = expectation(description: "failed to log in")
+        let failedDeleteFromBasket = expectation(description: "failed to delete product from basket")
 
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        deleteFromBasket.deleteFromBasket(idProduct: 123) { response in
             // Then
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
                 XCTFail("Must to have failed: \(model)")
             case .failure:
-                failedToLogin.fulfill()
+                failedDeleteFromBasket.fulfill()
             }
         }
         waitForExpectations(timeout: 8.0, handler: nil)
     }
+
+    func testPerformanceExample() throws {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
+    }
+
 }

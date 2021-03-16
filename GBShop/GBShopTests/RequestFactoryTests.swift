@@ -287,6 +287,83 @@ class RequestFactoryTests: XCTestCase {
         waitForExpectations(timeout: 3.0, handler: nil)
     }
 
+    // MARK: - Test AddToBsketRequestFactory
+
+    func testAddToBasketRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let addToBasketRequestFactory: AddToBasketRequestFactory = try XCTUnwrap(requestFactory).makeAddToBasketRequestFactory()
+
+        // When
+        // Call system under test
+        let addedToBasket = expectation(description: "product was added to basket")
+
+        addToBasketRequestFactory.addToBasket(idProduct: 123, quantity: 1) { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                print("\n\(model)\n")
+                XCTAssertEqual(model.result, 1)
+                addedToBasket.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
+    // MARK: - Test DeleteFromBasketRequestFactory
+
+    func testDeleteFromBasketRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let deleteFromBasketRequestFactory: DeleteFromBasketRequestFactory = try XCTUnwrap(requestFactory).makeDeleteFromBasketRequestFactory()
+
+        // When
+        // Call system under test
+        let deletedFromBasket = expectation(description: "product was deleted from basket")
+
+        deleteFromBasketRequestFactory.deleteFromBasket(idProduct: 123) { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                print("\n\(model)\n")
+                XCTAssertEqual(model.result, 1)
+                deletedFromBasket.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
+    // MARK: - Test PayBasketRequestFactory
+
+    func testPayBasketRequestFactory() throws {
+        // Given
+        // Initialize test date and system under test
+        let payBasketRequestFactory: PayBasketRequestFactory = try XCTUnwrap(requestFactory).makePayBasketRequestFactory()
+
+        // When
+        // Call system under test
+        let payedBasket = expectation(description: "basket was payed")
+
+        payBasketRequestFactory.payBasket(idPayProve: 1) { response in
+            // Then
+            // Verify that output is as expected
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                payedBasket.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        waitForExpectations(timeout: 3.0, handler: nil)
+    }
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

@@ -1,14 +1,14 @@
 //
-//  RemoveReview.swift
+//  AddToBasket.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 28.02.2021.
+//  Created by Roman Kolosov on 03.03.2021.
 //
 
 import Foundation
 import Alamofire
 
-class RemoveReview: AbstractRequestFactory {
+class AddToBasket: AbstractRequestFactory {
 
     // MARK: - Public properties
 
@@ -32,30 +32,32 @@ class RemoveReview: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions RemoveReview
+// MARK: - Extensions AddToBasket
 
-extension RemoveReview: RemoveReviewRequestFactory {
-    func removeReview(idComment: Int, completionHandler: @escaping (AFDataResponse<RemoveReviewResult>) -> Void) {
-        let requestModel = RemoveReviewRequest(baseUrl: baseUrl, idComment: idComment)
+extension AddToBasket: AddToBasketRequestFactory {
+    func addToBasket(idProduct: Int, quantity: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResult>) -> Void) {
+        let requestModel = AddToBasketRequest(baseUrl: baseUrl, idProduct: idProduct, quantity: quantity)
 
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension RemoveReview {
+extension AddToBasket {
 
     // MARK: Nested type
 
-    struct RemoveReviewRequest: RequestRouter {
+    struct AddToBasketRequest: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "removeReview.json"
+        let path: String = "addToBasket.json"
 
-        let idComment: Int
+        let idProduct: Int
+        let quantity: Int
 
         var parameters: Parameters? {
             [
-                "id_comment": idComment
+                "id_product": idProduct,
+                "quantity": quantity
             ]
         }
     }

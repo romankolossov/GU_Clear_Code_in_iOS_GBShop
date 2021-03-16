@@ -1,14 +1,14 @@
 //
-//  RemoveReview.swift
+//  PayBasket.swift
 //  GBShop
 //
-//  Created by Roman Kolosov on 28.02.2021.
+//  Created by Roman Kolosov on 03.03.2021.
 //
 
 import Foundation
 import Alamofire
 
-class RemoveReview: AbstractRequestFactory {
+class PayBasket: AbstractRequestFactory {
 
     // MARK: - Public properties
 
@@ -23,7 +23,7 @@ class RemoveReview: AbstractRequestFactory {
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = AppDelegate.baseUrlGitGB
+        baseUrl: URL = AppDelegate.baseUrlHeroku
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager
@@ -32,31 +32,29 @@ class RemoveReview: AbstractRequestFactory {
     }
 }
 
-// MARK: - Extensions RemoveReview
+// MARK: - Extensions PayBasket
 
-extension RemoveReview: RemoveReviewRequestFactory {
-    func removeReview(idComment: Int, completionHandler: @escaping (AFDataResponse<RemoveReviewResult>) -> Void) {
-        let requestModel = RemoveReviewRequest(baseUrl: baseUrl, idComment: idComment)
+extension PayBasket: PayBasketRequestFactory {
+    func payBasket(idPayProve: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void) {
+        let requestModel = PayBasketRequest(baseUrl: baseUrl, idPayProve: idPayProve)
 
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension RemoveReview {
+extension PayBasket {
 
     // MARK: Nested type
 
-    struct RemoveReviewRequest: RequestRouter {
+    struct PayBasketRequest: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "removeReview.json"
+        let method: HTTPMethod = .post
+        let path: String = "payBasket"
 
-        let idComment: Int
+        let idPayProve: Int
 
         var parameters: Parameters? {
-            [
-                "id_comment": idComment
-            ]
+            [ "idPayProve": idPayProve ]
         }
     }
 }
