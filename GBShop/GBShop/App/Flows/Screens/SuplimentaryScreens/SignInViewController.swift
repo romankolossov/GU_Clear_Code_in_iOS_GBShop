@@ -30,7 +30,6 @@ class SignInViewController: UIViewController, AlertShowable {
         return button
     }()
     private var navigationBar = UINavigationBar()
-    private let requestFactory = RequestFactory()
 
     // MARK: - Lifecycle
 
@@ -46,7 +45,7 @@ class SignInViewController: UIViewController, AlertShowable {
     // MARK: - Actions
 
     @objc private func signIn() {
-        let signUpFactory: AuthRequestFactory = requestFactory.makeAuthRequestFatory()
+        let signUpFactory: AuthRequestFactory = AppDelegate.requestFactory.makeAuthRequestFatory()
 
         signUpFactory.signIn(
             userName: signInView.userNameTextField.text ?? "",
@@ -71,6 +70,12 @@ class SignInViewController: UIViewController, AlertShowable {
                         )
                         return
                     }
+                    UserData.saveUser(
+                        id: model.user.id,
+                        login: model.user.login,
+                        name: model.user.name,
+                        lastName: model.user.lastname
+                    )
                     self?.showAlert(
                         title: NSLocalizedString("signin", comment: "Signin"),
                         message: NSLocalizedString("signinSuccess", comment: ""),

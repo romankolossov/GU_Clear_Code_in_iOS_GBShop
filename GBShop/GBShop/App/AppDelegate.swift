@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     var restrictRotation: TypeInterfaceOrientationMask = .portrait
 
+    static let requestFactory = RequestFactory()
+
     // Define base URL
 
     static let baseUrlGitGB = URL(

@@ -30,12 +30,19 @@ class UserViewController: UIViewController {
         self.configureSubviews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureUserVCDataLook()
+    }
+
     // MARK: - Actions
 
     @objc private func logout() {
-        // MARK: TO DO
+        UserData.clearUser()
 
+        self.viewDidAppear(true)
     }
+
     @objc private func changeUserData() {
         // MARK: TO DO
 
@@ -46,10 +53,8 @@ class UserViewController: UIViewController {
     // MARK: Configure
 
     private func configureUserVC() {
-        // MARK: TO DO: "Hi, UserName!"
-        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), User"
-
         self.navigationController?.navigationBar.prefersLargeTitles = true
+
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
@@ -87,6 +92,17 @@ class UserViewController: UIViewController {
             userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
         NSLayoutConstraint.activate(userViewConstraints)
+    }
+
+    private func configureUserVCDataLook() {
+        let userData = UserData.getUser()
+
+        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.name)"
+
+        userView.idLabel.text = String(userData.id)
+        userView.userNameLabel.text = userData.login
+        userView.passwordLabel.text = userData.name
+        userView.emailLabel.text = userData.lastName
     }
 
 }

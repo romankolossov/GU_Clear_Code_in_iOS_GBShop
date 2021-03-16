@@ -30,7 +30,6 @@ class SignUpViewController: UIViewController, AlertShowable {
         return button
     }()
     private var navigationBar = UINavigationBar()
-    private let requestFactory = RequestFactory()
 
     // MARK: - Lifecycle
 
@@ -46,7 +45,7 @@ class SignUpViewController: UIViewController, AlertShowable {
     // MARK: - Actions
 
     @objc private func signUp() {
-        let signUpFactory: SignUpRequestFactory = requestFactory.makeSignUpRequestFactory()
+        let signUpFactory: SignUpRequestFactory = AppDelegate.requestFactory.makeSignUpRequestFactory()
 
         signUpFactory.signUp(
             id: signUpView.idTextField.text ?? "",

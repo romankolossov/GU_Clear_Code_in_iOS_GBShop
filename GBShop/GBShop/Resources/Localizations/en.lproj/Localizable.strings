@@ -54,6 +54,7 @@
 // UserViewController
 
 "userVCName" = "Hi";
+"customer" = "dear customer";
 
 // SignUpViewController
 // state
