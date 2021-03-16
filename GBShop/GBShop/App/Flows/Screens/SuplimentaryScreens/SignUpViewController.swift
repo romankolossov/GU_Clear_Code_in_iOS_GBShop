@@ -42,6 +42,41 @@ class SignUpViewController: UIViewController, AlertShowable {
         signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeShown(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillBeHiden(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(hideKeyboard)
+        )
+        signUpView.addGestureRecognizer(tapGesture)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+
     // MARK: - Actions
 
     @objc private func signUp() {
@@ -89,6 +124,32 @@ class SignUpViewController: UIViewController, AlertShowable {
                 }
             }
         }
+    }
+
+    @objc func keyboardWillBeShown(notification: Notification) {
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        let info = userInfo as NSDictionary
+
+        let keyboardSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue)?.cgRectValue.size
+        let contentInsets = UIEdgeInsets(
+            top: 0.0,
+            left: 0.0,
+            bottom: keyboardSize?.height ?? 0.0,
+            right: 0.0
+        )
+        signUpView.contentInset = contentInsets
+        signUpView.scrollIndicatorInsets = contentInsets
+    }
+
+    @objc func keyboardWillBeHiden(notification: Notification) {
+        signUpView.contentInset = UIEdgeInsets.zero
+        signUpView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+
+    @objc func hideKeyboard() {
+        signUpView.endEditing(true)
     }
 
     // MARK: - Private methods

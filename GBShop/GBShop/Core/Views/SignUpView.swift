@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpView: UIView {
+class SignUpView: UIScrollView {
 
     // MARK: - Public properties
 
