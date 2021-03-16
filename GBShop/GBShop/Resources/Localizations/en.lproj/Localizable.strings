@@ -56,6 +56,11 @@
 "userVCName" = "Hi";
 "customer" = "dear customer";
 
+"logout" = "Logout";
+
+"logoutSuccess" = "You have logged out";
+"logoutFailure" = "Logout failed. Plese, try later";
+
 // SignUpViewController
 // state
 "signup" = "Signup";

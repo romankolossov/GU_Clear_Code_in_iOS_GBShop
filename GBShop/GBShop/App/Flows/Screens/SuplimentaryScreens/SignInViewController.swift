@@ -63,7 +63,7 @@ class SignInViewController: UIViewController, AlertShowable {
                     }
                     guard model.result == resultWithSignInSuccess else {
                         self?.showAlert(
-                            title: NSLocalizedString("signin", comment: "Signin"),
+                            title: NSLocalizedString("signin", comment: ""),
                             message: NSLocalizedString("signinFailure", comment: ""),
                             handler: handler,
                             completion: nil
@@ -77,7 +77,7 @@ class SignInViewController: UIViewController, AlertShowable {
                         lastName: model.user.lastname
                     )
                     self?.showAlert(
-                        title: NSLocalizedString("signin", comment: "Signin"),
+                        title: NSLocalizedString("signin", comment: ""),
                         message: NSLocalizedString("signinSuccess", comment: ""),
                         handler: handler,
                         completion: nil
@@ -110,7 +110,7 @@ class SignInViewController: UIViewController, AlertShowable {
         )
         let navigationItem = UINavigationItem()
 
-        navigationItem.title = NSLocalizedString("signin", comment: "Signin")
+        navigationItem.title = NSLocalizedString("signin", comment: "")
 
         navigationBar = UINavigationBar(frame: frame)
         navigationBar.items = [navigationItem]

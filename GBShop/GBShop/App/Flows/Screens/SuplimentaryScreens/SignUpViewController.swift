@@ -68,7 +68,7 @@ class SignUpViewController: UIViewController, AlertShowable {
                     }
                     guard model.result == resultWithSignUpSuccess else {
                         self?.showAlert(
-                            title: NSLocalizedString("signup", comment: "Signup"),
+                            title: NSLocalizedString("signup", comment: ""),
                             message: NSLocalizedString("signupFailure", comment: ""),
                             handler: handler,
                             completion: nil
@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController, AlertShowable {
                         return
                     }
                     self?.showAlert(
-                        title: NSLocalizedString("signup", comment: "Signup"),
+                        title: NSLocalizedString("signup", comment: ""),
                         message: NSLocalizedString("signupSuccess", comment: ""),
                         handler: handler,
                         completion: nil
@@ -109,7 +109,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         )
         let navigationItem = UINavigationItem()
 
-        navigationItem.title = NSLocalizedString("signup", comment: "Signup")
+        navigationItem.title = NSLocalizedString("signup", comment: "")
 
         navigationBar = UINavigationBar(frame: frame)
         navigationBar.items = [navigationItem]

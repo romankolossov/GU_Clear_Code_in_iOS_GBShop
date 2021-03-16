@@ -9,7 +9,7 @@ import UIKit
 
 // for Change user data and Logout
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
@@ -19,6 +19,7 @@ class UserViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    private var userData: UserData?
 
     // MARK: - Lifecycle
 
@@ -32,15 +33,56 @@ class UserViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        userData = UserData.getUser()
+
         configureUserVCDataLook()
     }
 
     // MARK: - Actions
 
     @objc private func logout() {
-        UserData.clearUser()
+        guard let userData = userData else {
+            return
+        }
+        let id = String(userData.user.id)
 
-        self.viewDidAppear(true)
+        let logoutFactory: LogoutRequestFactory = AppDelegate.requestFactory.makeLogoutRequestFactory()
+
+        logoutFactory.logout(id: id) { response in
+
+            switch response.result {
+            case .success(let model):
+                let resultWithLogoutSuccess: Int = 1
+                #if DEBUG
+                print(model)
+                #endif
+                DispatchQueue.main.async { [weak self] in
+                    guard model.result == resultWithLogoutSuccess else {
+                        self?.showAlert(
+                            title: NSLocalizedString("logout", comment: ""),
+                            message: NSLocalizedString("logoutFailure", comment: ""),
+                            handler: nil,
+                            completion: nil
+                        )
+                        return
+                    }
+                    UserData.clearUser()
+
+                    self?.viewDidAppear(true)
+                    self?.showAlert(
+                        title: NSLocalizedString("logout", comment: ""),
+                        message: NSLocalizedString("logoutSuccess", comment: ""),
+                        handler: nil,
+                        completion: nil
+                    )
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                DispatchQueue.main.async { [weak self] in
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     @objc private func changeUserData() {
@@ -95,8 +137,9 @@ class UserViewController: UIViewController {
     }
 
     private func configureUserVCDataLook() {
-        let userData = UserData.getUser()
-
+        guard let userData = userData else {
+            return
+        }
         self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
         userView.idLabel.text = String(userData.user.id)
