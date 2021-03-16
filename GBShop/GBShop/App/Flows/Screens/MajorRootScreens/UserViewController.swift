@@ -97,12 +97,12 @@ class UserViewController: UIViewController {
     private func configureUserVCDataLook() {
         let userData = UserData.getUser()
 
-        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.name)"
+        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
-        userView.idLabel.text = String(userData.id)
-        userView.userNameLabel.text = userData.login
-        userView.passwordLabel.text = userData.name
-        userView.emailLabel.text = userData.lastName
+        userView.idLabel.text = String(userData.user.id)
+        userView.userNameLabel.text = userData.user.name
+        userView.passwordLabel.text = userData.user.lastname
+        userView.emailLabel.text = userData.user.login
     }
 
 }

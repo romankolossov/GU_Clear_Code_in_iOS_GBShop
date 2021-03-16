@@ -1,5 +1,5 @@
 //
-//  UserData.swift
+//  AppCoordinator.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 15.03.2021.
@@ -13,18 +13,12 @@ class UserData {
 
     // MARK: - Public properties)
 
-    var id: Int
-    var login: String
-    var name: String
-    var lastName: String
+    var user: User
 
     // MARK: - Initializers
 
     init(id: Int, login: String, name: String, lastName: String) {
-        self.id = id
-        self.login = login
-        self.name = name
-        self.lastName = lastName
+        user = User(id: id, login: login, name: name, lastname: lastName)
     }
 
     // MARK: - Public methods
