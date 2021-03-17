@@ -7,13 +7,18 @@
 
 import UIKit
 
-class PhotoLayout: UICollectionViewLayout {
-    let cellHeight: CGFloat = 120
+class GoodsLayout: UICollectionViewLayout {
 
-    let columnsCount = 2
-    var totalCellHeight: CGFloat = 0
+    // MARK: - Private properties
 
-    var cachedAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
+    private let cellHeight: CGFloat = .goodCellHeight
+
+    private let columnsCount: Int = 2
+    private var totalCellHeight: CGFloat = 0.0
+
+    private var cachedAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
+
+    // MARK: - Major methods
 
     override func prepare() {
         super.prepare()
@@ -27,8 +32,8 @@ class PhotoLayout: UICollectionViewLayout {
         let bigCellWidth = collectionView.bounds.size.width
         let smallCellWidth = ceil(collectionView.bounds.size.width / CGFloat(self.columnsCount))
 
-        var lastX: CGFloat = 0
-        var lastY: CGFloat = 0
+        var lastX: CGFloat = 0.0
+        var lastY: CGFloat = 0.0
 
         for index in 0..<itemsCount {
             let indexPath = IndexPath(item: index, section: 0)
@@ -37,22 +42,25 @@ class PhotoLayout: UICollectionViewLayout {
             let isBigCell = (index + 1 ) % (self.columnsCount + 1) == 0
 
             if isBigCell {
-                attributes.frame = CGRect(x: 0,
-                                          y: lastY,
-                                          width: bigCellWidth,
-                                          height: self.cellHeight)
+                attributes.frame = CGRect(
+                    x: 0.0,
+                    y: lastY,
+                    width: bigCellWidth,
+                    height: self.cellHeight
+                )
                 lastY += self.cellHeight
             } else {
-                attributes.frame = CGRect(x: lastX,
-                                          y: lastY,
-                                          width: smallCellWidth,
-                                          height: self.cellHeight)
-
+                attributes.frame = CGRect(
+                    x: lastX,
+                    y: lastY,
+                    width: smallCellWidth,
+                    height: self.cellHeight
+                )
                 let isLastColumn = (index + 2) % (self.columnsCount + 1) == 0 ||
                     index == itemsCount - 1
 
                 if isLastColumn {
-                    lastX = 0
+                    lastX = 0.0
                     lastY += self.cellHeight
                 } else {
                     lastX += smallCellWidth
@@ -74,6 +82,10 @@ class PhotoLayout: UICollectionViewLayout {
     }
 
     override var collectionViewContentSize: CGSize {
-        CGSize(width: self.collectionView?.bounds.size.width ?? 0, height: self.totalCellHeight)
+        CGSize(
+            width: self.collectionView?.bounds.size.width ?? 0.0,
+            height: self.totalCellHeight
+        )
     }
+
 }

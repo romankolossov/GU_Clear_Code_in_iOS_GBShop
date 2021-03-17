@@ -105,6 +105,8 @@ class UserViewController: UIViewController, AlertShowable {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create logoutItem and changeUserDataItem in Navigation Item of Navigation Bar
+
         let logoutItem = UIBarButtonItem(
             image: UIImage(systemName: "arrowshape.zigzag.right"),
             style: .done,

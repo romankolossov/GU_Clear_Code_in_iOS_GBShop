@@ -11,14 +11,18 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    private var collectionView: UICollectionView?
-    var isLoading: Bool = false
-    var goods: [CatalogDataResultElement] = []
+    // MARK: - Public properties
 
-    private let goodsCellIdentifier: String = "GoodsCellIdentifier"
     var publicGoodsCellIdentifier: String {
         goodsCellIdentifier
     }
+    var goods: [CatalogDataResultElement] = []
+    var isLoading: Bool = false
+
+    // MARK: - Private properties
+
+    private var collectionView: UICollectionView?
+    private let goodsCellIdentifier: String = "GoodsCellIdentifier"
 
     // MARK: - Lifecycle
 
@@ -44,6 +48,7 @@ class MainViewController: UIViewController {
         signUpViewController.modalPresentationStyle = .formSheet
         self.navigationController?.present(signUpViewController, animated: true, completion: nil)
     }
+
     @objc private func signIn() {
         let signInViewController = SignInViewController()
 
@@ -67,6 +72,8 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create registerNewUserItem and signInItem in Navigation Item of Navigation Bar
+
         let registerNewUserItem = UIBarButtonItem(
             image: UIImage(systemName: "person.fill.badge.plus"),
             style: .plain,
@@ -88,9 +95,10 @@ class MainViewController: UIViewController {
     private func configureCollectionView() {
 
         // Custom layout
-        let layout = PhotoLayout()
+        let layout = GoodsLayout()
 
         let safeArea = view.safeAreaLayoutGuide
+
         collectionView = UICollectionView(
             frame: safeArea.layoutFrame,
             collectionViewLayout: layout
@@ -101,25 +109,25 @@ class MainViewController: UIViewController {
         collectionView?.delegate = self
 
         // collectionView?.prefetchDataSource = self
-        collectionView?.backgroundColor = .blue
+        collectionView?.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
 
         collectionView?.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: publicGoodsCellIdentifier)
     }
 
     private func configureSubviews() {
-        guard let collectionSubview = collectionView else {
+        guard let collectionView = collectionView else {
             return
         }
-        view.addSubview(collectionSubview)
+        view.addSubview(collectionView)
 
         let safeArea = view.safeAreaLayoutGuide
-        let collectionSubviewConstraints = [
-            collectionSubview.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            collectionSubview.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            collectionSubview.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            collectionSubview.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        let collectionViewConstraints = [
+            collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            collectionView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
-        NSLayoutConstraint.activate(collectionSubviewConstraints)
+        NSLayoutConstraint.activate(collectionViewConstraints)
     }
 
     private func loadData() {
@@ -130,7 +138,10 @@ class MainViewController: UIViewController {
             switch response.result {
             case .success(let model):
                 print(model)
-                // let photos: [PhotoData] = photoItems.map { PhotoData(photoItem: $0) }
+
+                // MARK: TO DO
+                // let goods: [GoodData] = model.map { GoodData(goodItem: $0) }
+
                 DispatchQueue.main.async { [weak self] in
                     self?.goods = model
                     self?.collectionView?.reloadData()

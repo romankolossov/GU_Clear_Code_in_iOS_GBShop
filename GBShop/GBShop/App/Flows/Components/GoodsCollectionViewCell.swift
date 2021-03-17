@@ -9,7 +9,8 @@ import UIKit
 
 class GoodsCollectionViewCell: UICollectionViewCell {
 
-    // Some properties
+    // MARK: - Public properties
+
     let idLabel = UILabel()
     let productNameLabel = UILabel()
     let priceLabel = UILabel()
@@ -24,17 +25,32 @@ class GoodsCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Configure
+    // MARK: - Public methods
+
+    func lookConfigure(with good: CatalogDataResultElement) {
+        idLabel.text = String(good.idProduct)
+
+        productNameLabel.text = good.productName
+        priceLabel.text = String(good.price)
+    }
+
+    // MARK: - Private methods
+
+    // MARK: Configure
 
     private func configureCell() {
-        self.backgroundColor = .red
+        self.backgroundColor = UIColor.goodsCellBackgroundColor
+
+        self.layer.borderWidth = 1.7
+        self.layer.borderColor = UIColor.goodsCellborderColor.cgColor
+
+        self.layer.cornerRadius = CGFloat.goodCellHeight / 8.0
 
         self.addSubviews()
         self.setupConstraints()
     }
 
     private func addSubviews() {
-
         idLabel.translatesAutoresizingMaskIntoConstraints = false
         idLabel.textColor = UIColor.userLableTextColor
         idLabel.textAlignment = .center
@@ -56,9 +72,9 @@ class GoodsCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupConstraints() {
-        let safeArea = self.safeAreaLayoutGuide
         let indent: CGFloat = 11.0
 
+        let safeArea = self.contentView.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             idLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
             idLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
@@ -72,13 +88,6 @@ class GoodsCollectionViewCell: UICollectionViewCell {
             priceLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),
             priceLabel.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -indent)
         ])
-    }
-
-    func lookConfigure(with good: CatalogDataResultElement) {
-        idLabel.text = String(good.idProduct)
-
-        productNameLabel.text = good.productName
-        priceLabel.text = String(good.price)
     }
 
 }

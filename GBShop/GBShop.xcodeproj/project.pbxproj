@@ -64,8 +64,8 @@
 		C84A4A3225F53B7800DAD5AE /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84A4A3125F53B7800DAD5AE /* UserViewController.swift */; };
 		C875FA1F2601FD7E0095B16B /* GoodsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */; };
 		C875FA242601FF150095B16B /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875FA232601FF150095B16B /* MainViewController+CollectionView.swift */; };
-		C875FA292602002F0095B16B /* GoodsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875FA282602002F0095B16B /* GoodsCollectionView.swift */; };
 		C875FA2F260201480095B16B /* GoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875FA2E260201480095B16B /* GoodsCollectionViewCell.swift */; };
+		C8AD896E26027DE000B6CB0E /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD896D26027DE000B6CB0E /* CGFloat+Extensions.swift */; };
 		C8B39B6925EC148900AE3F99 /* AddReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */; };
 		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
 		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
@@ -179,8 +179,8 @@
 		C84A4A3125F53B7800DAD5AE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsLayout.swift; sourceTree = "<group>"; };
 		C875FA232601FF150095B16B /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
-		C875FA282602002F0095B16B /* GoodsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCollectionView.swift; sourceTree = "<group>"; };
 		C875FA2E260201480095B16B /* GoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C8AD896D26027DE000B6CB0E /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		C8B39B6825EC148900AE3F99 /* AddReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
@@ -312,7 +312,6 @@
 				C8267ECC25F868F500F2C8FE /* UserView.swift */,
 				C8267EE325F93C0E00F2C8FE /* SignUpView.swift */,
 				C8267F4525FE70FF00F2C8FE /* SignInView.swift */,
-				C875FA282602002F0095B16B /* GoodsCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +329,7 @@
 			children = (
 				C8267ED325F887E300F2C8FE /* UIColor+Extensions.swift */,
 				C8267ED825F8880300F2C8FE /* UIFont+Extensions.swift */,
+				C8AD896D26027DE000B6CB0E /* CGFloat+Extensions.swift */,
 			);
 			path = FlyWeight;
 			sourceTree = "<group>";
@@ -811,6 +811,7 @@
 				C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */,
 				C8267F4C25FFF3A600F2C8FE /* AppCoordinator.swift in Sources */,
 				C8BB1C4E25F67A3F0000E8E6 /* ReviewViewController.swift in Sources */,
+				C8AD896E26027DE000B6CB0E /* CGFloat+Extensions.swift in Sources */,
 				C83355FC25DE466F00205932 /* SignUp.swift in Sources */,
 				C8F51D6325F0013300D83AFE /* PayBasketRequestFactory.swift in Sources */,
 				C83355BF25DCB61600205932 /* ResponseCodable.swift in Sources */,
@@ -850,7 +851,6 @@
 				C83355B525DCB08E00205932 /* AuthRequestFactory.swift in Sources */,
 				C8F51D5625F000EA00D83AFE /* AddToBasketRequestFactory.swift in Sources */,
 				C824664F25D4769C00D3B8E5 /* SceneDelegate.swift in Sources */,
-				C875FA292602002F0095B16B /* GoodsCollectionView.swift in Sources */,
 				C8267EE425F93C0E00F2C8FE /* SignUpView.swift in Sources */,
 				C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */,
 				C8267ED925F8880300F2C8FE /* UIFont+Extensions.swift in Sources */,

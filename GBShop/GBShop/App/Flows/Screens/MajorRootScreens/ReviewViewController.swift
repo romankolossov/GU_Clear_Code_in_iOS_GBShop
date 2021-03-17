@@ -43,6 +43,8 @@ class ReviewViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create addReviewItem in Navigation Item of Navigation Bar
+
         let addReviewItem = UIBarButtonItem(
             image: UIImage(systemName: "plus.bubble"),
             style: .plain,

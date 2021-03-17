@@ -43,6 +43,8 @@ class CartViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create payBasketItem in Navigation Item of Navigation Bar
+
         let payBasketItem = UIBarButtonItem(
             image: UIImage(systemName: "creditcard"),
             style: .plain,
