@@ -11,6 +11,15 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    private var collectionView: UICollectionView?
+    var isLoading: Bool = false
+    var goods: [CatalogDataResultElement] = []
+
+    private let goodsCellIdentifier: String = "GoodsCellIdentifier"
+    var publicGoodsCellIdentifier: String {
+        goodsCellIdentifier
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -18,6 +27,13 @@ class MainViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureMainVC()
+        configureCollectionView()
+        configureSubviews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadData()
     }
 
     // MARK: - Actions
@@ -67,6 +83,62 @@ class MainViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
         self.tabBarItem.title = nil
+    }
+
+    private func configureCollectionView() {
+
+        // Custom layout
+        let layout = PhotoLayout()
+
+        let safeArea = view.safeAreaLayoutGuide
+        collectionView = UICollectionView(
+            frame: safeArea.layoutFrame,
+            collectionViewLayout: layout
+        )
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+
+        collectionView?.dataSource = self
+        collectionView?.delegate = self
+
+        // collectionView?.prefetchDataSource = self
+        collectionView?.backgroundColor = .blue
+
+        collectionView?.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: publicGoodsCellIdentifier)
+    }
+
+    private func configureSubviews() {
+        guard let collectionSubview = collectionView else {
+            return
+        }
+        view.addSubview(collectionSubview)
+
+        let safeArea = view.safeAreaLayoutGuide
+        let collectionSubviewConstraints = [
+            collectionSubview.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionSubview.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            collectionSubview.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            collectionSubview.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(collectionSubviewConstraints)
+    }
+
+    private func loadData() {
+        let catalogDataFactory: CatalogDataRequestFactory = AppDelegate.requestFactory.makeCatalogDataRequestFactory()
+
+        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+
+            switch response.result {
+            case .success(let model):
+                print(model)
+                // let photos: [PhotoData] = photoItems.map { PhotoData(photoItem: $0) }
+                DispatchQueue.main.async { [weak self] in
+                    self?.goods = model
+                    self?.collectionView?.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }

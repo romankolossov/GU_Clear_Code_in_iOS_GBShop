@@ -36,7 +36,6 @@ class SignInView: UIScrollView {
     }
 
     private func addSubviews() {
-
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.text = "Somebody"
         userNameTextField.textColor = UIColor.userTextFieldTextColor
@@ -51,7 +50,6 @@ class SignInView: UIScrollView {
 
         self.addSubview(userNameTextField)
         self.addSubview(passwordTextField)
-
     }
 
     private func setupConstraints() {
