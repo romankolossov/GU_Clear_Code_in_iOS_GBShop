@@ -13,7 +13,7 @@ class UserData {
 
     // MARK: - Public properties)
 
-    var user: User
+    let user: User
 
     // MARK: - Initializers
 
