@@ -27,7 +27,7 @@ class GoodsCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Public methods
 
-    func lookConfigure(with good: CatalogDataResultElement) {
+    func lookConfigure(with good: GoodData) {
         idLabel.text = String(good.idProduct)
 
         productNameLabel.text = good.productName
@@ -41,10 +41,10 @@ class GoodsCollectionViewCell: UICollectionViewCell {
     private func configureCell() {
         self.backgroundColor = UIColor.goodsCellBackgroundColor
 
-        self.layer.borderWidth = 1.7
+        self.layer.borderWidth = CGFloat.goodCellBorderWidth
         self.layer.borderColor = UIColor.goodsCellborderColor.cgColor
 
-        self.layer.cornerRadius = CGFloat.goodCellHeight / 8.0
+        self.layer.cornerRadius = CGFloat.goodCellCornerRadius
 
         self.addSubviews()
         self.setupConstraints()
@@ -52,19 +52,19 @@ class GoodsCollectionViewCell: UICollectionViewCell {
 
     private func addSubviews() {
         idLabel.translatesAutoresizingMaskIntoConstraints = false
-        idLabel.textColor = UIColor.userLableTextColor
+        idLabel.textColor = UIColor.goodsLableTextColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.userLableFont
+        idLabel.font = UIFont.goodsLableFont
 
         productNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        productNameLabel.textColor = UIColor.userLableTextColor
+        productNameLabel.textColor = UIColor.goodsLableTextColor
         productNameLabel.textAlignment = .center
-        productNameLabel.font = UIFont.userLableFont
+        productNameLabel.font = UIFont.goodsLableFont
 
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        priceLabel.textColor = UIColor.userLableTextColor
+        priceLabel.textColor = UIColor.goodsLableTextColor
         priceLabel.textAlignment = .center
-        priceLabel.font = UIFont.userLableFont
+        priceLabel.font = UIFont.goodsLableFont
 
         self.contentView.addSubview(idLabel)
         self.contentView.addSubview(productNameLabel)

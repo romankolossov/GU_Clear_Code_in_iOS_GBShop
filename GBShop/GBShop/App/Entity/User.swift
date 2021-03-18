@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Codable and View model
+
 struct User: Codable {
     let id: Int
     let login: String

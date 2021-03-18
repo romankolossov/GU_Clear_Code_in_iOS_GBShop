@@ -158,8 +158,8 @@ class SignInViewController: UIViewController, AlertShowable {
     // MARK: Configure
 
     private func configureSubviews() {
-        let navigationBarHeight: CGFloat = 56.0
-        let signInButtonHeight: CGFloat = 56.0
+        let navigationBarHeight = CGFloat.navigationBarHeight
+        let signInButtonHeight = CGFloat.buttonHeight
 
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
@@ -184,7 +184,7 @@ class SignInViewController: UIViewController, AlertShowable {
         // for corners of the signUpButton will be rounded
 
         signInButton.frame.size.height = signInButtonHeight
-        signInButton.layer.cornerRadius = signInButton.frame.size.height / 4.8
+        signInButton.layer.cornerRadius = CGFloat.buttonCornerRadius
 
         // Add subviews
 

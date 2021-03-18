@@ -22,9 +22,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicGoodsCellIdentifier, for: indexPath) as? GoodsCollectionViewCell else { fatalError(description) }
 
-        let goodsElementData = goods[indexPath.row]
+        let goodData: GoodData = goods[indexPath.row]
 
-        cell.lookConfigure(with: goodsElementData)
+        cell.lookConfigure(with: goodData)
 
         return cell
     }

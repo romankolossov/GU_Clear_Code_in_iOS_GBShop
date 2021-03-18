@@ -29,10 +29,11 @@ extension UIColor {
 
     static let goodsCollectionViewBackgroundColor: UIColor = .black
 
-    // MARK: for goodsCollectionViewCell
+    // MARK: for Goods Collection View Cell
 
     static let goodsCellBackgroundColor: UIColor = .white
-    static let goodsCellborderColor: UIColor = .systemGreen
+    static let goodsCellborderColor: UIColor = tabBarTintColor
+    static let goodsLableTextColor: UIColor = userLableTextColor
 
     // MARK: - for Buttons in SignIn and SignOut VCs
 

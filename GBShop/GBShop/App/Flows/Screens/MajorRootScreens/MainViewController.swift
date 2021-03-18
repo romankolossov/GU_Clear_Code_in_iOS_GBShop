@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     var publicGoodsCellIdentifier: String {
         goodsCellIdentifier
     }
-    var goods: [CatalogDataResultElement] = []
+    var goods: [GoodData] = []
     var isLoading: Bool = false
 
     // MARK: - Private properties
@@ -140,10 +140,11 @@ class MainViewController: UIViewController {
                 print(model)
 
                 // MARK: TO DO
-                // let goods: [GoodData] = model.map { GoodData(goodItem: $0) }
+                let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
 
                 DispatchQueue.main.async { [weak self] in
-                    self?.goods = model
+                    self?.goods.removeAll()
+                    self?.goods = goods
                     self?.collectionView?.reloadData()
                 }
             case .failure(let error):

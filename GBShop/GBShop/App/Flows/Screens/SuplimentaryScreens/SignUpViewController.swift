@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.buttonBackgroundColor
-        button.layer.borderWidth = 1.7
+        button.layer.borderWidth = CGFloat.buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -157,8 +157,8 @@ class SignUpViewController: UIViewController, AlertShowable {
     // MARK: Configure
 
     private func configureSubviews() {
-        let navigationBarHeight: CGFloat = 56.0
-        let signUpButtonHeight: CGFloat = 56.0
+        let navigationBarHeight = CGFloat.navigationBarHeight
+        let signUpButtonHeight = CGFloat.buttonHeight
 
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
@@ -183,7 +183,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         // for corners of the signUpButton will be rounded
 
         signUpButton.frame.size.height = signUpButtonHeight
-        signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 4.8
+        signUpButton.layer.cornerRadius = CGFloat.buttonCornerRadius
 
         // Add subviews
 

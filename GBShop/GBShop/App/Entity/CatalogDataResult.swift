@@ -7,7 +7,21 @@
 
 import Foundation
 
-// MARK: - CatalogDataResultElement
+// MARK: - View model
+
+struct GoodData {
+    let idProduct: Int
+    let productName: String
+    let price: Int
+
+    init(resultElement: CatalogDataResultElement) {
+        self.idProduct = resultElement.idProduct
+        self.productName = resultElement.productName
+        self.price = resultElement.price
+    }
+}
+
+// MARK: - Catalog Data Result Element
 
 struct CatalogDataResultElement: Codable {
     let idProduct: Int

@@ -14,6 +14,10 @@ extension UIFont {
     static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
     static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
 
+    // MARK: for Goods Collection View Cell
+
+    static let goodsLableFont: UIFont = userLableFont
+
     // MARK: - for Alerts
 
     static let alertTitleFont: UIFont = .preferredFont(forTextStyle: .headline)
