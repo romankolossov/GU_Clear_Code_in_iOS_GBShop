@@ -17,12 +17,13 @@ class MainViewController: UIViewController {
         goodsCellIdentifier
     }
     var goods: [GoodData] = []
-    var isLoading: Bool = false
+    // var isLoading: Bool = false
 
     // MARK: - Private properties
 
     private var collectionView: UICollectionView?
     private let goodsCellIdentifier: String = "GoodsCellIdentifier"
+    private var refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
 
@@ -32,7 +33,9 @@ class MainViewController: UIViewController {
 
         configureMainVC()
         configureCollectionView()
+
         configureSubviews()
+        setupRefreshControl()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +57,12 @@ class MainViewController: UIViewController {
 
         signInViewController.modalPresentationStyle = .formSheet
         self.navigationController?.present(signInViewController, animated: true, completion: nil)
+    }
+
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        self.loadData { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
 
     // MARK: - Private methods
@@ -93,8 +102,8 @@ class MainViewController: UIViewController {
     }
 
     private func configureCollectionView() {
-
         // Custom layout
+        
         let layout = GoodsLayout()
 
         let safeArea = view.safeAreaLayoutGuide
@@ -129,8 +138,10 @@ class MainViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(collectionViewConstraints)
     }
+    
+    // MARK: Load data
 
-    private func loadData() {
+    private func loadData(completion: (() -> Void)? = nil) {
         let catalogDataFactory: CatalogDataRequestFactory = AppDelegate.requestFactory.makeCatalogDataRequestFactory()
 
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
@@ -139,18 +150,34 @@ class MainViewController: UIViewController {
             case .success(let model):
                 print(model)
 
-                // MARK: TO DO
                 let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
-
                 DispatchQueue.main.async { [weak self] in
                     self?.goods.removeAll()
                     self?.goods = goods
                     self?.collectionView?.reloadData()
+                    completion?()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+
+    // MARK: Pull-to-refresh pattern method
+
+    private func setupRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(
+            string: NSLocalizedString("reloadData", comment: ""),
+            attributes: [.font: UIFont.refreshControlFont]
+        )
+        refreshControl.tintColor = UIColor.refreshControlTintColor
+
+        refreshControl.addTarget(
+            self,
+            action: #selector(refresh(_:)),
+            for: .valueChanged
+        )
+        collectionView?.refreshControl = refreshControl
     }
 
 }

@@ -62,4 +62,8 @@ extension UIColor {
     static let alertTitleTextColor: UIColor = tabBarTintColor
     static let alertViewTintColor: UIColor = tabBarTintColor
 
+    // MARK: for Refresh Control
+
+    static let refreshControlTintColor: UIColor = .init(red: 210 / 255, green: 0 / 255, blue: 185 / 255, alpha: 1.0)
+
 }

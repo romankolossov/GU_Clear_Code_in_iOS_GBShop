@@ -92,3 +92,7 @@
 "close" = "Close";
 */
 
+// MARK: Refresh Control
+
+"reloadData" = "Загрузка данных...";
+
