@@ -79,6 +79,8 @@ class SignInViewController: UIViewController, AlertShowable {
 
     // MARK: - Actions
 
+    // MARK: Signin
+
     @objc private func signIn() {
         let signUpFactory: AuthRequestFactory = AppDelegate.requestFactory.makeAuthRequestFatory()
 
@@ -126,6 +128,8 @@ class SignInViewController: UIViewController, AlertShowable {
             }
         }
     }
+
+    // MARK: Keyboard
 
     @objc func keyboardWillBeShown(notification: Notification) {
         guard let userInfo = notification.userInfo else {
@@ -181,7 +185,7 @@ class SignInViewController: UIViewController, AlertShowable {
         ]
         navigationBar.barTintColor = UIColor.navigationBarTintColor
 
-        // for corners of the signUpButton will be rounded
+        // for corners of the signUpButton to be rounded
 
         signInButton.frame.size.height = signInButtonHeight
         signInButton.layer.cornerRadius = CGFloat.buttonCornerRadius

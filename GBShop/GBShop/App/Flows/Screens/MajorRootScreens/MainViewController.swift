@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
     private var collectionView: UICollectionView?
     private let goodsCellIdentifier: String = "GoodsCellIdentifier"
     private var refreshControl = UIRefreshControl()
+    private var navigationBar = UINavigationBar()
 
     // MARK: - Lifecycle
 
@@ -47,16 +48,24 @@ class MainViewController: UIViewController {
 
     @objc private func signUp() {
         let signUpViewController = SignUpViewController()
-
         signUpViewController.modalPresentationStyle = .formSheet
-        self.navigationController?.present(signUpViewController, animated: true, completion: nil)
+
+        self.navigationController?.present(
+            signUpViewController,
+            animated: true,
+            completion: nil
+        )
     }
 
     @objc private func signIn() {
         let signInViewController = SignInViewController()
-
         signInViewController.modalPresentationStyle = .formSheet
-        self.navigationController?.present(signInViewController, animated: true, completion: nil)
+
+        self.navigationController?.present(
+            signInViewController,
+            animated: true,
+            completion: nil
+        )
     }
 
     @objc private func refresh(_ sender: UIRefreshControl) {
@@ -71,6 +80,7 @@ class MainViewController: UIViewController {
 
     private func configureMainVC() {
         navigationItem.title = NSLocalizedString("mainVCName", comment: "GB Shop")
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -96,16 +106,12 @@ class MainViewController: UIViewController {
             action: #selector(signIn)
         )
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
     private func configureCollectionView() {
         // Custom layout
-        
-        let layout = GoodsLayout()
 
+        let layout = GoodsLayout()
         let safeArea = view.safeAreaLayoutGuide
 
         collectionView = UICollectionView(
@@ -113,12 +119,10 @@ class MainViewController: UIViewController {
             collectionViewLayout: layout
         )
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
 
         collectionView?.dataSource = self
         collectionView?.delegate = self
-
-        // collectionView?.prefetchDataSource = self
-        collectionView?.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
 
         collectionView?.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: publicGoodsCellIdentifier)
     }
@@ -127,7 +131,14 @@ class MainViewController: UIViewController {
         guard let collectionView = collectionView else {
             return
         }
+
+        // Add subviews
+        // Add an empty custom Navigation Bar to show Collection View Refresh Control correctly
+
+        view.addSubview(navigationBar)
         view.addSubview(collectionView)
+
+        // Set constraints
 
         let safeArea = view.safeAreaLayoutGuide
         let collectionViewConstraints = [
@@ -138,14 +149,13 @@ class MainViewController: UIViewController {
         ]
         NSLayoutConstraint.activate(collectionViewConstraints)
     }
-    
+
     // MARK: Load data
 
     private func loadData(completion: (() -> Void)? = nil) {
         let catalogDataFactory: CatalogDataRequestFactory = AppDelegate.requestFactory.makeCatalogDataRequestFactory()
 
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
-
             switch response.result {
             case .success(let model):
                 print(model)
@@ -163,7 +173,7 @@ class MainViewController: UIViewController {
         }
     }
 
-    // MARK: Pull-to-refresh pattern method
+    // MARK: Pull-to-refresh pattern
 
     private func setupRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(
