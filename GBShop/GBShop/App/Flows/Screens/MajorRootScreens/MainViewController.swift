@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
         goodsCellIdentifier
     }
     var goods: [GoodData] = []
-    // var isLoading: Bool = false
 
     // MARK: - Private properties
 
@@ -31,12 +30,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         configureMainVC()
-        configureCollectionView()
-
-        addSubviews()
-        setupRefreshControl()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +44,7 @@ class MainViewController: UIViewController {
         let signUpViewController = SignUpViewController()
         signUpViewController.modalPresentationStyle = .formSheet
 
-        self.navigationController?.present(
+        navigationController?.present(
             signUpViewController,
             animated: true,
             completion: nil
@@ -61,7 +55,7 @@ class MainViewController: UIViewController {
         let signInViewController = SignInViewController()
         signInViewController.modalPresentationStyle = .formSheet
 
-        self.navigationController?.present(
+        navigationController?.present(
             signInViewController,
             animated: true,
             completion: nil
@@ -79,17 +73,26 @@ class MainViewController: UIViewController {
     // MARK: Configure
 
     private func configureMainVC() {
-        navigationItem.title = NSLocalizedString("mainVCName", comment: "GB Shop")
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        navigationItem.title = NSLocalizedString("mainVCName", comment: "GB SHOP")
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        configureNavigationVC()
+        configureCollectionView()
+
+        addSubviews()
+        setupConstraints()
+        setupRefreshControl()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
         // Create registerNewUserItem and signInItem in Navigation Item of Navigation Bar
 
@@ -131,15 +134,19 @@ class MainViewController: UIViewController {
         guard let collectionView = collectionView else {
             return
         }
-        // Add subviews
-
-        // Add an empty custom Navigation Bar to show Collection View Refresh Control just upper the cells but not in Navigation Bar
-        // view.addSubview(navigationBar)
         view.addSubview(collectionView)
+        view.addSubview(navigationBar)
 
-        // Set constraints
+        // Add an empty custom Navigation Bar to show Collection View Refresh Control just above the cells but not in Navigation Bar
+        // view.addSubview(navigationBar)
+    }
 
+    private func setupConstraints() {
+        guard let collectionView = collectionView else {
+            return
+        }
         let safeArea = view.safeAreaLayoutGuide
+
         let collectionViewConstraints = [
             collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             collectionView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
