@@ -30,7 +30,6 @@ class SignInView: UIScrollView {
 
     private func configureUI() {
         self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
-
         self.addSubviews()
         self.setupConstraints()
     }

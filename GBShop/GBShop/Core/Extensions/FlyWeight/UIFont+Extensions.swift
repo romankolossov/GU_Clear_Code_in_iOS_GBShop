@@ -9,20 +9,22 @@ import UIKit
 
 extension UIFont {
 
-    // MARK: - for User Data
+    // MARK: - Main View Controller
+
+    // MARK: Goods Collection View Cell
+
+    static let goodsLableFont: UIFont = userLableFont
+
+    // MARK: - User View Controller
 
     static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
     static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
 
-    // MARK: for Goods Collection View Cell
-
-    static let goodsLableFont: UIFont = userLableFont
-
-    // MARK: - for Alerts
+    // MARK: - Alerts
 
     static let alertTitleFont: UIFont = .preferredFont(forTextStyle: .headline)
 
-    // MARK: for Refresh Control
+    // MARK: Refresh Control
 
     static let refreshControlFont: UIFont = .systemFont(ofSize: 12)
 }

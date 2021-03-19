@@ -12,10 +12,9 @@ class GoodsLayout: UICollectionViewLayout {
     // MARK: - Private properties
 
     private let cellHeight: CGFloat = .goodCellHeight
+    private let columnsCount: Int = .columnsCount
 
-    private let columnsCount: Int = 2
     private var totalCellHeight: CGFloat = 0.0
-
     private var cachedAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
 
     // MARK: - Major methods

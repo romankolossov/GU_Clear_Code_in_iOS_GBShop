@@ -92,7 +92,7 @@
 "close" = "Close";
 */
 
-// MARK: Refresh Control
+// Refresh Control
 
-"reloadData" = "Загрузка данных...";
+"reloadData" = "Обновление ассортимента...";
 

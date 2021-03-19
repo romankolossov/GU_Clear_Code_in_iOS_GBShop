@@ -21,9 +21,8 @@ class MainViewController: UIViewController {
     // MARK: - Private properties
 
     private let goodsCellIdentifier: String = "GoodsCellIdentifier"
+    private let refreshControl = UIRefreshControl()
     private var collectionView: UICollectionView?
-    private var refreshControl = UIRefreshControl()
-    private var navigationBar = UINavigationBar()
 
     // MARK: - Lifecycle
 
@@ -134,11 +133,10 @@ class MainViewController: UIViewController {
         guard let collectionView = collectionView else {
             return
         }
-        view.addSubview(collectionView)
-        view.addSubview(navigationBar)
-
-        // Add an empty custom Navigation Bar to show Collection View Refresh Control just above the cells but not in Navigation Bar
+        // Add an empty custom Navigation Bar before adding Collection View to show Collection View Refresh Control just above the cells but not in Navigation Bar
+        // let navigationBar = UINavigationBar()
         // view.addSubview(navigationBar)
+        view.addSubview(collectionView)
     }
 
     private func setupConstraints() {

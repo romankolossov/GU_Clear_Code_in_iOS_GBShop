@@ -11,17 +11,19 @@ extension CGFloat {
 
     // MARK: - Main View Controller
 
-    // MARK: for Goods Collection View Cell
+    // MARK: Goods Collection View Cell
 
     static let goodCellHeight: CGFloat = 120.0
     static let goodCellBorderWidth: CGFloat = 1.7
     static let goodCellCornerRadius: CGFloat = goodCellHeight / 8.8
 
-    // MARK: - for Navigation Bar in SignIn and SignOut VCs
+    // MARK: - SignIn and SignOut VCs
+
+    // MARK: Navigation Bar
 
     static let navigationBarHeight: CGFloat = 56.0
 
-    // MARK: - for Buttons in SignIn and SignOut VCs
+    // MARK: Buttons
 
     static let buttonHeight: CGFloat = navigationBarHeight
     static let buttonBorderWidth: CGFloat = goodCellBorderWidth

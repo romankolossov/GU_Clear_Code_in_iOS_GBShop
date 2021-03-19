@@ -92,6 +92,6 @@
 "close" = "Close";
 */
 
-// MARK: Refresh Control
+// Refresh Control
 
-"reloadData" = "Reloading data...";
+"reloadData" = "Reloading catalog...";
