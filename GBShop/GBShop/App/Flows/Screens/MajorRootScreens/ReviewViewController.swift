@@ -16,7 +16,7 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-        self.configureReviewVC()
+        configureReviewVC()
     }
 
     // MARK: - Actions

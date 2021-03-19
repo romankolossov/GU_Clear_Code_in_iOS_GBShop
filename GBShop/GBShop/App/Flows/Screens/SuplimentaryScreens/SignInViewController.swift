@@ -11,19 +11,19 @@ class SignInViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
-    private let signInView: SignInView = {
+    private lazy var signInView: SignInView = {
         let view = SignInView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let signInButton: UIButton = {
+    private lazy var signInButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("toSignIn", comment: "Sign in"), for: .normal)
         button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
         button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = UIColor.buttonBackgroundColor
-        button.layer.borderWidth = 1.7
+        button.layer.borderWidth = CGFloat.buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class SignInViewController: UIViewController, AlertShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureSubviews()
+        configureSignInVC()
 
         // MARK: Targets
 
@@ -136,8 +136,8 @@ class SignInViewController: UIViewController, AlertShowable {
             return
         }
         let info = userInfo as NSDictionary
-
         let keyboardSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue)?.cgRectValue.size
+
         let contentInsets = UIEdgeInsets(
             top: 0.0,
             left: 0.0,
@@ -161,17 +161,19 @@ class SignInViewController: UIViewController, AlertShowable {
 
     // MARK: Configure
 
-    private func configureSubviews() {
-        let navigationBarHeight = CGFloat.navigationBarHeight
-        let signInButtonHeight = CGFloat.buttonHeight
+    private func configureSignInVC() {
+        addSubviews()
+        setupConstraints()
+    }
 
+    private func addSubviews() {
         // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
 
         let frame = CGRect(
             x: 0.0,
             y: 0.0,
-            width: self.view.bounds.size.width,
-            height: navigationBarHeight
+            width: view.bounds.size.width,
+            height: .navigationBarHeight
         )
         let navigationItem = UINavigationItem()
         navigationItem.title = NSLocalizedString("signin", comment: "")
@@ -182,24 +184,25 @@ class SignInViewController: UIViewController, AlertShowable {
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
         ]
-        navigationBar.barTintColor = UIColor.navigationBarTintColor
+        navigationBar.barTintColor = .navigationBarTintColor
 
         // for corners of the signUpButton to be rounded
 
-        signInButton.frame.size.height = signInButtonHeight
-        signInButton.layer.cornerRadius = CGFloat.buttonCornerRadius
+        signInButton.frame.size.height = .buttonHeight
+        signInButton.layer.cornerRadius = .buttonCornerRadius
 
         // Add subviews
 
         view.addSubview(signInView)
         view.addSubview(signInButton)
         view.addSubview(navigationBar)
+    }
 
-        // Set constraints
-
+    private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
+
         let signInViewConstraints = [
-            signInView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
+            signInView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: .navigationBarHeight),
             signInView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             signInView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             signInView.bottomAnchor.constraint(equalTo: signInButton.topAnchor)
@@ -207,7 +210,7 @@ class SignInViewController: UIViewController, AlertShowable {
         let signInButtonConstraints = [
             signInButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             signInButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            signInButton.heightAnchor.constraint(equalToConstant: signInButtonHeight),
+            signInButton.heightAnchor.constraint(equalToConstant: .buttonHeight),
             signInButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
         NSLayoutConstraint.activate(signInViewConstraints)

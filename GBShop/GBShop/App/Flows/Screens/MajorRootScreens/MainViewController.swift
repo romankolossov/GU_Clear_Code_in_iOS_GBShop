@@ -21,8 +21,8 @@ class MainViewController: UIViewController {
 
     // MARK: - Private properties
 
-    private var collectionView: UICollectionView?
     private let goodsCellIdentifier: String = "GoodsCellIdentifier"
+    private var collectionView: UICollectionView?
     private var refreshControl = UIRefreshControl()
     private var navigationBar = UINavigationBar()
 
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         configureMainVC()
         configureCollectionView()
 
-        configureSubviews()
+        addSubviews()
         setupRefreshControl()
     }
 
@@ -127,15 +127,14 @@ class MainViewController: UIViewController {
         collectionView?.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: publicGoodsCellIdentifier)
     }
 
-    private func configureSubviews() {
+    private func addSubviews() {
         guard let collectionView = collectionView else {
             return
         }
-
         // Add subviews
-        // Add an empty custom Navigation Bar to show Collection View Refresh Control correctly
 
-        view.addSubview(navigationBar)
+        // Add an empty custom Navigation Bar to show Collection View Refresh Control just upper the cells but not in Navigation Bar
+        // view.addSubview(navigationBar)
         view.addSubview(collectionView)
 
         // Set constraints

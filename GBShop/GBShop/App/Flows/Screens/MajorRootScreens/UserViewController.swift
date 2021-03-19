@@ -13,7 +13,7 @@ class UserViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
-    private let userView: UserView = {
+    private lazy var userView: UserView = {
         let view = UserView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -27,8 +27,8 @@ class UserViewController: UIViewController, AlertShowable {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        self.configureUserVC()
-        self.configureSubviews()
+        configureUserVC()
+        addSubviews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -134,7 +134,7 @@ class UserViewController: UIViewController, AlertShowable {
         userView.emailLabel.text = userData.user.login
     }
 
-    private func configureSubviews() {
+    private func addSubviews() {
         // Add subviews
         view.addSubview(userView)
 

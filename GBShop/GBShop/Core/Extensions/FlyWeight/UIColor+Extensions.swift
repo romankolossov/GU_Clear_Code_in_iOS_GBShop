@@ -64,6 +64,6 @@ extension UIColor {
 
     // MARK: for Refresh Control
 
-    static let refreshControlTintColor: UIColor = tabBarTintColor
+    static let refreshControlTintColor: UIColor = .white
 
 }

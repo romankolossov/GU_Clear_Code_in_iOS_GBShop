@@ -29,7 +29,6 @@ class GoodsCollectionViewCell: UICollectionViewCell {
 
     func lookConfigure(with good: GoodData) {
         idLabel.text = String(good.idProduct)
-
         productNameLabel.text = good.productName
         priceLabel.text = String(good.price)
     }
@@ -43,38 +42,39 @@ class GoodsCollectionViewCell: UICollectionViewCell {
 
         self.layer.borderWidth = CGFloat.goodCellBorderWidth
         self.layer.borderColor = UIColor.goodsCellborderColor.cgColor
-
         self.layer.cornerRadius = CGFloat.goodCellCornerRadius
 
-        self.addSubviews()
-        self.setupConstraints()
+        addSubviews()
+        setupConstraints()
     }
 
     private func addSubviews() {
-        idLabel.translatesAutoresizingMaskIntoConstraints = false
         idLabel.textColor = UIColor.goodsLableTextColor
         idLabel.textAlignment = .center
         idLabel.font = UIFont.goodsLableFont
+        idLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        productNameLabel.translatesAutoresizingMaskIntoConstraints = false
         productNameLabel.textColor = UIColor.goodsLableTextColor
         productNameLabel.textAlignment = .center
         productNameLabel.font = UIFont.goodsLableFont
+        productNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.textColor = UIColor.goodsLableTextColor
         priceLabel.textAlignment = .center
         priceLabel.font = UIFont.goodsLableFont
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        self.contentView.addSubview(idLabel)
-        self.contentView.addSubview(productNameLabel)
-        self.contentView.addSubview(priceLabel)
+        // Add subviews
+
+        contentView.addSubview(idLabel)
+        contentView.addSubview(productNameLabel)
+        contentView.addSubview(priceLabel)
     }
 
     private func setupConstraints() {
         let indent: CGFloat = 11.0
+        let safeArea = contentView.safeAreaLayoutGuide
 
-        let safeArea = self.contentView.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             idLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: indent),
             idLabel.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: indent),

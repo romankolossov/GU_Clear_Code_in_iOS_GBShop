@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-        self.configureSearchVC()
+        configureSearchVC()
     }
 
     // MARK: - Private methods

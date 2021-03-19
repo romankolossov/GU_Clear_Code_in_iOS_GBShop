@@ -16,7 +16,7 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-        self.configureCartVC()
+        configureCartVC()
     }
 
     // MARK: - Actions
