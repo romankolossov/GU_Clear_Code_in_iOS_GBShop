@@ -16,7 +16,6 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         self.configureReviewVC()
     }
 
@@ -33,6 +32,7 @@ class ReviewViewController: UIViewController {
 
     private func configureReviewVC() {
         navigationItem.title = NSLocalizedString("reviewVCName", comment: "Review")
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -52,9 +52,6 @@ class ReviewViewController: UIViewController {
             action: #selector(addReview)
         )
         navigationItem.rightBarButtonItems = [addReviewItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
 }

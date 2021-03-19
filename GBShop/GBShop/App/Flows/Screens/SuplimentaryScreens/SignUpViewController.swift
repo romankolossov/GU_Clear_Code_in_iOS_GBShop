@@ -79,6 +79,8 @@ class SignUpViewController: UIViewController, AlertShowable {
 
     // MARK: - Actions
 
+    // MARK: Signup
+
     @objc private func signUp() {
         let signUpFactory: SignUpRequestFactory = AppDelegate.requestFactory.makeSignUpRequestFactory()
 
@@ -91,13 +93,13 @@ class SignUpViewController: UIViewController, AlertShowable {
             creditCard: signUpView.creditCardTextField.text ?? "",
             bio: signUpView.bioTextField.text ?? ""
         ) { response in
-
             switch response.result {
             case .success(let model):
                 let resultWithSignUpSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
+
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
                     }
@@ -125,6 +127,8 @@ class SignUpViewController: UIViewController, AlertShowable {
             }
         }
     }
+
+    // MARK: Keyboard
 
     @objc func keyboardWillBeShown(notification: Notification) {
         guard let userInfo = notification.userInfo else {
@@ -169,7 +173,6 @@ class SignUpViewController: UIViewController, AlertShowable {
             height: navigationBarHeight
         )
         let navigationItem = UINavigationItem()
-
         navigationItem.title = NSLocalizedString("signup", comment: "")
 
         navigationBar = UINavigationBar(frame: frame)
@@ -180,7 +183,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         ]
         navigationBar.barTintColor = UIColor.navigationBarTintColor
 
-        // for corners of the signUpButton will be rounded
+        // for corners of the signUpButton to be rounded
 
         signUpButton.frame.size.height = signUpButtonHeight
         signUpButton.layer.cornerRadius = CGFloat.buttonCornerRadius

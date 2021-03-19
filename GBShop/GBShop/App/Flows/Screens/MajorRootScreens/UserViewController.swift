@@ -34,8 +34,7 @@ class UserViewController: UIViewController, AlertShowable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         userData = UserData.getUser()
-
-        configureUserVCDataLook()
+        configureUserVCLook()
     }
 
     // MARK: - Actions
@@ -49,13 +48,13 @@ class UserViewController: UIViewController, AlertShowable {
         let logoutFactory: LogoutRequestFactory = AppDelegate.requestFactory.makeLogoutRequestFactory()
 
         logoutFactory.logout(id: id) { response in
-
             switch response.result {
             case .success(let model):
                 let resultWithLogoutSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
+
                 DispatchQueue.main.async { [weak self] in
                     guard model.result == resultWithLogoutSuccess else {
                         self?.showAlert(
@@ -67,8 +66,8 @@ class UserViewController: UIViewController, AlertShowable {
                         return
                     }
                     UserData.clearUser()
-
                     self?.viewDidAppear(true)
+
                     self?.showAlert(
                         title: NSLocalizedString("logout", comment: ""),
                         message: NSLocalizedString("logoutSuccess", comment: ""),
@@ -96,6 +95,7 @@ class UserViewController: UIViewController, AlertShowable {
 
     private func configureUserVC() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
@@ -120,25 +120,9 @@ class UserViewController: UIViewController, AlertShowable {
             action: #selector(changeUserData)
         )
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
-    private func configureSubviews() {
-        view.addSubview(userView)
-
-        let safeArea = view.safeAreaLayoutGuide
-        let userViewConstraints = [
-            userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            userView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            userView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(userViewConstraints)
-    }
-
-    private func configureUserVCDataLook() {
+    private func configureUserVCLook() {
         guard let userData = userData else {
             return
         }
@@ -148,6 +132,22 @@ class UserViewController: UIViewController, AlertShowable {
         userView.userNameLabel.text = userData.user.name
         userView.passwordLabel.text = userData.user.lastname
         userView.emailLabel.text = userData.user.login
+    }
+
+    private func configureSubviews() {
+        // Add subviews
+        view.addSubview(userView)
+
+        // Set constraints
+
+        let safeArea = view.safeAreaLayoutGuide
+        let userViewConstraints = [
+            userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            userView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            userView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(userViewConstraints)
     }
 
 }

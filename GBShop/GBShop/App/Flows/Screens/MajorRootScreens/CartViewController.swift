@@ -16,7 +16,6 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         self.configureCartVC()
     }
 
@@ -33,6 +32,7 @@ class CartViewController: UIViewController {
 
     private func configureCartVC() {
         navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -52,9 +52,6 @@ class CartViewController: UIViewController {
             action: #selector(payBasket)
         )
         navigationItem.rightBarButtonItems = [payBasketItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
 }

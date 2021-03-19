@@ -16,7 +16,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         self.configureSearchVC()
     }
 
@@ -26,6 +25,7 @@ class SearchViewController: UIViewController {
 
     private func configureSearchVC() {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
+        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -35,9 +35,6 @@ class SearchViewController: UIViewController {
 
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
 }

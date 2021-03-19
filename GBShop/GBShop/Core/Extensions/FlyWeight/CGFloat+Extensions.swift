@@ -15,7 +15,7 @@ extension CGFloat {
 
     static let goodCellHeight: CGFloat = 120.0
     static let goodCellBorderWidth: CGFloat = 1.7
-    static let goodCellCornerRadius: CGFloat = goodCellHeight / 4.8
+    static let goodCellCornerRadius: CGFloat = goodCellHeight / 8.8
 
     // MARK: - for Navigation Bar in SignIn and SignOut VCs
 

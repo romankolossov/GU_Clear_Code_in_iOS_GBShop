@@ -23,7 +23,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicGoodsCellIdentifier, for: indexPath) as? GoodsCollectionViewCell else { fatalError(description) }
 
         let goodData: GoodData = goods[indexPath.row]
-
         cell.lookConfigure(with: goodData)
 
         return cell

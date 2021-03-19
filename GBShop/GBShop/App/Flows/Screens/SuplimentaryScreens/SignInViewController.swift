@@ -88,13 +88,13 @@ class SignInViewController: UIViewController, AlertShowable {
             userName: signInView.userNameTextField.text ?? "",
             password: signInView.passwordTextField.text ?? ""
         ) { response in
-
             switch response.result {
             case .success(let model):
                 let resultWithSignInSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
+
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
                     }
@@ -174,7 +174,6 @@ class SignInViewController: UIViewController, AlertShowable {
             height: navigationBarHeight
         )
         let navigationItem = UINavigationItem()
-
         navigationItem.title = NSLocalizedString("signin", comment: "")
 
         navigationBar = UINavigationBar(frame: frame)
