@@ -23,7 +23,6 @@ class CartViewController: UIViewController {
 
     @objc private func payBasket() {
         // MARK: TO DO
-
     }
 
     // MARK: - Private methods
@@ -33,7 +32,6 @@ class CartViewController: UIViewController {
     private func configureCartVC() {
         navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
-
         configureNavigationVC()
     }
 

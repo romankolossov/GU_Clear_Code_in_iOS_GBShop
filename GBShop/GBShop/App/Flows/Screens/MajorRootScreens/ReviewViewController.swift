@@ -23,7 +23,6 @@ class ReviewViewController: UIViewController {
 
     @objc private func addReview() {
         // MARK: TO DO
-
     }
 
     // MARK: - Private methods
@@ -33,7 +32,6 @@ class ReviewViewController: UIViewController {
     private func configureReviewVC() {
         navigationItem.title = NSLocalizedString("reviewVCName", comment: "Review")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
-
         configureNavigationVC()
     }
 

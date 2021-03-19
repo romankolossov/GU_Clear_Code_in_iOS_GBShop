@@ -26,9 +26,7 @@ class UserViewController: UIViewController, AlertShowable {
     override func viewDidLoad() {
         super.viewDidLoad()
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         configureUserVC()
-        addSubviews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -86,24 +84,41 @@ class UserViewController: UIViewController, AlertShowable {
 
     @objc private func changeUserData() {
         // MARK: TO DO
-
     }
 
     // MARK: - Private methods
 
     // MARK: Configure
 
-    private func configureUserVC() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
+    private func configureUserVCLook() {
+        guard let userData = userData else {
+            return
+        }
+        navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        userView.idLabel.text = String(userData.user.id)
+        userView.userNameLabel.text = userData.user.name
+        userView.passwordLabel.text = userData.user.lastname
+        userView.emailLabel.text = userData.user.login
+    }
+
+    private func configureUserVC() {
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        configureNavigationVC()
+
+        addSubviews()
+        setupConstraints()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
         // Create logoutItem and changeUserDataItem in Navigation Item of Navigation Bar
 
@@ -122,25 +137,13 @@ class UserViewController: UIViewController, AlertShowable {
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
     }
 
-    private func configureUserVCLook() {
-        guard let userData = userData else {
-            return
-        }
-        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
-
-        userView.idLabel.text = String(userData.user.id)
-        userView.userNameLabel.text = userData.user.name
-        userView.passwordLabel.text = userData.user.lastname
-        userView.emailLabel.text = userData.user.login
+    private func addSubviews() {
+        view.addSubview(userView)
     }
 
-    private func addSubviews() {
-        // Add subviews
-        view.addSubview(userView)
-
-        // Set constraints
-
+    private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
+
         let userViewConstraints = [
             userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             userView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),

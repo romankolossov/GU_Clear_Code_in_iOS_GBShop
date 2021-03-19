@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
     // MARK: Configure
 
     private func configureMainVC() {
-        navigationItem.title = NSLocalizedString("mainVCName", comment: "GB SHOP")
+        navigationItem.title = NSLocalizedString("mainVCName", comment: "GBBERRIES")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         configureNavigationVC()

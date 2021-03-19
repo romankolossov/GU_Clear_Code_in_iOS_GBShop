@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
     private func configureSearchVC() {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
-
         configureNavigationVC()
     }
 
