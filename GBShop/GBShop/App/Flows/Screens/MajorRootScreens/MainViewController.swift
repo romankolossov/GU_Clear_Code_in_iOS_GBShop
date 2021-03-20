@@ -9,7 +9,7 @@ import UIKit
 
 // for Sign in and Sign up
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISearchResultsUpdating {
 
     // MARK: - Public properties
 
@@ -17,12 +17,20 @@ class MainViewController: UIViewController {
         goodsCellIdentifier
     }
     var goods: [GoodData] = []
+    var searchedGoods: [GoodData] = []
 
     // MARK: - Private properties
 
     private let goodsCellIdentifier: String = "GoodsCellIdentifier"
     private let refreshControl = UIRefreshControl()
     private var collectionView: UICollectionView?
+    private (set) lazy var searchController: UISearchController = {
+        let sc = UISearchController()
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.searchResultsUpdater = self
+        sc.searchBar.sizeToFit()
+        return sc
+    }()
 
     // MARK: - Lifecycle
 
@@ -108,6 +116,7 @@ class MainViewController: UIViewController {
             action: #selector(signIn)
         )
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
+        navigationItem.searchController = searchController
     }
 
     private func configureCollectionView() {
@@ -192,6 +201,23 @@ class MainViewController: UIViewController {
             for: .valueChanged
         )
         collectionView?.refreshControl = refreshControl
+    }
+
+    // MARK: - UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            return
+        }
+        // let predicate = NSPredicate(format: "SELF.productName CONTAINS[cd] %@", text as CVarArg)
+        let predicate = NSPredicate(format: "SELF.productName CONTAINS[cd] %@", text)
+
+        let nsGoods = NSArray(array: goods)
+        searchedGoods = nsGoods.filtered(using: predicate) as? [GoodData] ?? []
+
+        // searchedGoods = (goods as NSArray).filtered(using: predicate) as? [GoodData] ?? []
+
+        collectionView?.reloadData()
     }
 
 }

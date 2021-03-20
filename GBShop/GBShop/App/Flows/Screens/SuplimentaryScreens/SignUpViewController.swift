@@ -20,11 +20,13 @@ class SignUpViewController: UIViewController, AlertShowable {
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("toSignUp", comment: "Sign up"), for: .normal)
-        button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
-        button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
-        button.backgroundColor = UIColor.buttonBackgroundColor
-        button.layer.borderWidth = CGFloat.buttonBorderWidth
+        button.setTitleColor(.buttonTitleColor, for: .normal)
+        button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
+        button.backgroundColor = .buttonBackgroundColor
+        button.layer.borderWidth = .buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
+        button.frame.size.height = .buttonHeight
+        button.layer.cornerRadius = .buttonCornerRadius
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -184,11 +186,6 @@ class SignUpViewController: UIViewController, AlertShowable {
             NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
         ]
         navigationBar.barTintColor = .navigationBarTintColor
-
-        // for corners of the signUpButton to be rounded
-
-        signUpButton.frame.size.height = .buttonHeight
-        signUpButton.layer.cornerRadius = .buttonCornerRadius
 
         // Add subviews
 

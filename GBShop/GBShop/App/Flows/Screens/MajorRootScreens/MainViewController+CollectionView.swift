@@ -16,13 +16,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        goods.count
+        guard searchController.isActive && !searchedGoods.isEmpty else {
+            return goods.count
+        }
+        return searchedGoods.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: publicGoodsCellIdentifier, for: indexPath) as? GoodsCollectionViewCell else { fatalError(description) }
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: publicGoodsCellIdentifier,
+                for: indexPath) as? GoodsCollectionViewCell else {
+            fatalError(description)
+        }
+        let goodData: GoodData = searchController.isActive && !searchedGoods.isEmpty ?
+            searchedGoods[indexPath.row] : goods[indexPath.row]
 
-        let goodData: GoodData = goods[indexPath.row]
         cell.lookConfigure(with: goodData)
 
         return cell
