@@ -41,46 +41,53 @@ class SignUpView: UIScrollView {
 
     private func addSubviews() {
         idTextField.translatesAutoresizingMaskIntoConstraints = false
-        idTextField.text = "123"
-        idTextField.textColor = UIColor.userTextFieldTextColor
+        idTextField.placeholder = "id"
+        idTextField.textColor = .userTextFieldTextColor
         idTextField.textAlignment = .left
         idTextField.font = UIFont.userTextFieldFont
+        idTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        userNameTextField.text = "Somebody"
-        userNameTextField.textColor = UIColor.userTextFieldTextColor
+        userNameTextField.placeholder = "User name"
+        userNameTextField.textColor = .userTextFieldTextColor
         userNameTextField.textAlignment = .left
-        userNameTextField.font = UIFont.userTextFieldFont
+        userNameTextField.font = .userTextFieldFont
+        userNameTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.text = "mypassword"
-        passwordTextField.textColor = UIColor.userTextFieldTextColor
+        passwordTextField.placeholder = "Password"
+        passwordTextField.textColor = .userTextFieldTextColor
         passwordTextField.textAlignment = .left
-        passwordTextField.font = UIFont.userTextFieldFont
+        passwordTextField.font = .userTextFieldFont
+        passwordTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.text = "some@some.ru"
-        emailTextField.textColor = UIColor.userTextFieldTextColor
+        emailTextField.placeholder = "E-mail"
+        emailTextField.textColor = .userTextFieldTextColor
         emailTextField.textAlignment = .left
-        emailTextField.font = UIFont.userTextFieldFont
+        emailTextField.font = .userTextFieldFont
+        emailTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         genderTextField.translatesAutoresizingMaskIntoConstraints = false
-        genderTextField.text = "m"
-        genderTextField.textColor = UIColor.userTextFieldTextColor
+        genderTextField.placeholder = "Gender"
+        genderTextField.textColor = .userTextFieldTextColor
         genderTextField.textAlignment = .left
-        genderTextField.font = UIFont.userTextFieldFont
+        genderTextField.font = .userTextFieldFont
+        genderTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         creditCardTextField.translatesAutoresizingMaskIntoConstraints = false
-        creditCardTextField.text = "9872389-2424-234224-234"
-        creditCardTextField.textColor = UIColor.userTextFieldTextColor
+        creditCardTextField.placeholder = "Credit card number"
+        creditCardTextField.textColor = .userTextFieldTextColor
         creditCardTextField.textAlignment = .left
-        creditCardTextField.font = UIFont.userTextFieldFont
+        creditCardTextField.font = .userTextFieldFont
+        creditCardTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         bioTextField.translatesAutoresizingMaskIntoConstraints = false
-        bioTextField.text = "This is good! I think I will switch to another language"
-        bioTextField.textColor = UIColor.userTextFieldTextColor
+        bioTextField.placeholder = "Note: You may leave the fields blank"
+        bioTextField.textColor = .userTextFieldTextColor
         bioTextField.textAlignment = .left
-        bioTextField.font = UIFont.userTextFieldFont
+        bioTextField.font = .userTextFieldFont
+        bioTextField.backgroundColor = .userTextFieldTextBackgroundColor
 
         self.addSubview(idTextField)
         self.addSubview(userNameTextField)

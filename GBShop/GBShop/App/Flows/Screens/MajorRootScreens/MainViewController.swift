@@ -13,24 +13,37 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
 
     // MARK: - Public properties
 
-    var publicGoodsCellIdentifier: String {
-        goodsCellIdentifier
-    }
+    let goodsCellIdentifier: String = "GoodsCellIdentifier"
     var goods: [GoodData] = []
     var searchedGoods: [GoodData] = []
 
     // MARK: - Private properties
 
-    private let goodsCellIdentifier: String = "GoodsCellIdentifier"
-    private let refreshControl = UIRefreshControl()
-    private var collectionView: UICollectionView?
+    private (set) lazy var collectionView: UICollectionView = {
+        let layout = GoodsLayout()
+        let safeArea = view.safeAreaLayoutGuide
+
+        let cv = UICollectionView(
+            frame: safeArea.layoutFrame,
+            collectionViewLayout: layout
+        )
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
+
+        cv.dataSource = self
+        cv.delegate = self
+
+        cv.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: goodsCellIdentifier)
+        return cv
+    }()
     private (set) lazy var searchController: UISearchController = {
         let sc = UISearchController()
         sc.obscuresBackgroundDuringPresentation = false
         sc.searchResultsUpdater = self
-        sc.searchBar.sizeToFit()
+        sc.searchBar.placeholder = "Type good to search"
         return sc
     }()
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
 
@@ -84,8 +97,6 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
 
         configureNavigationVC()
-        configureCollectionView()
-
         addSubviews()
         setupConstraints()
         setupRefreshControl()
@@ -119,29 +130,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
         navigationItem.searchController = searchController
     }
 
-    private func configureCollectionView() {
-        // Custom layout
-
-        let layout = GoodsLayout()
-        let safeArea = view.safeAreaLayoutGuide
-
-        collectionView = UICollectionView(
-            frame: safeArea.layoutFrame,
-            collectionViewLayout: layout
-        )
-        collectionView?.translatesAutoresizingMaskIntoConstraints = false
-        collectionView?.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
-
-        collectionView?.dataSource = self
-        collectionView?.delegate = self
-
-        collectionView?.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: publicGoodsCellIdentifier)
-    }
-
     private func addSubviews() {
-        guard let collectionView = collectionView else {
-            return
-        }
         // Add an empty custom Navigation Bar before adding Collection View to show Collection View Refresh Control just above the cells but not in Navigation Bar
         // let navigationBar = UINavigationBar()
         // view.addSubview(navigationBar)
@@ -149,9 +138,6 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
     }
 
     private func setupConstraints() {
-        guard let collectionView = collectionView else {
-            return
-        }
         let safeArea = view.safeAreaLayoutGuide
 
         let collectionViewConstraints = [
@@ -177,7 +163,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
                 DispatchQueue.main.async { [weak self] in
                     self?.goods.removeAll()
                     self?.goods = goods
-                    self?.collectionView?.reloadData()
+                    self?.collectionView.reloadData()
                     completion?()
                 }
             case .failure(let error):
@@ -200,7 +186,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
             action: #selector(refresh(_:)),
             for: .valueChanged
         )
-        collectionView?.refreshControl = refreshControl
+        collectionView.refreshControl = refreshControl
     }
 
     // MARK: - UISearchResultsUpdating
@@ -217,7 +203,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
 
         // searchedGoods = (goods as NSArray).filtered(using: predicate) as? [GoodData] ?? []
 
-        collectionView?.reloadData()
+        collectionView.reloadData()
     }
 
 }

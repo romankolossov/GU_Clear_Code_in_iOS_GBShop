@@ -48,6 +48,7 @@ extension UIColor {
 
     static let userLableTextColor: UIColor = .systemGray3
     static let userTextFieldTextColor: UIColor = .systemGray3
+    static let userTextFieldTextBackgroundColor: UIColor = .init(white: 0.48, alpha: 0.26)
 
     // MARK: - for the rest Views
 

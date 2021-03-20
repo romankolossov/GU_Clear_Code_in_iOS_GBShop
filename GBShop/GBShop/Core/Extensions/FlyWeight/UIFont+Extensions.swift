@@ -13,12 +13,12 @@ extension UIFont {
 
     // MARK: Goods Collection View Cell
 
-    static let goodsLableFont: UIFont = userLableFont
+    static let goodsLableFont: UIFont = .preferredFont(forTextStyle: .headline)
 
     // MARK: - User View Controller
 
-    static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
-    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
+    static let userLableFont: UIFont = .preferredFont(forTextStyle: .body)
+    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .body)
 
     // MARK: - Alerts
 
@@ -26,5 +26,5 @@ extension UIFont {
 
     // MARK: Refresh Control
 
-    static let refreshControlFont: UIFont = .systemFont(ofSize: 12)
+    static let refreshControlFont: UIFont = .systemFont(ofSize: 11)
 }

@@ -24,22 +24,29 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: publicGoodsCellIdentifier,
-                for: indexPath) as? GoodsCollectionViewCell else {
+                withReuseIdentifier: goodsCellIdentifier,
+                for: indexPath
+        ) as? GoodsCollectionViewCell else {
             fatalError(description)
         }
         let goodData: GoodData = searchController.isActive && !searchedGoods.isEmpty ?
             searchedGoods[indexPath.row] : goods[indexPath.row]
 
         cell.lookConfigure(with: goodData)
-
         return cell
     }
 
     // MARK: - UICollectionViewDelegate protocol methods
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        guard searchController.isActive && !searchedGoods.isEmpty else {
+            print(goods[indexPath.row])
+            // TO DO send via delegate good data to good details screen
+            return
+        }
+        // TO DO send via delegate searched good data to good details screen
+        print(searchedGoods[indexPath.row])
+        searchController.isActive = false
     }
 
 }
