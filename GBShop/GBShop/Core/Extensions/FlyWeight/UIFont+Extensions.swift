@@ -15,10 +15,13 @@ extension UIFont {
 
     static let goodsLableFont: UIFont = .preferredFont(forTextStyle: .headline)
 
-    // MARK: - User View Controller
+    // MARK: - SignIn and SignUp VCs
+
+    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .body)
+
+    // MARK: - User VC
 
     static let userLableFont: UIFont = .preferredFont(forTextStyle: .body)
-    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .body)
 
     // MARK: - Alerts
 

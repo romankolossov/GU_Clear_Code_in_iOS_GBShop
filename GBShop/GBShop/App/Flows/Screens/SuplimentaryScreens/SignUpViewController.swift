@@ -17,15 +17,15 @@ class SignUpViewController: UIViewController, AlertShowable {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private lazy var signUpButton: UIButton = {
-        let button = UIButton()
+    private lazy var signUpButton: ShakableButton = {
+        let button = ShakableButton()
         button.setTitle(NSLocalizedString("toSignUp", comment: "Sign up"), for: .normal)
         button.setTitleColor(.buttonTitleColor, for: .normal)
         button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = .buttonBackgroundColor
+        button.frame.size.height = .buttonHeight
         button.layer.borderWidth = .buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
-        button.frame.size.height = .buttonHeight
         button.layer.cornerRadius = .buttonCornerRadius
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +84,10 @@ class SignUpViewController: UIViewController, AlertShowable {
     // MARK: Signup
 
     @objc private func signUp() {
+        // Animate button
+
+        signUpButton.shake()
+
         let signUpFactory: SignUpRequestFactory = AppDelegate.requestFactory.makeSignUpRequestFactory()
 
         signUpFactory.signUp(

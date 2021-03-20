@@ -94,6 +94,8 @@
 		C8F51DE825F0C8D800D83AFE /* AddToBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DE725F0C8D800D83AFE /* AddToBasketTest.swift */; };
 		C8F51DED25F0C90C00D83AFE /* DeleteFromBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DEC25F0C90C00D83AFE /* DeleteFromBasketTest.swift */; };
 		C8F51DF225F0C92A00D83AFE /* PayBasketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F51DF125F0C92A00D83AFE /* PayBasketTest.swift */; };
+		C8FBDDA026065AD1000418FC /* Shakable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBDD9F26065AD1000418FC /* Shakable+Extension.swift */; };
+		C8FBDDA5260660AB000418FC /* ShakableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBDDA4260660AB000418FC /* ShakableViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +212,8 @@
 		C8F51DE725F0C8D800D83AFE /* AddToBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToBasketTest.swift; sourceTree = "<group>"; };
 		C8F51DEC25F0C90C00D83AFE /* DeleteFromBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFromBasketTest.swift; sourceTree = "<group>"; };
 		C8F51DF125F0C92A00D83AFE /* PayBasketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketTest.swift; sourceTree = "<group>"; };
+		C8FBDD9F26065AD1000418FC /* Shakable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shakable+Extension.swift"; sourceTree = "<group>"; };
+		C8FBDDA4260660AB000418FC /* ShakableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakableViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +318,7 @@
 				C8267ECC25F868F500F2C8FE /* UserView.swift */,
 				C8267EE325F93C0E00F2C8FE /* SignUpView.swift */,
 				C8267F4525FE70FF00F2C8FE /* SignInView.swift */,
+				C8FBDDA4260660AB000418FC /* ShakableViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				C8267F0125FB529900F2C8FE /* AlertShowable+Extension.swift */,
+				C8FBDD9F26065AD1000418FC /* Shakable+Extension.swift */,
 				C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */,
 			);
 			path = Common;
@@ -832,6 +838,7 @@
 				C8D3D86E25F4D70E00AE6896 /* TabBarController.swift in Sources */,
 				C875FA1F2601FD7E0095B16B /* GoodsLayout.swift in Sources */,
 				C833562125DEAA8C00205932 /* ChangeUserDataResult.swift in Sources */,
+				C8FBDDA5260660AB000418FC /* ShakableViews.swift in Sources */,
 				C833568C25E2825A00205932 /* CatalogDataResult.swift in Sources */,
 				C833563125DEAE1C00205932 /* ChangeUserDataRequestFactory.swift in Sources */,
 				C83355D825DCCB2100205932 /* ErrorParser.swift in Sources */,
@@ -858,6 +865,7 @@
 				C8267EE425F93C0E00F2C8FE /* SignUpView.swift in Sources */,
 				C83356A225E2962D00205932 /* CatalogDataRequestFactory.swift in Sources */,
 				C8267ED925F8880300F2C8FE /* UIFont+Extensions.swift in Sources */,
+				C8FBDDA026065AD1000418FC /* Shakable+Extension.swift in Sources */,
 				C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -35,7 +35,10 @@ extension UIColor {
     static let goodsCellborderColor: UIColor = tabBarTintColor
     static let goodsLableTextColor: UIColor = userLableTextColor
 
-    // MARK: - SignIn and SignOut VCs
+    // MARK: - SignIn and SignUp VCs
+
+    static let userTextFieldTextColor: UIColor = userLableTextColor
+    static let userTextFieldTextBackgroundColor: UIColor = .init(white: 0.48, alpha: 0.36)
 
     // MARK: Buttons
 
@@ -44,11 +47,9 @@ extension UIColor {
     static let buttonTitleColorWhenHighlighted: UIColor = .systemGreen
     static let buttonBorderColor: UIColor = tabBarTintColor
 
-    // MARK: - User View Controller
+    // MARK: - User VC
 
-    static let userLableTextColor: UIColor = .systemGray3
-    static let userTextFieldTextColor: UIColor = .systemGray3
-    static let userTextFieldTextBackgroundColor: UIColor = .init(white: 0.48, alpha: 0.26)
+    static let userLableTextColor: UIColor = .systemGray6
 
     // MARK: - for the rest Views
 

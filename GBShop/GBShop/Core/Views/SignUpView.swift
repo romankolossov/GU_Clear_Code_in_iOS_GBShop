@@ -41,53 +41,60 @@ class SignUpView: UIScrollView {
 
     private func addSubviews() {
         idTextField.translatesAutoresizingMaskIntoConstraints = false
-        idTextField.placeholder = "id"
+        idTextField.placeholder = " id"
         idTextField.textColor = .userTextFieldTextColor
         idTextField.textAlignment = .left
         idTextField.font = UIFont.userTextFieldFont
         idTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        idTextField.layer.cornerRadius = .textFieldCornerRadius
 
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        userNameTextField.placeholder = "User name"
+        userNameTextField.placeholder = " User name"
         userNameTextField.textColor = .userTextFieldTextColor
         userNameTextField.textAlignment = .left
         userNameTextField.font = .userTextFieldFont
         userNameTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        userNameTextField.layer.cornerRadius = .textFieldCornerRadius
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.placeholder = "Password"
+        passwordTextField.placeholder = " Password"
         passwordTextField.textColor = .userTextFieldTextColor
         passwordTextField.textAlignment = .left
         passwordTextField.font = .userTextFieldFont
         passwordTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        passwordTextField.layer.cornerRadius = .textFieldCornerRadius
 
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.placeholder = "E-mail"
+        emailTextField.placeholder = " E-mail"
         emailTextField.textColor = .userTextFieldTextColor
         emailTextField.textAlignment = .left
         emailTextField.font = .userTextFieldFont
         emailTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        emailTextField.layer.cornerRadius = .textFieldCornerRadius
 
         genderTextField.translatesAutoresizingMaskIntoConstraints = false
-        genderTextField.placeholder = "Gender"
+        genderTextField.placeholder = " Gender"
         genderTextField.textColor = .userTextFieldTextColor
         genderTextField.textAlignment = .left
         genderTextField.font = .userTextFieldFont
         genderTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        genderTextField.layer.cornerRadius = .textFieldCornerRadius
 
         creditCardTextField.translatesAutoresizingMaskIntoConstraints = false
-        creditCardTextField.placeholder = "Credit card number"
+        creditCardTextField.placeholder = " Credit card number"
         creditCardTextField.textColor = .userTextFieldTextColor
         creditCardTextField.textAlignment = .left
         creditCardTextField.font = .userTextFieldFont
         creditCardTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        creditCardTextField.layer.cornerRadius = .textFieldCornerRadius
 
         bioTextField.translatesAutoresizingMaskIntoConstraints = false
-        bioTextField.placeholder = "Note: You may leave the fields blank"
+        bioTextField.placeholder = " Note: You may leave the fields blank"
         bioTextField.textColor = .userTextFieldTextColor
         bioTextField.textAlignment = .left
         bioTextField.font = .userTextFieldFont
         bioTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        bioTextField.layer.cornerRadius = .textFieldCornerRadius
 
         self.addSubview(idTextField)
         self.addSubview(userNameTextField)

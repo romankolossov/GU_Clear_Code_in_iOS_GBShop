@@ -17,7 +17,9 @@ extension CGFloat {
     static let goodCellBorderWidth: CGFloat = 1.7
     static let goodCellCornerRadius: CGFloat = goodCellHeight / 8.8
 
-    // MARK: - SignIn and SignOut VCs
+    // MARK: - SignIn and SignUp VCs
+
+    static let textFieldCornerRadius: CGFloat = 6.8
 
     // MARK: Navigation Bar
 
