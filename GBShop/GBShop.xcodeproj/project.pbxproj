@@ -245,11 +245,11 @@
 		C824664025D4769C00D3B8E5 = {
 			isa = PBXGroup;
 			children = (
+				C8CC19D025EAB65E006F375C /* .swiftlint.yml */,
 				C824664B25D4769C00D3B8E5 /* GBShop */,
 				C824666225D476A000D3B8E5 /* GBShopTests */,
 				C824666D25D476A000D3B8E5 /* GBShopUITests */,
 				C824664A25D4769C00D3B8E5 /* Products */,
-				C8CC19D025EAB65E006F375C /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,8 +532,8 @@
 		C8911FDA25D51BFA00F5E594 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C8267F0925FB804400F2C8FE /* Common */,
 				C83355B325DCB01200205932 /* Network */,
+				C8267F0925FB804400F2C8FE /* Common */,
 				C8267ECB25F8687000F2C8FE /* Views */,
 				C8267ED125F8873700F2C8FE /* Extensions */,
 			);
