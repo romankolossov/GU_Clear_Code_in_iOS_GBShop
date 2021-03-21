@@ -16,10 +16,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard searchController.isActive && !searchedGoods.isEmpty else {
+        guard searchController.isActive && !filteredGoods.isEmpty else {
             return goods.count
         }
-        return searchedGoods.count
+        return filteredGoods.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,8 +29,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         ) as? GoodsCollectionViewCell else {
             fatalError(description)
         }
-        let goodData: GoodData = searchController.isActive && !searchedGoods.isEmpty ?
-            searchedGoods[indexPath.row] : goods[indexPath.row]
+        let goodData: GoodData = searchController.isActive && !filteredGoods.isEmpty ?
+            filteredGoods[indexPath.row] : goods[indexPath.row]
 
         cell.lookConfigure(with: goodData)
         return cell
@@ -39,13 +39,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // MARK: - UICollectionViewDelegate protocol methods
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard searchController.isActive && !searchedGoods.isEmpty else {
+        guard searchController.isActive && !filteredGoods.isEmpty else {
             print(goods[indexPath.row])
             // TO DO send via delegate good data to good details screen
             return
         }
         // TO DO send via delegate searched good data to good details screen
-        print(searchedGoods[indexPath.row])
+        print(filteredGoods[indexPath.row])
         searchController.isActive = false
     }
 

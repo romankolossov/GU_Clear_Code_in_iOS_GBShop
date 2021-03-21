@@ -9,13 +9,13 @@ import UIKit
 
 // for Sign in and Sign up
 
-class MainViewController: UIViewController, UISearchResultsUpdating {
+class MainViewController: UIViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
 
     // MARK: - Public properties
 
     let goodsCellIdentifier: String = "GoodsCellIdentifier"
     var goods: [GoodData] = []
-    var searchedGoods: [GoodData] = []
+    var filteredGoods: [GoodData] = []
 
     // MARK: - Private properties
 
@@ -38,8 +38,16 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
     }()
     private (set) lazy var searchController: UISearchController = {
         let sc = UISearchController()
-        sc.obscuresBackgroundDuringPresentation = false
+        sc.delegate = self
         sc.searchResultsUpdater = self
+        sc.searchBar.autocapitalizationType = .none
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.searchBar.delegate = self // Monitor when the search button is tapped.
+        // Place the search bar in the navigation bar.
+        navigationItem.searchController = sc
+        // Make the search bar always visible.
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
         sc.searchBar.placeholder = "Type good to search"
         return sc
     }()
@@ -49,7 +57,6 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
         configureMainVC()
     }
 
@@ -95,6 +102,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
     private func configureMainVC() {
         navigationItem.title = NSLocalizedString("mainVCName", comment: "GBBERRIES")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
         addSubviews()
@@ -127,7 +135,6 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
             action: #selector(signIn)
         )
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
-        navigationItem.searchController = searchController
     }
 
     private func addSubviews() {
@@ -157,7 +164,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
             switch response.result {
             case .success(let model):
+                #if DEBUG
                 print(model)
+                #endif
 
                 let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
                 DispatchQueue.main.async { [weak self] in
@@ -195,14 +204,12 @@ class MainViewController: UIViewController, UISearchResultsUpdating {
         guard let text = searchController.searchBar.text, !text.isEmpty else {
             return
         }
-        // let predicate = NSPredicate(format: "SELF.productName CONTAINS[cd] %@", text as CVarArg)
         let predicate = NSPredicate(format: "SELF.productName CONTAINS[cd] %@", text)
 
         let nsGoods = NSArray(array: goods)
-        searchedGoods = nsGoods.filtered(using: predicate) as? [GoodData] ?? []
+        filteredGoods = nsGoods.filtered(using: predicate) as? [GoodData] ?? []
 
         // searchedGoods = (goods as NSArray).filtered(using: predicate) as? [GoodData] ?? []
-
         collectionView.reloadData()
     }
 

@@ -6,7 +6,7 @@
   
 */
 
-// TabBarController
+// Tab bar controller
 /*
 "mainTab" = "Home";
 "searchTab" = "Search";
@@ -15,7 +15,7 @@
 "userTab" = "User";
 */
 
-// MainViewController
+// Main VC
 
 "mainVCName" = "GB Магазин";
 //"reloadData" = "Reloading data...";
@@ -39,19 +39,19 @@
 "doneButton" = "DONE";
 */
 
-// SearchViewController
+// Search VC
 
 "searchVCName" = "Поиск";
 
-// CartViewController
+// Cart VC
 
 "cartVCName" = "Корзина";
 
-// ReviewViewController
+// Review VC
 
 "reviewVCName" = "Отзывы";
 
-// UserViewController
+// User VC
 
 "userVCName" = "Привет";
 "customer" = "уважаемый покупатель";
@@ -61,7 +61,7 @@
 "logoutSuccess" = "Вы успешно вышли из своего аккаунта";
 "logoutFailure" = "Выйти из аккаунта не удалось. Пожалуйста, повторите выход позже";
 
-// SignUpViewController
+// SignUp VC
 // state
 "signup" = "Регистрация";
 // action
@@ -70,7 +70,7 @@
 "signupSuccess" = "Регистрация прошла успешно";
 "signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, попробуйте пройти регистрацию позже";
 
-// SignInViewController
+// SignIn VC
 // state
 "signin" = "Вход в аккаунт";
 // action
@@ -92,7 +92,7 @@
 "close" = "Close";
 */
 
-// Refresh Control
+// Refresh control
 
 "reloadData" = "Обновление ассортимента...";
 

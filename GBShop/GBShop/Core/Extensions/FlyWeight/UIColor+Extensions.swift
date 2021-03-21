@@ -9,12 +9,12 @@ import UIKit
 
 extension UIColor {
 
-    // MARK: - TabBar Controller
+    // MARK: - Tab bar controller
 
     static let tabBarBackgroundColor: UIColor = .init(white: 0.1, alpha: 0.8)
     static let tabBarTintColor: UIColor = .systemPurple
 
-    // MARK: - Navigation Controllers and its root VCs
+    // MARK: - Navigation controllers and its root VCs
 
     static let navigationBarLargeTitleTextColor: UIColor = .white
     static let navigationBarBackgroundColor: UIColor = .init(red: 71 / 255, green: 21 / 255, blue: 111 / 255, alpha: 1.0)
@@ -23,13 +23,13 @@ extension UIColor {
     // custom purple
     // static let rootVCViewBackgroundColor: UIColor = .init(red: 201 / 255, green: 33 / 255, blue: 168 / 255, alpha: 1.0)
 
-    // MARK: - Main View Controller
+    // MARK: - Main VC
 
-    // MARK: Collection View of goods
+    // MARK: Goods collection view
 
     static let goodsCollectionViewBackgroundColor: UIColor = .black
 
-    // MARK: Goods Collection View Cell
+    // MARK: Goods collection view cell
 
     static let goodsCellBackgroundColor: UIColor = .white
     static let goodsCellborderColor: UIColor = tabBarTintColor
@@ -51,7 +51,7 @@ extension UIColor {
 
     static let userLableTextColor: UIColor = .systemGray6
 
-    // MARK: - for the rest Views
+    // MARK: - for the rest views
 
     // custom yellow
     static let suplimentaryViewBackgroundColor: UIColor = .init(red: 204 / 255, green: 155 / 255, blue: 33 / 255, alpha: 1.0)
@@ -66,7 +66,7 @@ extension UIColor {
     static let alertTitleTextColor: UIColor = tabBarTintColor
     static let alertViewTintColor: UIColor = tabBarTintColor
 
-    // MARK: Refresh Control
+    // MARK: Refresh control
 
     static let refreshControlTintColor: UIColor = .white
 

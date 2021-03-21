@@ -9,9 +9,9 @@ import Foundation
 
 extension Int {
 
-    // MARK: - Main View Controller
+    // MARK: - Main VC
 
-    // MARK: Goods Collection View Layout = Goods Layout
+    // MARK: Goods collection view layout (Goods layout)
 
     static let columnsCount: Int = 2
 }

@@ -31,7 +31,27 @@ class SignUpViewController: UIViewController, AlertShowable {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private var navigationBar = UINavigationBar()
+    private lazy var navigationBar: UINavigationBar = {
+        // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
+
+        let frame = CGRect(
+            x: 0.0,
+            y: 0.0,
+            width: view.bounds.size.width,
+            height: .navigationBarHeight
+        )
+        let navigationItem = UINavigationItem()
+        navigationItem.title = NSLocalizedString("signup", comment: "")
+
+        let navigationBar = UINavigationBar(frame: frame)
+        navigationBar.items = [navigationItem]
+
+        navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
+        ]
+        navigationBar.barTintColor = .navigationBarTintColor
+        return navigationBar
+    }()
 
     // MARK: - Lifecycle
 
@@ -84,9 +104,7 @@ class SignUpViewController: UIViewController, AlertShowable {
     // MARK: Signup
 
     @objc private func signUp() {
-        // Animate button
-
-        signUpButton.shake()
+        signUpButton.shake() // Animate button
 
         let signUpFactory: SignUpRequestFactory = AppDelegate.requestFactory.makeSignUpRequestFactory()
 
@@ -172,27 +190,6 @@ class SignUpViewController: UIViewController, AlertShowable {
     }
 
     private func addSubviews() {
-        // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
-
-        let frame = CGRect(
-            x: 0.0,
-            y: 0.0,
-            width: view.bounds.size.width,
-            height: .navigationBarHeight
-        )
-        let navigationItem = UINavigationItem()
-        navigationItem.title = NSLocalizedString("signup", comment: "")
-
-        navigationBar = UINavigationBar(frame: frame)
-        navigationBar.items = [navigationItem]
-
-        navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
-        ]
-        navigationBar.barTintColor = .navigationBarTintColor
-
-        // Add subviews
-
         view.addSubview(signUpView)
         view.addSubview(signUpButton)
         view.addSubview(navigationBar)

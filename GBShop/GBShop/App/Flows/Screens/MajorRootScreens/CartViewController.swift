@@ -15,7 +15,6 @@ class CartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
         configureCartVC()
     }
 
@@ -32,6 +31,8 @@ class CartViewController: UIViewController {
     private func configureCartVC() {
         navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
+
         configureNavigationVC()
     }
 

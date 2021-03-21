@@ -9,9 +9,9 @@ import UIKit
 
 extension UIFont {
 
-    // MARK: - Main View Controller
+    // MARK: - Main VC
 
-    // MARK: Goods Collection View Cell
+    // MARK: Goods collection view cell
 
     static let goodsLableFont: UIFont = .preferredFont(forTextStyle: .headline)
 

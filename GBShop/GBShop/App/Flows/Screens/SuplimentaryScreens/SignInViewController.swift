@@ -31,7 +31,27 @@ class SignInViewController: UIViewController, AlertShowable {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private var navigationBar = UINavigationBar()
+    private lazy var navigationBar: UINavigationBar = {
+        // Create navigation bar with navigation item to set the title of the SignIn VC
+
+        let frame = CGRect(
+            x: 0.0,
+            y: 0.0,
+            width: view.bounds.size.width,
+            height: .navigationBarHeight
+        )
+        let navigationItem = UINavigationItem()
+        navigationItem.title = NSLocalizedString("signin", comment: "")
+
+        let navigationBar = UINavigationBar(frame: frame)
+        navigationBar.items = [navigationItem]
+
+        navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
+        ]
+        navigationBar.barTintColor = .navigationBarTintColor
+        return navigationBar
+    }()
 
     // MARK: - Lifecycle
 
@@ -84,9 +104,7 @@ class SignInViewController: UIViewController, AlertShowable {
     // MARK: Signin
 
     @objc private func signIn() {
-        // Animate button
-
-        signInButton.shake()
+        signInButton.shake() // Animate button
 
         let signUpFactory: AuthRequestFactory = AppDelegate.requestFactory.makeAuthRequestFatory()
 
@@ -173,27 +191,6 @@ class SignInViewController: UIViewController, AlertShowable {
     }
 
     private func addSubviews() {
-        // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
-
-        let frame = CGRect(
-            x: 0.0,
-            y: 0.0,
-            width: view.bounds.size.width,
-            height: .navigationBarHeight
-        )
-        let navigationItem = UINavigationItem()
-        navigationItem.title = NSLocalizedString("signin", comment: "")
-
-        navigationBar = UINavigationBar(frame: frame)
-        navigationBar.items = [navigationItem]
-
-        navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
-        ]
-        navigationBar.barTintColor = .navigationBarTintColor
-
-        // Add subviews
-
         view.addSubview(signInView)
         view.addSubview(signInButton)
         view.addSubview(navigationBar)

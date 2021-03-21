@@ -15,7 +15,6 @@ class ReviewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
         configureReviewVC()
     }
 
@@ -32,6 +31,8 @@ class ReviewViewController: UIViewController {
     private func configureReviewVC() {
         navigationItem.title = NSLocalizedString("reviewVCName", comment: "Review")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
+
         configureNavigationVC()
     }
 

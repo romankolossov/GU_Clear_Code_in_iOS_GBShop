@@ -25,7 +25,6 @@ class UserViewController: UIViewController, AlertShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
         configureUserVC()
     }
 
@@ -104,8 +103,9 @@ class UserViewController: UIViewController, AlertShowable {
 
     private func configureUserVC() {
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        configureNavigationVC()
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
+        configureNavigationVC()
         addSubviews()
         setupConstraints()
     }

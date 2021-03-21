@@ -15,7 +15,6 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
         configureSearchVC()
     }
 
@@ -26,6 +25,8 @@ class SearchViewController: UIViewController {
     private func configureSearchVC() {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
         view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
+
         configureNavigationVC()
     }
 

@@ -9,9 +9,9 @@ import UIKit
 
 extension CGFloat {
 
-    // MARK: - Main View Controller
+    // MARK: - Main VC
 
-    // MARK: Goods Collection View Cell
+    // MARK: Goods collection view cell
 
     static let goodCellHeight: CGFloat = 120.0
     static let goodCellBorderWidth: CGFloat = 1.7
@@ -21,7 +21,7 @@ extension CGFloat {
 
     static let textFieldCornerRadius: CGFloat = 6.8
 
-    // MARK: Navigation Bar
+    // MARK: Navigation bar
 
     static let navigationBarHeight: CGFloat = 56.0
 
