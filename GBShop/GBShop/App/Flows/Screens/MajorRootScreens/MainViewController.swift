@@ -204,12 +204,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchCon
         guard let text = searchController.searchBar.text, !text.isEmpty else {
             return
         }
-        let predicate = NSPredicate(format: "SELF.productName CONTAINS[cd] %@", text)
-
-        let nsGoods = NSArray(array: goods)
-        filteredGoods = nsGoods.filtered(using: predicate) as? [GoodData] ?? []
-
-        // searchedGoods = (goods as NSArray).filtered(using: predicate) as? [GoodData] ?? []
+        filteredGoods = goods.filter { element in
+            element.productName.range(of: text, options: [.caseInsensitive]) != nil
+        }
         collectionView.reloadData()
     }
 
