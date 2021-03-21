@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for Delete from basket and Pay basket
+// Deleting from basket and paying basket.
 
 class CartViewController: UIViewController {
 
@@ -46,8 +46,7 @@ class CartViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        // Create payBasketItem in Navigation Item of Navigation Bar
-
+        // Create payBasketItem in navigation item of navigation bar.
         let payBasketItem = UIBarButtonItem(
             image: UIImage(systemName: "creditcard"),
             style: .plain,

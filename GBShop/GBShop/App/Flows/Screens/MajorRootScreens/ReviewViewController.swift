@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for display Review list, Add review and  Remove review
+// Displaying review list, adding review and  removing review.
 
 class ReviewViewController: UIViewController {
 
@@ -46,8 +46,7 @@ class ReviewViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        // Create addReviewItem in Navigation Item of Navigation Bar
-
+        // Create addReviewItem in navigation item of navigation bar.
         let addReviewItem = UIBarButtonItem(
             image: UIImage(systemName: "plus.bubble"),
             style: .plain,

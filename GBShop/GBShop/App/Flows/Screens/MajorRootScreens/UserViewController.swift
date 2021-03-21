@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for Change user data and Logout
+// Changing user data and logging out.
 
 class UserViewController: UIViewController, AlertShowable {
 
@@ -120,8 +120,7 @@ class UserViewController: UIViewController, AlertShowable {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
-        // Create logoutItem and changeUserDataItem in Navigation Item of Navigation Bar
-
+        // Create logoutItem and changeUserDataItem in navigation item of navigation bar.
         let logoutItem = UIBarButtonItem(
             image: UIImage(systemName: "arrowshape.zigzag.right"),
             style: .done,

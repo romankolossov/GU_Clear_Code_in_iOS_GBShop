@@ -32,8 +32,7 @@ class SignInViewController: UIViewController, AlertShowable {
         return button
     }()
     private lazy var navigationBar: UINavigationBar = {
-        // Create navigation bar with navigation item to set the title of the SignIn VC
-
+        // Create navigation bar with navigation item to set the title of the SignIn VC.
         let frame = CGRect(
             x: 0.0,
             y: 0.0,
@@ -104,7 +103,7 @@ class SignInViewController: UIViewController, AlertShowable {
     // MARK: Signin
 
     @objc private func signIn() {
-        signInButton.shake() // Animate button
+        signInButton.shake() // Animation when the signInButton is tapped.
 
         let signUpFactory: AuthRequestFactory = AppDelegate.requestFactory.makeAuthRequestFatory()
 

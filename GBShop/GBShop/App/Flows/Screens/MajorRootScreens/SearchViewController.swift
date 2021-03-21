@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for display Catalog data, Search good by id and Add good to basket
+// Displaying catalog data, searching good by id and adding good to basket.
 
 class SearchViewController: UIViewController {
 

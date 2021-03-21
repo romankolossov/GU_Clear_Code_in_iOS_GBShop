@@ -47,6 +47,10 @@ extension UIColor {
     static let buttonTitleColorWhenHighlighted: UIColor = .systemGreen
     static let buttonBorderColor: UIColor = tabBarTintColor
 
+    // MARK: - Search contrioller
+
+    static let searchTextFieldBackgroundColor: UIColor = tabBarBackgroundColor
+
     // MARK: - User VC
 
     static let userLableTextColor: UIColor = .systemGray6
