@@ -1,5 +1,5 @@
 //
-//  ReviewData.swift
+//  ReviewList.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 28.02.2021.

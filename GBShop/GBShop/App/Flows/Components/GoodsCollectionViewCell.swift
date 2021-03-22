@@ -40,28 +40,28 @@ class GoodsCollectionViewCell: UICollectionViewCell {
     private func configureCell() {
         self.backgroundColor = UIColor.goodsCellBackgroundColor
 
-        self.layer.borderWidth = CGFloat.goodCellBorderWidth
-        self.layer.borderColor = UIColor.goodsCellborderColor.cgColor
-        self.layer.cornerRadius = CGFloat.goodCellCornerRadius
+        self.layer.borderWidth = .goodCellBorderWidth
+        self.layer.borderColor = UIColor.goodsCellBorderColor.cgColor
+        self.layer.cornerRadius = .goodCellCornerRadius
 
         addSubviews()
         setupConstraints()
     }
 
     private func addSubviews() {
-        idLabel.textColor = UIColor.goodsLableTextColor
+        idLabel.textColor = .goodsLableTextColor
         idLabel.textAlignment = .center
-        idLabel.font = UIFont.goodsLableFont
+        idLabel.font = .goodsLableFont
         idLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        productNameLabel.textColor = UIColor.goodsLableTextColor
+        productNameLabel.textColor = .goodsLableTextColor
         productNameLabel.textAlignment = .center
-        productNameLabel.font = UIFont.goodsLableFont
+        productNameLabel.font = .goodsLableFont
         productNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        priceLabel.textColor = UIColor.goodsLableTextColor
+        priceLabel.textColor = .goodsLableTextColor
         priceLabel.textAlignment = .center
-        priceLabel.font = UIFont.goodsLableFont
+        priceLabel.font = .goodsLableFont
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
 
         // Add subviews

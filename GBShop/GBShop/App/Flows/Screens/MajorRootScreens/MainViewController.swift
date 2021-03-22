@@ -167,8 +167,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
                 #if DEBUG
                 print(model)
                 #endif
-
-                let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
+                let goods: [GoodData] = model.map {
+                    GoodData(goodElement: $0)
+                }
                 DispatchQueue.main.async { [weak self] in
                     self?.goods.removeAll()
                     self?.goods = goods

@@ -7,6 +7,20 @@
 
 import Foundation
 
+// MARK: - View model
+
+struct ReviewData {
+    let idUser: Int
+    let idComment: Int
+    let commentText: String
+
+    init(reviewElement: ReviewListResultElement) {
+        self.idUser = reviewElement.idUser
+        self.idComment = reviewElement.idComment
+        self.commentText = reviewElement.commentText
+    }
+}
+
 // MARK: - ReviewListResultElement
 
 struct ReviewListResultElement: Codable {

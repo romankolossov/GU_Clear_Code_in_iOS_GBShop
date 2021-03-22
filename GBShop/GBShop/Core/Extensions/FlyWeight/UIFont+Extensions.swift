@@ -19,6 +19,12 @@ extension UIFont {
 
     static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .body)
 
+    // MARK: - Review VC
+
+    // MARK: Review table view cell
+
+    static let reviewLableFont: UIFont = goodsLableFont
+
     // MARK: - User VC
 
     static let userLableFont: UIFont = .preferredFont(forTextStyle: .body)
