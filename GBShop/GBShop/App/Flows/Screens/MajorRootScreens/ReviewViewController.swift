@@ -9,7 +9,7 @@ import UIKit
 
 // Displaying review list, adding review and  removing review.
 
-class ReviewViewController: UIViewController {
+class ReviewViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     // MARK: - Public properties
 
@@ -32,6 +32,23 @@ class ReviewViewController: UIViewController {
         tv.register(ReviewTableViewCell.self, forCellReuseIdentifier: reviewCellIdentifier)
         return tv
     }()
+    private (set) lazy var searchController: UISearchController = {
+        let sc = UISearchController()
+        sc.delegate = self // Monitor when search controller is dismissed.
+        sc.searchResultsUpdater = self
+        sc.searchBar.autocapitalizationType = .none
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.searchBar.delegate = self // Monitor when the cancel button is tapped.
+        // Place the search bar in the navigation bar.
+        navigationItem.searchController = sc
+        // Make the search bar always visible.
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        sc.searchBar.placeholder = "Type good name to search its review"
+        sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
+        return sc
+    }()
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
 
@@ -51,6 +68,12 @@ class ReviewViewController: UIViewController {
         // MARK: TO DO
     }
 
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        loadData { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
+    }
+
     // MARK: - Private methods
 
     // MARK: Configure
@@ -63,6 +86,7 @@ class ReviewViewController: UIViewController {
         configureNavigationVC()
         addSubviews()
         setupConstraints()
+        setupRefreshControl()
     }
 
     private func configureNavigationVC() {
@@ -128,6 +152,60 @@ class ReviewViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    // MARK: Pull-to-refresh pattern
+
+    private func setupRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(
+            string: NSLocalizedString("reloadData", comment: ""),
+            attributes: [.font: UIFont.refreshControlFont]
+        )
+        refreshControl.tintColor = UIColor.refreshControlTintColor
+
+        refreshControl.addTarget(
+            self,
+            action: #selector(refresh(_:)),
+            for: .valueChanged
+        )
+        // Place the refresh control in the table view.
+        tableView.refreshControl = refreshControl
+    }
+
+    // MARK: - Delegates methods
+
+    // MARK: UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            return
+        }
+        let options: NSString.CompareOptions = [
+            .caseInsensitive
+        ]
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.filteredReviews.removeAll()
+            self.filteredReviews = self.reviews.filter { element in
+                element.commentText.range(of: text, options: options) != nil
+            }
+            self.tableView.reloadData()
+        }
+    }
+
+    // MARK: UISearchBarDelegate
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Use searchBarCancelButtonClicked additionally to didDismissSearchController because of better animation when cancel button is clicked.
+        tableView.reloadData()
+    }
+
+    // MARK: UISearchControllerDelegate
+
+    func didDismissSearchController(_ searchController: UISearchController) {
+        tableView.reloadData()
     }
 
 }
