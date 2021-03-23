@@ -23,7 +23,7 @@ class PayBasket: AbstractRequestFactory {
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = AppDelegate.baseUrlHeroku
+        baseUrl: URL = NetworkConfig.baseUrlHeroku
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager

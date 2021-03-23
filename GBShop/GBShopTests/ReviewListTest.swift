@@ -14,7 +14,7 @@ class ReviewListTest: XCTestCase {
     func testReviewList() throws {
         // Given
         // Initialize test date and system under test
-        let baseUrl = AppDelegate.baseUrlHeroku
+        let baseUrl = NetworkConfig.baseUrlHeroku
 
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false

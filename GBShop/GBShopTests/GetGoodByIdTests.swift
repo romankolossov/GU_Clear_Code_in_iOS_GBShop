@@ -16,7 +16,7 @@ class GetGoodByIdTests: XCTestCase {
     func testGetGoodById() throws {
         // Given
         // Initialize test date and system under test
-        let baseUrl = AppDelegate.baseUrlGitGB
+        let baseUrl = NetworkConfig.baseUrlGitGB
 
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false

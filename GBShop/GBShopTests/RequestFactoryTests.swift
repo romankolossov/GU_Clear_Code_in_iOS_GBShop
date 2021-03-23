@@ -35,7 +35,7 @@ class RequestFactoryTests: XCTestCase {
         // Call system under test
         let signedIn = expectation(description: "logged in")
 
-        authFactory.login(userName: "Somebody", password: "mypassword") { response in
+        authFactory.signIn(userName: "Somebody", password: "mypassword") { response in
             // Then
             // Verify that output is as expected
             switch response.result {

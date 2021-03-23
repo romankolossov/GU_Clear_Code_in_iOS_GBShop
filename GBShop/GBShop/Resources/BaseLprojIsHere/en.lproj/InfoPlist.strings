@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  GBShop
+
+  Created by Roman Kolosov on 09.03.2021.
+  
+*/
+
+"CFBundleDisplayName" = "GB Shop";
+
+"CFBundleName" = "GBShop";

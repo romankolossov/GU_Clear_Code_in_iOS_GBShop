@@ -23,7 +23,7 @@ class RemoveReview: AbstractRequestFactory {
         errorParser: AbstractErrorParser,
         sessionManager: Session,
         queue: DispatchQueue = DispatchQueue.global(qos: .utility),
-        baseUrl: URL = AppDelegate.baseUrlGitGB
+        baseUrl: URL = NetworkConfig.baseUrlGitGB
     ) {
         self.errorParser = errorParser
         self.sessionManager = sessionManager

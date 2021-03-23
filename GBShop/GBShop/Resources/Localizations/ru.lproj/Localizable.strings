@@ -1,0 +1,94 @@
+/* 
+  Localizable.strings
+  GBShop
+
+  Created by Roman Kolosov on 09.03.2021.
+  
+*/
+
+// TabBarController
+/*
+"mainTab" = "Home";
+"searchTab" = "Search";
+"cartTab" = "Cart";
+"reviewTab" = "Review";
+"userTab" = "User";
+*/
+
+// MainViewController
+
+"mainVCName" = "Магазин GB";
+//"reloadData" = "Reloading data...";
+
+//MARK: TO DO
+// FirstViewController
+/*
+"aboutAppHeader" = "ABOUT";
+"searchHeader" = "SEARCH";
+"cartHeader" = "CART";
+"reviewHeader" = "REVIEW";
+"userHeader" = "USER";
+
+"aboutAppDescribe" = "\"GB Shop\" is an online shop application for buying goods easily from your home";
+"searchDescribe" = "";
+"cartDescribe" = "";
+"reviewDescribe" = "";
+"userDescribe" = "";
+
+"nextButton" = "NEXT";
+"doneButton" = "DONE";
+*/
+
+// SearchViewController
+
+"searchVCName" = "Поиск";
+
+// CartViewController
+
+"cartVCName" = "Корзина";
+
+// ReviewViewController
+
+"reviewVCName" = "Отзывы";
+
+// UserViewController
+
+"userVCName" = "Привет";
+"customer" = "уважаемый покупатель";
+
+"logout" = "Выход";
+
+"logoutSuccess" = "Вы успешно вышли из своего аккаунта";
+"logoutFailure" = "Выйти из аккаунта не удалось. Пожалуйста, повторите выход позже";
+
+// SignUpViewController
+// state
+"signup" = "Регистрация";
+// action
+"toSignUp" = "Зарегистрироваться";
+
+"signupSuccess" = "Регистрация прошла успешно";
+"signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, попробуйте пройти регистрацию позже";
+
+// SignInViewController
+// state
+"signin" = "Вход в аккаунт";
+// action
+"toSignIn" = "Войти";
+
+"signinSuccess" = "Вы успешно вошли в аккаунт";
+"signinFailure" = "Войти в аккаунт не удалось. Пожалуйста, повторите вход позже";
+
+// Alerts
+
+//"error" = "Error";
+//MARK: TO DO
+/*
+"actionsWithSomething" = "Some action";
+"actionsWithSomethingDescribe" = "What do You want to do with the Something?";
+"addToSomewhere" = "Add to somewhere";
+"removeFromSomewhere" = "Remove from somewhere";
+"success" = "Success";
+"close" = "Close";
+*/
+
