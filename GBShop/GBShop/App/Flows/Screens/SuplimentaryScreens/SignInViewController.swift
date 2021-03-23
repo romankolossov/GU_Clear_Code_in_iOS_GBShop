@@ -23,7 +23,6 @@ class SignInViewController: UIViewController, AlertShowable {
         button.setTitleColor(.buttonTitleColor, for: .normal)
         button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = .buttonBackgroundColor
-        button.frame.size.height = .buttonHeight
         button.layer.borderWidth = .buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
         button.layer.cornerRadius = .buttonCornerRadius
@@ -32,7 +31,9 @@ class SignInViewController: UIViewController, AlertShowable {
         return button
     }()
     private lazy var navigationBar: UINavigationBar = {
-        // Create navigation bar with navigation item to set the title of the SignIn VC.
+        // Create navigation bar with navigation item to set its custom look and the title of the SignIn VC.
+        // Because of design, the correct way to show the SignIn VC is to use .present for its navigation controller with SignIn VC modal presentation style as .formSheet.
+        // Instead of just to push it in navigation controller where navigation bar exists by default.
         let frame = CGRect(
             x: 0.0,
             y: 0.0,
