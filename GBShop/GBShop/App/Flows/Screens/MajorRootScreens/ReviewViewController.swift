@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 // Displaying review list, adding review and  removing review.
 
@@ -136,9 +137,8 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         reviewListFactory.reviewList(idUser: 1, pageNumber: 1) { response in
             switch response.result {
             case .success(let model):
-                #if DEBUG
-                print(model)
-                #endif
+                Logger.viewCycle.debug("\(model)")
+
                 let reviews: [ReviewData] = model.map {
                     ReviewData(reviewElement: $0)
                 }
@@ -149,7 +149,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
                     completion?()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
             }
         }
     }

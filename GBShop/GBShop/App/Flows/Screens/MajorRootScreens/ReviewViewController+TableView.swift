@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 extension ReviewViewController: UITableViewDataSource, UITableViewDelegate {
 
@@ -44,11 +45,11 @@ extension ReviewViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard searchController.isActive else {
             // TO DO send via delegate review data to good details screen.
-            print(reviews[indexPath.row])
+            Logger.viewCycle.debug("\(self.reviews[indexPath.row])")
             return
         }
         // TO DO send via delegate searched review data to good details screen.
-        print(filteredReviews[indexPath.row])
+        Logger.viewCycle.debug("\(self.filteredReviews[indexPath.row])")
         searchController.isActive = false
     }
 

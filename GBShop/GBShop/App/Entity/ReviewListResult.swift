@@ -7,6 +7,14 @@
 
 import Foundation
 
+// For use review data with logger
+
+extension ReviewData: CustomStringConvertible {
+    var description: String {
+        "(\nidUser: \(idUser)\nidComment: \(idComment)\ncommentText: \(commentText)"
+    }
+}
+
 // MARK: - View model
 
 struct ReviewData {

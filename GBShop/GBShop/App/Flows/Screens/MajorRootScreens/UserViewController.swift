@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 // Changing user data and logging out.
 
@@ -48,9 +49,6 @@ class UserViewController: UIViewController, AlertShowable {
             switch response.result {
             case .success(let model):
                 let resultWithLogoutSuccess: Int = 1
-                #if DEBUG
-                print(model)
-                #endif
 
                 DispatchQueue.main.async { [weak self] in
                     guard model.result == resultWithLogoutSuccess else {
@@ -73,7 +71,7 @@ class UserViewController: UIViewController, AlertShowable {
                     )
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
                 DispatchQueue.main.async { [weak self] in
                     self?.dismiss(animated: true, completion: nil)
                 }

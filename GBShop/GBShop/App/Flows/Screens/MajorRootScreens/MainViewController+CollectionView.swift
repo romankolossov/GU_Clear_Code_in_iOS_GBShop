@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -42,12 +43,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard searchController.isActive else {
             // TO DO send via delegate good data to good details screen.
-            print(goods[indexPath.row])
+            Logger.viewCycle.debug("\(self.goods[indexPath.row])")
             return
         }
         // TO DO send via delegate searched good data to good details screen.
-        print(filteredGoods[indexPath.row])
         searchController.isActive = false
+        Logger.viewCycle.debug("\(self.filteredGoods[indexPath.row])")
     }
 
 }

@@ -7,6 +7,14 @@
 
 import Foundation
 
+// For use good data with logger
+
+extension GoodData: CustomStringConvertible {
+    var description: String {
+        "(\nid: \(idProduct)\nproduct: \(productName)\nprice: \(price)"
+    }
+}
+
 // MARK: - View model
 
 struct GoodData {

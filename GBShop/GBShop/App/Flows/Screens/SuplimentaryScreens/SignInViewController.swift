@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 class SignInViewController: UIViewController, AlertShowable {
 
@@ -115,9 +116,6 @@ class SignInViewController: UIViewController, AlertShowable {
             switch response.result {
             case .success(let model):
                 let resultWithSignInSuccess: Int = 1
-                #if DEBUG
-                print(model)
-                #endif
 
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
@@ -145,7 +143,7 @@ class SignInViewController: UIViewController, AlertShowable {
                     )
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
                 DispatchQueue.main.async { [weak self] in
                     self?.dismiss(animated: true, completion: nil)
                 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 // Signing in and signing up.
 
@@ -164,9 +165,8 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
             switch response.result {
             case .success(let model):
-                #if DEBUG
-                print(model)
-                #endif
+                Logger.viewCycle.debug("\(model)")
+
                 let goods: [GoodData] = model.map {
                     GoodData(goodElement: $0)
                 }
@@ -177,7 +177,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
                     completion?()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
             }
         }
     }
