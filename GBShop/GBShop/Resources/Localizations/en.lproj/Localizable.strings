@@ -47,9 +47,9 @@
 
 "cartVCName" = "Cart";
 
-"payBasket" = "Basket payment";
-"payBasketSuccess" = "Basket was paid successfully";
-"payBasketFailure" = "Basket payment failed";
+"payBasket" = "Payment";
+"payBasketSuccess" = "Goods in basket was paid";
+"payBasketFailure" = "Payment failed";
 
 // Review VC
 

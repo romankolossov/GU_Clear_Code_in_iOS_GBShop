@@ -121,7 +121,9 @@ class SignUpViewController: UIViewController, AlertShowable {
                 let resultWithSignUpSuccess: Int = 1
 
                 DispatchQueue.main.async { [weak self] in
-                    let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
+                    let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in
+                        // After alert OK pressed, dismiss SignUpVC screen to move to main VC screen
+                        self?.dismiss(animated: true, completion: nil)
                     }
                     guard model.result == resultWithSignUpSuccess else {
                         self?.showAlert(
