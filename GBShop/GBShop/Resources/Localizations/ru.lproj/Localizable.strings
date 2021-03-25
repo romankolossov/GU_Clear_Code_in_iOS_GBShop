@@ -47,6 +47,10 @@
 
 "cartVCName" = "Корзина";
 
+"payBasket" = "Оплата корзины";
+"payBasketSuccess" = "Оплата корзины прошла успешно";
+"payBasketFailure" = "Оплата корзины не прошла";
+
 // Review VC
 
 "reviewVCName" = "Отзывы";

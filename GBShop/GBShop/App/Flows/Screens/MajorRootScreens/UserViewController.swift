@@ -72,9 +72,6 @@ class UserViewController: UIViewController, AlertShowable {
                 }
             case .failure(let error):
                 Logger.viewCycle.debug("\(error.localizedDescription)")
-                DispatchQueue.main.async { [weak self] in
-                    self?.dismiss(animated: true, completion: nil)
-                }
             }
         }
     }
