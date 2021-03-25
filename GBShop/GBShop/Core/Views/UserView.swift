@@ -25,7 +25,7 @@ class UserView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configureUI()
+        configureUI()
     }
     @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,9 +34,9 @@ class UserView: UIView {
     // MARK: - Private methods
 
     private func configureUI() {
-        self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
-        self.addSubviews()
-        self.setupConstraints()
+        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        addSubviews()
+        setupConstraints()
     }
 
     private func addSubviews() {
@@ -76,13 +76,13 @@ class UserView: UIView {
         bioLabel.font = UIFont.userLableFont
         bioLabel.numberOfLines = 3
 
-        self.addSubview(idLabel)
-        self.addSubview(userNameLabel)
-        self.addSubview(passwordLabel)
-        self.addSubview(emailLabel)
-        self.addSubview(genderLabel)
-        self.addSubview(creditCardLabel)
-        self.addSubview(bioLabel)
+        addSubview(idLabel)
+        addSubview(userNameLabel)
+        addSubview(passwordLabel)
+        addSubview(emailLabel)
+        addSubview(genderLabel)
+        addSubview(creditCardLabel)
+        addSubview(bioLabel)
     }
 
     private func setupConstraints() {

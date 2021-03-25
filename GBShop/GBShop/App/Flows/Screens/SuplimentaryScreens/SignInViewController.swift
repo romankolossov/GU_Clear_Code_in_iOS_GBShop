@@ -21,6 +21,7 @@ class SignInViewController: UIViewController, AlertShowable {
     private lazy var signInButton: ShakableButton = {
         let button = ShakableButton()
         button.setTitle(NSLocalizedString("toSignIn", comment: "Sign in"), for: .normal)
+        button.accessibilityIdentifier = "signInButton"
         button.setTitleColor(.buttonTitleColor, for: .normal)
         button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = .buttonBackgroundColor
@@ -58,6 +59,7 @@ class SignInViewController: UIViewController, AlertShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "signInVCView"
         configureSignInVC()
 
         // MARK: Targets

@@ -184,6 +184,8 @@
 		C84A4A2C25F536BB00DAD5AE /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		C84A4A3125F53B7800DAD5AE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C8569665260A6DAC001F4B89 /* Logger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extension.swift"; sourceTree = "<group>"; };
+		C856966D260AE468001F4B89 /* FastTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FastTests.xctestplan; sourceTree = "<group>"; };
+		C8569671260AE530001F4B89 /* SlowTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SlowTests.xctestplan; sourceTree = "<group>"; };
 		C85C656626051A7D00D662C6 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsLayout.swift; sourceTree = "<group>"; };
 		C875FA232601FF150095B16B /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,8 @@
 		C824664025D4769C00D3B8E5 = {
 			isa = PBXGroup;
 			children = (
+				C856966D260AE468001F4B89 /* FastTests.xctestplan */,
+				C8569671260AE530001F4B89 /* SlowTests.xctestplan */,
 				C8CC19D025EAB65E006F375C /* .swiftlint.yml */,
 				C824664B25D4769C00D3B8E5 /* GBShop */,
 				C824666225D476A000D3B8E5 /* GBShopTests */,
@@ -657,7 +661,7 @@
 				C824664525D4769C00D3B8E5 /* Sources */,
 				C824664625D4769C00D3B8E5 /* Frameworks */,
 				C824664725D4769C00D3B8E5 /* Resources */,
-				C8CC19CC25EAADDB006F375C /* ShellScript */,
+				C8CC19CC25EAADDB006F375C /* Run Swiftlint Script */,
 			);
 			buildRules = (
 			);
@@ -783,7 +787,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C8CC19CC25EAADDB006F375C /* ShellScript */ = {
+		C8CC19CC25EAADDB006F375C /* Run Swiftlint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -792,6 +796,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Swiftlint Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (

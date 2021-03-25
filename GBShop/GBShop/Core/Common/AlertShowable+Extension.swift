@@ -42,6 +42,7 @@ extension AlertShowable where Self: UIViewController {
             style: .default,
             handler: handler
         )
+        okAction.accessibilityIdentifier = "OK"
         alertController.addAction(okAction)
 
         present(alertController, animated: true, completion: completion)

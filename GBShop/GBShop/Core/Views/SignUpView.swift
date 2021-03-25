@@ -25,7 +25,7 @@ class SignUpView: UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configureUI()
+        configureUI()
     }
     @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -34,9 +34,9 @@ class SignUpView: UIScrollView {
     // MARK: - Private methods
 
     private func configureUI() {
-        self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
-        self.addSubviews()
-        self.setupConstraints()
+        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        addSubviews()
+        setupConstraints()
     }
 
     private func addSubviews() {
@@ -96,13 +96,13 @@ class SignUpView: UIScrollView {
         bioTextField.backgroundColor = .userTextFieldTextBackgroundColor
         bioTextField.layer.cornerRadius = .textFieldCornerRadius
 
-        self.addSubview(idTextField)
-        self.addSubview(userNameTextField)
-        self.addSubview(passwordTextField)
-        self.addSubview(emailTextField)
-        self.addSubview(genderTextField)
-        self.addSubview(creditCardTextField)
-        self.addSubview(bioTextField)
+        addSubview(idTextField)
+        addSubview(userNameTextField)
+        addSubview(passwordTextField)
+        addSubview(emailTextField)
+        addSubview(genderTextField)
+        addSubview(creditCardTextField)
+        addSubview(bioTextField)
     }
 
     private func setupConstraints() {

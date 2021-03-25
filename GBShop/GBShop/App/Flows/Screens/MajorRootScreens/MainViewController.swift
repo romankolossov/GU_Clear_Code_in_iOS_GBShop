@@ -135,6 +135,8 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             target: self,
             action: #selector(signIn)
         )
+        // For use in UI tests.
+        signInItem.accessibilityIdentifier = "signInBarButtonItem"
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
     }
 
