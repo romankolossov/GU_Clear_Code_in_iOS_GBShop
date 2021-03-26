@@ -90,7 +90,7 @@ class GBShopUITests: XCTestCase {
         let token = addUIInterruptionMonitor(
             withDescription: message
         ) { alert in
-                alert.buttons["OK"].tap()
+                alert.buttons["Close"].tap()
                 return true
         }
         // Give time to the alert to finish its work after OK button pressed.

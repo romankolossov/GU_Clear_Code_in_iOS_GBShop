@@ -20,7 +20,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     // MARK: - Private properties
 
-    private (set) lazy var tableView: UITableView = {
+    private(set) lazy var tableView: UITableView = {
         let safeArea = view.safeAreaLayoutGuide
         let tv = UITableView(frame: safeArea.layoutFrame)
 
@@ -33,7 +33,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         tv.register(ReviewTableViewCell.self, forCellReuseIdentifier: reviewCellIdentifier)
         return tv
     }()
-    private (set) lazy var searchController: UISearchController = {
+    private(set) lazy var searchController: UISearchController = {
         let sc = UISearchController()
         sc.delegate = self // Monitor when search controller is dismissed.
         sc.searchResultsUpdater = self
@@ -45,7 +45,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         // Make the search bar always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        sc.searchBar.placeholder = "Type good name to search its review"
+        sc.searchBar.placeholder = NSLocalizedString("typeGoodNameToSearchReview", comment: "")
         sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
         return sc
     }()
@@ -158,7 +158,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     private func setupRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(
-            string: NSLocalizedString("reloadData", comment: ""),
+            string: NSLocalizedString("reloadReviewData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
         refreshControl.tintColor = UIColor.refreshControlTintColor

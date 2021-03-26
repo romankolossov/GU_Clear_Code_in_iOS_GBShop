@@ -19,6 +19,11 @@ class CartViewController: UIViewController, AlertShowable {
         configureCartVC()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // TO DO loadData()
+    }
+
     // MARK: - Actions
 
     @objc private func payBasket() {
@@ -40,7 +45,7 @@ class CartViewController: UIViewController, AlertShowable {
                         return
                     }
                     // TO DO BasketData.clearBasket()
-                    self?.viewDidAppear(true)
+                    // TO DO self?.viewDidAppear(true)
 
                     self?.showAlert(
                         title: NSLocalizedString("payBasket", comment: ""),

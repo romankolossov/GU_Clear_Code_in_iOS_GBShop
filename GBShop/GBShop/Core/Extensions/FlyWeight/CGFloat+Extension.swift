@@ -1,5 +1,5 @@
 //
-//  CGFloat+Extensions.swift
+//  CGFloat+Extension.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 17.03.2021.

@@ -44,11 +44,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard searchController.isActive else {
             // TO DO send via delegate good data to good details screen.
             Logger.viewCycle.debug("\(self.goods[indexPath.row])")
+            removeAddToCart(idProduct: goods[indexPath.row].idProduct,
+                            quantity: 1,
+                            handler: nil,
+                            completion: nil
+            )
             return
         }
         // TO DO send via delegate searched good data to good details screen.
-        searchController.isActive = false
         Logger.viewCycle.debug("\(self.filteredGoods[indexPath.row])")
+        removeAddToCart(idProduct: filteredGoods[indexPath.row].idProduct,
+                        quantity: 1,
+                        handler: nil,
+                        completion: nil
+        )
+        searchController.isActive = false
     }
 
 }
