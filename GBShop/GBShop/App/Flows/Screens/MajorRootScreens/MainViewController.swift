@@ -81,6 +81,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
     }
 
     @objc private func signIn() {
+        // Simulate crash when signin button pressed to see it then in Firebase crashlytics.
+        fatalError()
+        
         let signInViewController = SignInViewController()
         signInViewController.modalPresentationStyle = .formSheet
 
