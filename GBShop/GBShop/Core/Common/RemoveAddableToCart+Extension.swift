@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 protocol RemoveAddableToCart: AlertShowable { }
 
@@ -67,6 +68,9 @@ extension RemoveAddableToCart where Self: UIViewController {
                             )
                             return
                         }
+                        Analytics.logEvent(AnalyticsEventAddToCart, parameters: [
+                          AnalyticsParameterItemName: "addToCart"
+                        ])
                         self?.showAlert(
                             title: NSLocalizedString("cart", comment: ""),
                             message: NSLocalizedString("addToCartSuccess", comment: ""),
@@ -102,6 +106,9 @@ extension RemoveAddableToCart where Self: UIViewController {
                             )
                             return
                         }
+                        Analytics.logEvent(AnalyticsEventRemoveFromCart, parameters: [
+                          AnalyticsParameterItemName: "removeFromCart"
+                        ])
                         self?.showAlert(
                             title: NSLocalizedString("cart", comment: ""),
                             message: NSLocalizedString("removeFromCartSuccess", comment: ""),
