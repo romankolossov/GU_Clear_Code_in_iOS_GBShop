@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 // Deleting from basket and paying basket.
 
@@ -46,7 +47,10 @@ class CartViewController: UIViewController, AlertShowable {
                     }
                     // TO DO BasketData.clearBasket()
                     // TO DO self?.viewDidAppear(true)
-
+                    
+                    Analytics.logEvent(AnalyticsEventAddPaymentInfo, parameters: [
+                      AnalyticsParameterItemName: "basketWasPaid"
+                    ])
                     self?.showAlert(
                         title: NSLocalizedString("payBasket", comment: ""),
                         message: NSLocalizedString("payBasketSuccess", comment: ""),

@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 // Signing in and signing up.
 
@@ -64,6 +65,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventViewItemList, parameters: [
+            AnalyticsParameterItemName: "goodsListWasShown"
+        ])
         loadData()
     }
 
@@ -81,9 +85,6 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
     }
 
     @objc private func signIn() {
-        // Simulate crash when signin button pressed to see it then in Firebase crashlytics.
-        fatalError()
-        
         let signInViewController = SignInViewController()
         signInViewController.modalPresentationStyle = .formSheet
 

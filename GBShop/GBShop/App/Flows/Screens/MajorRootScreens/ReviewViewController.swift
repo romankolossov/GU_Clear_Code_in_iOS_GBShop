@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 // Displaying review list, adding review and  removing review.
 
