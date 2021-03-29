@@ -66,7 +66,8 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Analytics.logEvent(AnalyticsEventViewItemList, parameters: [
-            AnalyticsParameterItemName: "goodsListWasShown"
+            AnalyticsParameterItemName: "goodsListOpen",
+            AnalyticsParameterSuccess: "goodsListWasOpen"
         ])
         loadData()
     }

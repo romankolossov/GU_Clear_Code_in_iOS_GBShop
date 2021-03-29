@@ -69,7 +69,8 @@ extension RemoveAddableToCart where Self: UIViewController {
                             return
                         }
                         Analytics.logEvent(AnalyticsEventAddToCart, parameters: [
-                          AnalyticsParameterItemName: "addToCart"
+                            AnalyticsParameterItemName: "addToCart",
+                            AnalyticsParameterSuccess: "goodsWasAddedToCart"
                         ])
                         self?.showAlert(
                             title: NSLocalizedString("cart", comment: ""),
@@ -107,7 +108,8 @@ extension RemoveAddableToCart where Self: UIViewController {
                             return
                         }
                         Analytics.logEvent(AnalyticsEventRemoveFromCart, parameters: [
-                          AnalyticsParameterItemName: "removeFromCart"
+                            AnalyticsParameterItemName: "removeFromCart",
+                            AnalyticsParameterSuccess: "goodsWasRemovedFromCart"
                         ])
                         self?.showAlert(
                             title: NSLocalizedString("cart", comment: ""),

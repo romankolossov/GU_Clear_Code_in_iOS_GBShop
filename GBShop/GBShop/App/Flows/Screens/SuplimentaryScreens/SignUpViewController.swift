@@ -136,7 +136,8 @@ class SignUpViewController: UIViewController, AlertShowable {
                         return
                     }
                     Analytics.logEvent(AnalyticsEventSignUp, parameters: [
-                        AnalyticsParameterItemName: "signupSuccess"
+                        AnalyticsParameterItemName: "signupSuccess",
+                        AnalyticsParameterSuccess: "signupWithSuccess"
                     ])
                     self?.showAlert(
                         title: NSLocalizedString("signup", comment: ""),

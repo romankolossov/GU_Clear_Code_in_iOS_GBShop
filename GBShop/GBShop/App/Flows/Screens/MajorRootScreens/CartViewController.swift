@@ -47,9 +47,10 @@ class CartViewController: UIViewController, AlertShowable {
                     }
                     // TO DO BasketData.clearBasket()
                     // TO DO self?.viewDidAppear(true)
-                    
+
                     Analytics.logEvent(AnalyticsEventAddPaymentInfo, parameters: [
-                      AnalyticsParameterItemName: "basketWasPaid"
+                        AnalyticsParameterItemName: "basketPaid",
+                        AnalyticsParameterSuccess: "basketWasPaid"
                     ])
                     self?.showAlert(
                         title: NSLocalizedString("payBasket", comment: ""),

@@ -64,9 +64,9 @@ class UserViewController: UIViewController, AlertShowable {
                     UserData.clearUser()
                     self?.viewDidAppear(true)
 
-                    Analytics.logEvent("Logout", parameters: [
-                        "name": "Logout" as NSObject,
-                        "fullText": "logoutSuccess" as NSObject
+                    Analytics.logEvent("logout", parameters: [
+                        "name": "logout" as NSObject,
+                        "fullText": "logoutWithSuccess" as NSObject
                     ])
                     self?.showAlert(
                         title: NSLocalizedString("logout", comment: ""),

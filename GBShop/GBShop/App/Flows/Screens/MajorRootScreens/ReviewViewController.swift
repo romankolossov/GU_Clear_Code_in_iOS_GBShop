@@ -11,7 +11,7 @@ import FirebaseAnalytics
 
 // Displaying review list, adding review and  removing review.
 
-class ReviewViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class ReviewViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, AlertShowable {
 
     // MARK: - Public properties
 
@@ -51,6 +51,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         return sc
     }()
     private let refreshControl = UIRefreshControl()
+    private var userData: UserData?
 
     // MARK: - Lifecycle
 
@@ -61,13 +62,48 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        userData = UserData.getUser()
         loadData()
     }
 
     // MARK: - Actions
 
     @objc private func addReview() {
-        // MARK: TO DO
+        guard let userData = userData else {
+            return
+        }
+        let addReviewRequestFactory: AddReviewRequestFactory = AppDelegate.requestFactory.makeAddReviewRequestFactory()
+
+        addReviewRequestFactory.addReview(idUser: userData.user.id, reviewText: "Текст отзыва") { response in
+            switch response.result {
+            case .success(let model):
+                let resultWithAddReviewSuccess: Int = 1
+
+                DispatchQueue.main.async { [weak self] in
+                    guard model.result == resultWithAddReviewSuccess else {
+                        self?.showAlert(
+                            title: NSLocalizedString("review", comment: ""),
+                            message: NSLocalizedString("addReviewFailure", comment: ""),
+                            handler: nil,
+                            completion: nil
+                        )
+                        return
+                    }
+                    Analytics.logEvent("addReview", parameters: [
+                        "name": "addReview" as NSObject,
+                        "fullText": "reviewWasAdded" as NSObject
+                    ])
+                    self?.showAlert(
+                        title: NSLocalizedString("review", comment: ""),
+                        message: NSLocalizedString("addReviewSuccess", comment: ""),
+                        handler: nil,
+                        completion: nil
+                    )
+                }
+            case .failure(let error):
+                Logger.viewCycle.debug("\(error.localizedDescription)")
+            }
+        }
     }
 
     @objc private func refresh(_ sender: UIRefreshControl) {

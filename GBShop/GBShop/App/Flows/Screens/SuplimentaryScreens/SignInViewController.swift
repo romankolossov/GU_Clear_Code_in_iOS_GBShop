@@ -127,7 +127,8 @@ class SignInViewController: UIViewController, AlertShowable {
                     }
                     guard model.result == resultWithSignInSuccess else {
                         Analytics.logEvent(AnalyticsEventLogin, parameters: [
-                            AnalyticsParameterItemName: "signinFailure"
+                            AnalyticsParameterItemName: "signinFailure",
+                            AnalyticsParameterSuccess: "signinWithFailure"
                         ])
                         self?.showAlert(
                             title: NSLocalizedString("signin", comment: ""),
@@ -138,7 +139,8 @@ class SignInViewController: UIViewController, AlertShowable {
                         return
                     }
                     Analytics.logEvent(AnalyticsEventLogin, parameters: [
-                        AnalyticsParameterItemName: "signinSuccess"
+                        AnalyticsParameterItemName: "signinSuccess",
+                        AnalyticsParameterSuccess: "signinWithSuccess"
                     ])
                     UserData.saveUser(
                         id: model.user.id,
