@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='GBShopTests.xctest' tests='40' failures='0'>
+  <testsuite name='GBShopTests.AddReviewTest' tests='2' failures='0'>
+    <testcase classname='GBShopTests.AddReviewTest' name='testAddReview' time='0.381'/>
+    <testcase classname='GBShopTests.AddReviewTest' name='testFailedAddReview' time='0.059'/>
+  </testsuite>
+  <testsuite name='GBShopTests.AddToBasketTest' tests='3' failures='0'>
+    <testcase classname='GBShopTests.AddToBasketTest' name='testAddToBasket' time='0.387'/>
+    <testcase classname='GBShopTests.AddToBasketTest' name='testFailedAddToBasket' time='0.055'/>
+    <testcase classname='GBShopTests.AddToBasketTest' name='testPerformanceExample' time='0.282'/>
+  </testsuite>
+  <testsuite name='GBShopTests.AuthTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.AuthTests' name='testFailedSignIn' time='0.165'/>
+    <testcase classname='GBShopTests.AuthTests' name='testSignIn' time='0.344'/>
+  </testsuite>
+  <testsuite name='GBShopTests.CatalogDataTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.CatalogDataTests' name='testCatalogData' time='0.013'/>
+    <testcase classname='GBShopTests.CatalogDataTests' name='testFailedCatalogData' time='0.088'/>
+  </testsuite>
+  <testsuite name='GBShopTests.ChangeUserDataTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.ChangeUserDataTests' name='testChangeUserData' time='0.396'/>
+    <testcase classname='GBShopTests.ChangeUserDataTests' name='testFailedChangeUserData' time='0.049'/>
+  </testsuite>
+  <testsuite name='GBShopTests.DeleteFromBasketTest' tests='3' failures='0'>
+    <testcase classname='GBShopTests.DeleteFromBasketTest' name='testDeleteFromBasket' time='0.348'/>
+    <testcase classname='GBShopTests.DeleteFromBasketTest' name='testFailedDeleteFromBasket' time='0.099'/>
+    <testcase classname='GBShopTests.DeleteFromBasketTest' name='testPerformanceExample' time='0.253'/>
+  </testsuite>
+  <testsuite name='GBShopTests.GetGoodByIdTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.GetGoodByIdTests' name='testFailedGetGoodById' time='0.095'/>
+    <testcase classname='GBShopTests.GetGoodByIdTests' name='testGetGoodById' time='0.301'/>
+  </testsuite>
+  <testsuite name='GBShopTests.LogoutTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.LogoutTests' name='testFailedLogout' time='0.346'/>
+    <testcase classname='GBShopTests.LogoutTests' name='testLogout' time='0.308'/>
+  </testsuite>
+  <testsuite name='GBShopTests.PayBasketTest' tests='3' failures='0'>
+    <testcase classname='GBShopTests.PayBasketTest' name='testFailedPayBasket' time='0.191'/>
+    <testcase classname='GBShopTests.PayBasketTest' name='testPayBasket' time='7.590'/>
+    <testcase classname='GBShopTests.PayBasketTest' name='testPerformanceExample' time='0.255'/>
+  </testsuite>
+  <testsuite name='GBShopTests.RemoveReviewTest' tests='2' failures='0'>
+    <testcase classname='GBShopTests.RemoveReviewTest' name='testFailedRemoveReview' time='0.016'/>
+    <testcase classname='GBShopTests.RemoveReviewTest' name='testRemoveReview' time='0.307'/>
+  </testsuite>
+  <testsuite name='GBShopTests.RequestFactoryTests' tests='13' failures='0'>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testAddReviewRequestFactory' time='0.009'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testAddToBasketRequestFactory' time='0.004'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testAuthRequestFactory' time='0.004'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testCatalogDataRequestFactory' time='0.004'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testChangeUserDataRequestFactory' time='0.006'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testDeleteFromBasketRequestFactory' time='0.006'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testGetGoodByIdRequestFactory' time='0.005'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testLogoutRequestFactory' time='0.006'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testPayBasketRequestFactory' time='0.304'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testPerformanceExample' time='0.255'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testRemoveReviewRequestFactory' time='0.007'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testReviewListRequestFactory' time='0.300'/>
+    <testcase classname='GBShopTests.RequestFactoryTests' name='testSignUpRequestFactory' time='0.319'/>
+  </testsuite>
+  <testsuite name='GBShopTests.ReviewListTest' tests='2' failures='0'>
+    <testcase classname='GBShopTests.ReviewListTest' name='testFailedReviewList' time='0.016'/>
+    <testcase classname='GBShopTests.ReviewListTest' name='testReviewList' time='0.312'/>
+  </testsuite>
+  <testsuite name='GBShopTests.SignUpTests' tests='2' failures='0'>
+    <testcase classname='GBShopTests.SignUpTests' name='testFailedSignUp' time='0.019'/>
+    <testcase classname='GBShopTests.SignUpTests' name='testSignUp' time='0.005'/>
+  </testsuite>
+</testsuites>
