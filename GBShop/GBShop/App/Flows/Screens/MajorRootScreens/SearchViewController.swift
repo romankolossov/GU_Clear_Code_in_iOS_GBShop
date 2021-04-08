@@ -35,10 +35,10 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .navigationControllerNavigationBarTintColor
 
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
     }
 
 }
