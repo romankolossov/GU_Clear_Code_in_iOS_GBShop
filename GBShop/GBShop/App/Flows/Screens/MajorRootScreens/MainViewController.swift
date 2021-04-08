@@ -48,7 +48,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         // Make the search bar always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        sc.searchBar.placeholder = "Type good to search"
+        sc.searchBar.placeholder = "Type good name to search"
         sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
         return sc
     }()
@@ -167,8 +167,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
                 #if DEBUG
                 print(model)
                 #endif
-
-                let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
+                let goods: [GoodData] = model.map {
+                    GoodData(goodElement: $0)
+                }
                 DispatchQueue.main.async { [weak self] in
                     self?.goods.removeAll()
                     self?.goods = goods
@@ -210,12 +211,16 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         let options: NSString.CompareOptions = [
             .caseInsensitive
         ]
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {
+                return
+            }
+            self.filteredGoods.removeAll()
             self.filteredGoods = self.goods.filter { element in
                 element.productName.range(of: text, options: options) != nil
             }
+            self.collectionView.reloadData()
         }
-        collectionView.reloadData()
     }
 
     // MARK: UISearchBarDelegate

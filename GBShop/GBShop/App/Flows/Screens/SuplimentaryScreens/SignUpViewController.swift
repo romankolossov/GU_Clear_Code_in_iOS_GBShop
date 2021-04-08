@@ -23,7 +23,6 @@ class SignUpViewController: UIViewController, AlertShowable {
         button.setTitleColor(.buttonTitleColor, for: .normal)
         button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = .buttonBackgroundColor
-        button.frame.size.height = .buttonHeight
         button.layer.borderWidth = .buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
         button.layer.cornerRadius = .buttonCornerRadius
@@ -32,7 +31,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         return button
     }()
     private lazy var navigationBar: UINavigationBar = {
-        // Create navigation bar with navigation item to set the title of the SignUp VC.
+        // Create navigation bar with navigation item to set its custom look and the title of the SignUp VC. For more explanations see notes for it in SignIn VC.
         let frame = CGRect(
             x: 0.0,
             y: 0.0,

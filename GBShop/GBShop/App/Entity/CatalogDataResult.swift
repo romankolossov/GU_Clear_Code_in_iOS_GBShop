@@ -14,10 +14,10 @@ struct GoodData {
     let productName: String
     let price: Int
 
-    init(resultElement: CatalogDataResultElement) {
-        self.idProduct = resultElement.idProduct
-        self.productName = resultElement.productName
-        self.price = resultElement.price
+    init(goodElement: CatalogDataResultElement) {
+        self.idProduct = goodElement.idProduct
+        self.productName = goodElement.productName
+        self.price = goodElement.price
     }
 }
 

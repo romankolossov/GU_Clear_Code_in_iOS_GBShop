@@ -30,4 +30,12 @@ extension CGFloat {
     static let buttonHeight: CGFloat = navigationBarHeight
     static let buttonBorderWidth: CGFloat = goodCellBorderWidth
     static let buttonCornerRadius: CGFloat = buttonHeight / 4.8
+
+    // MARK: - Review VC
+
+    // MARK: Review table view cell
+
+    static let reviewCellHeight: CGFloat = 111.0
+    static let reviewCellBorderWidth: CGFloat = goodCellBorderWidth
+    static let reviewCellCornerRadius: CGFloat = reviewCellHeight / 8.8
 }

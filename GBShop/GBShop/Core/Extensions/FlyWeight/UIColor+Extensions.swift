@@ -32,7 +32,7 @@ extension UIColor {
     // MARK: Goods collection view cell
 
     static let goodsCellBackgroundColor: UIColor = .white
-    static let goodsCellborderColor: UIColor = tabBarTintColor
+    static let goodsCellBorderColor: UIColor = tabBarTintColor
     static let goodsLableTextColor: UIColor = userLableTextColor
 
     // MARK: - SignIn and SignUp VCs
@@ -50,6 +50,14 @@ extension UIColor {
     // MARK: - Search contrioller
 
     static let searchTextFieldBackgroundColor: UIColor = tabBarBackgroundColor
+
+    // MARK: - Review VC
+
+    // MARK: Review table view cell
+
+    static let reviewCellBackgroundColor: UIColor = .white
+    static let reviewCellBorderColor: UIColor = tabBarTintColor
+    static let reviewLableTextColor: UIColor = userLableTextColor
 
     // MARK: - User VC
 
