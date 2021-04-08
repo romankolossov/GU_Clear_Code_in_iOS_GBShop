@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             collectionViewLayout: layout
         )
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
+        cv.backgroundColor = .goodsCollectionViewBackgroundColor
 
         cv.dataSource = self
         cv.delegate = self
@@ -108,7 +108,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     private func configureMainVC() {
         navigationItem.title = NSLocalizedString("mainVCName", comment: "GBBERRIES")
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -122,7 +122,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNavigationBarTintColor
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
 
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
@@ -196,7 +196,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             string: NSLocalizedString("reloadGoodData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
-        refreshControl.tintColor = UIColor.refreshControlTintColor
+        refreshControl.tintColor = .refreshControlTintColor
 
         refreshControl.addTarget(
             self,

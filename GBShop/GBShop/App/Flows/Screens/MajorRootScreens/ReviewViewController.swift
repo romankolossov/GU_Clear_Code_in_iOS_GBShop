@@ -26,7 +26,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         let tv = UITableView()
 
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
+        tv.backgroundColor = .goodsCollectionViewBackgroundColor
 
         tv.dataSource = self
         tv.delegate = self
@@ -118,7 +118,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     private func configureReviewVC() {
         navigationItem.title = NSLocalizedString("reviewVCName", comment: "Review")
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -132,7 +132,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNavigationBarTintColor
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
 
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
@@ -198,7 +198,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
             string: NSLocalizedString("reloadReviewData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
-        refreshControl.tintColor = UIColor.refreshControlTintColor
+        refreshControl.tintColor = .refreshControlTintColor
 
         refreshControl.addTarget(
             self,

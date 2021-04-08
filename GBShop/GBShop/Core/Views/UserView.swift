@@ -34,44 +34,44 @@ class UserView: UIView {
     // MARK: - Private methods
 
     private func configureUI() {
-        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        backgroundColor = .suplimentaryViewBackgroundColor
         addSubviews()
         setupConstraints()
     }
 
     private func addSubviews() {
         idLabel.translatesAutoresizingMaskIntoConstraints = false
-        idLabel.textColor = UIColor.userLableTextColor
+        idLabel.textColor = .userLableTextColor
         idLabel.textAlignment = .left
         idLabel.font = UIFont.userLableFont
 
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        userNameLabel.textColor = UIColor.userLableTextColor
+        userNameLabel.textColor = .userLableTextColor
         userNameLabel.textAlignment = .left
         userNameLabel.font = UIFont.userLableFont
 
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.textColor = UIColor.userLableTextColor
+        passwordLabel.textColor = .userLableTextColor
         passwordLabel.textAlignment = .left
         passwordLabel.font = UIFont.userLableFont
 
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.textColor = UIColor.userLableTextColor
+        emailLabel.textColor = .userLableTextColor
         emailLabel.textAlignment = .left
         emailLabel.font = UIFont.userLableFont
 
         genderLabel.translatesAutoresizingMaskIntoConstraints = false
-        genderLabel.textColor = UIColor.userLableTextColor
+        genderLabel.textColor = .userLableTextColor
         genderLabel.textAlignment = .left
         genderLabel.font = UIFont.userLableFont
 
         creditCardLabel.translatesAutoresizingMaskIntoConstraints = false
-        creditCardLabel.textColor = UIColor.userLableTextColor
+        creditCardLabel.textColor = .userLableTextColor
         creditCardLabel.textAlignment = .left
         creditCardLabel.font = UIFont.userLableFont
 
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
-        bioLabel.textColor = UIColor.userLableTextColor
+        bioLabel.textColor = .userLableTextColor
         bioLabel.textAlignment = .left
         bioLabel.font = UIFont.userLableFont
         bioLabel.numberOfLines = 3

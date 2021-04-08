@@ -102,7 +102,7 @@ class UserViewController: UIViewController, AlertShowable {
     }
 
     private func configureUserVC() {
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -115,7 +115,7 @@ class UserViewController: UIViewController, AlertShowable {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNavigationBarTintColor
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
 
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor

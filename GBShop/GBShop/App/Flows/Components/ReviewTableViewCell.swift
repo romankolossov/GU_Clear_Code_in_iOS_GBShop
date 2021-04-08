@@ -38,7 +38,7 @@ class ReviewTableViewCell: UITableViewCell {
     // MARK: Configure
 
     private func configureCell() {
-        self.backgroundColor = UIColor.reviewCellBackgroundColor
+        self.backgroundColor = .reviewCellBackgroundColor
 
         self.layer.borderWidth = .reviewCellBorderWidth
         self.layer.borderColor = UIColor.reviewCellBorderColor.cgColor

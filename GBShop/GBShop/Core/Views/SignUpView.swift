@@ -34,7 +34,7 @@ class SignUpView: UIScrollView {
     // MARK: - Private methods
 
     private func configureUI() {
-        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        backgroundColor = .suplimentaryViewBackgroundColor
         addSubviews()
         setupConstraints()
     }
