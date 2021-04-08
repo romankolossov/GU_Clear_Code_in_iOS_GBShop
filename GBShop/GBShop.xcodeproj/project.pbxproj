@@ -76,6 +76,7 @@
 		C8B39B6E25EC14AC00AE3F99 /* RemoveReviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */; };
 		C8B39B7325EC14CC00AE3F99 /* ReviewListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */; };
 		C8BB1C4E25F67A3F0000E8E6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */; };
+		C8CB74E9261F7A8B00827779 /* NibNameLoadable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB74E8261F7A8B00827779 /* NibNameLoadable+Extension.swift */; };
 		C8CC19D125EAB65E006F375C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C8CC19D025EAB65E006F375C /* .swiftlint.yml */; };
 		C8CC19DF25EB8EB3006F375C /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */; };
 		C8CC19E425EB8EE7006F375C /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */; };
@@ -201,6 +202,7 @@
 		C8B39B6D25EC14AC00AE3F99 /* RemoveReviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewTest.swift; sourceTree = "<group>"; };
 		C8B39B7225EC14CC00AE3F99 /* ReviewListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListTest.swift; sourceTree = "<group>"; };
 		C8BB1C4D25F67A3F0000E8E6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		C8CB74E8261F7A8B00827779 /* NibNameLoadable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NibNameLoadable+Extension.swift"; sourceTree = "<group>"; };
 		C8CC19D025EAB65E006F375C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C8CC19DE25EB8EB3006F375C /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
 		C8CC19E325EB8EE7006F375C /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
@@ -385,15 +387,15 @@
 			path = SuplimentaryScreens;
 			sourceTree = "<group>";
 		};
-		C8267F0925FB804400F2C8FE /* Common */ = {
+		C8267F0925FB804400F2C8FE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				C8267F0125FB529900F2C8FE /* AlertShowable+Extension.swift */,
 				C85009BE260DC15C00CC5AB0 /* RemoveAddableToCart+Extension.swift */,
 				C8FBDD9F26065AD1000418FC /* Shakable+Extension.swift */,
-				C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */,
+				C8CB74E8261F7A8B00827779 /* NibNameLoadable+Extension.swift */,
 			);
-			path = Common;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C83355B225DCAF4200205932 /* Network */ = {
@@ -556,7 +558,8 @@
 			isa = PBXGroup;
 			children = (
 				C83355B325DCB01200205932 /* Network */,
-				C8267F0925FB804400F2C8FE /* Common */,
+				C8267F0925FB804400F2C8FE /* Protocols */,
+				C8CB74DF261F72C000827779 /* Layouts */,
 				C8267ECB25F8687000F2C8FE /* Views */,
 				C8267ED125F8873700F2C8FE /* Extensions */,
 			);
@@ -588,6 +591,14 @@
 				C8267EB825F7601C00F2C8FE /* InfoPlist.strings */,
 			);
 			path = BaseLprojIsHere;
+			sourceTree = "<group>";
+		};
+		C8CB74DF261F72C000827779 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C875FA1E2601FD7E0095B16B /* GoodsLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		C8CC19ED25EB91BB006F375C /* AddReview */ = {
@@ -865,6 +876,7 @@
 				C824665125D4769C00D3B8E5 /* MainViewController.swift in Sources */,
 				C8267F51260085C300F2C8FE /* State.swift in Sources */,
 				C8F51D4525EFFF1500D83AFE /* PayBasketResult.swift in Sources */,
+				C8CB74E9261F7A8B00827779 /* NibNameLoadable+Extension.swift in Sources */,
 				C8267F4C25FFF3A600F2C8FE /* AppCoordinator.swift in Sources */,
 				C8BB1C4E25F67A3F0000E8E6 /* ReviewViewController.swift in Sources */,
 				C8AD896E26027DE000B6CB0E /* CGFloat+Extension.swift in Sources */,
