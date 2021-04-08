@@ -132,9 +132,9 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
-
         navigationController?.navigationBar.isTranslucent = true
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
 
         // Create addReviewItem in navigation item of navigation bar.

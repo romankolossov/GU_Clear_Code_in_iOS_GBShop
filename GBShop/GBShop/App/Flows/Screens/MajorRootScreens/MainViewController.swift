@@ -122,9 +122,9 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
-
         navigationController?.navigationBar.isTranslucent = true
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
 
         // Create registerNewUserItem and signInItem in navigation item of navigation bar.

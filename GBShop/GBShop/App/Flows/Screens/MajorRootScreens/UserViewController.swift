@@ -115,9 +115,9 @@ class UserViewController: UIViewController, AlertShowable {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
-
         navigationController?.navigationBar.isTranslucent = true
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
         navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
 
         // Create logoutItem and changeUserDataItem in navigation item of navigation bar.
