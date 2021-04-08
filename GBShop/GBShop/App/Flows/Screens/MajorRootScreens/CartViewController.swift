@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for Delete from basket and Pay basket
+// Deleting from basket and paying basket.
 
 class CartViewController: UIViewController {
 
@@ -15,16 +15,13 @@ class CartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
-        self.configureCartVC()
+        configureCartVC()
     }
 
     // MARK: - Actions
 
     @objc private func payBasket() {
         // MARK: TO DO
-
     }
 
     // MARK: - Private methods
@@ -33,16 +30,23 @@ class CartViewController: UIViewController {
 
     private func configureCartVC() {
         navigationItem.title = NSLocalizedString("cartVCName", comment: "Cart")
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        configureNavigationVC()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create payBasketItem in navigation item of navigation bar.
         let payBasketItem = UIBarButtonItem(
             image: UIImage(systemName: "creditcard"),
             style: .plain,
@@ -50,9 +54,6 @@ class CartViewController: UIViewController {
             action: #selector(payBasket)
         )
         navigationItem.rightBarButtonItems = [payBasketItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
 }

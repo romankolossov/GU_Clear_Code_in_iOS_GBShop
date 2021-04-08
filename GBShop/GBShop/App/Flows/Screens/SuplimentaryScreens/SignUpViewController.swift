@@ -11,31 +11,52 @@ class SignUpViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
-    private let signUpView: SignUpView = {
+    private lazy var signUpView: SignUpView = {
         let view = SignUpView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private let signUpButton: UIButton = {
-        let button = UIButton()
+    private lazy var signUpButton: ShakableButton = {
+        let button = ShakableButton()
         button.setTitle(NSLocalizedString("toSignUp", comment: "Sign up"), for: .normal)
-        button.setTitleColor(UIColor.buttonTitleColor, for: .normal)
-        button.setTitleColor(UIColor.buttonTitleColorWhenHighlighted, for: .highlighted)
-        button.backgroundColor = UIColor.buttonBackgroundColor
-        button.layer.borderWidth = 1.7
+        button.setTitleColor(.buttonTitleColor, for: .normal)
+        button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
+        button.backgroundColor = .buttonBackgroundColor
+        button.frame.size.height = .buttonHeight
+        button.layer.borderWidth = .buttonBorderWidth
         button.layer.borderColor = UIColor.buttonBorderColor.cgColor
+        button.layer.cornerRadius = .buttonCornerRadius
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private var navigationBar = UINavigationBar()
+    private lazy var navigationBar: UINavigationBar = {
+        // Create navigation bar with navigation item to set the title of the SignUp VC.
+        let frame = CGRect(
+            x: 0.0,
+            y: 0.0,
+            width: view.bounds.size.width,
+            height: .navigationBarHeight
+        )
+        let navigationItem = UINavigationItem()
+        navigationItem.title = NSLocalizedString("signup", comment: "")
+
+        let navigationBar = UINavigationBar(frame: frame)
+        navigationBar.items = [navigationItem]
+
+        navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
+        ]
+        navigationBar.barTintColor = .navigationBarTintColor
+        return navigationBar
+    }()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureSubviews()
+        configureSignUpVC()
 
         // MARK: Targets
 
@@ -79,7 +100,11 @@ class SignUpViewController: UIViewController, AlertShowable {
 
     // MARK: - Actions
 
+    // MARK: Signup
+
     @objc private func signUp() {
+        signUpButton.shake() // Animation when the signUpButton is tapped.
+
         let signUpFactory: SignUpRequestFactory = AppDelegate.requestFactory.makeSignUpRequestFactory()
 
         signUpFactory.signUp(
@@ -91,13 +116,13 @@ class SignUpViewController: UIViewController, AlertShowable {
             creditCard: signUpView.creditCardTextField.text ?? "",
             bio: signUpView.bioTextField.text ?? ""
         ) { response in
-
             switch response.result {
             case .success(let model):
                 let resultWithSignUpSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
+
                 DispatchQueue.main.async { [weak self] in
                     let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
                     }
@@ -126,13 +151,15 @@ class SignUpViewController: UIViewController, AlertShowable {
         }
     }
 
+    // MARK: Keyboard
+
     @objc func keyboardWillBeShown(notification: Notification) {
         guard let userInfo = notification.userInfo else {
             return
         }
         let info = userInfo as NSDictionary
-
         let keyboardSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue)?.cgRectValue.size
+
         let contentInsets = UIEdgeInsets(
             top: 0.0,
             left: 0.0,
@@ -156,46 +183,22 @@ class SignUpViewController: UIViewController, AlertShowable {
 
     // MARK: Configure
 
-    private func configureSubviews() {
-        let navigationBarHeight: CGFloat = 56.0
-        let signUpButtonHeight: CGFloat = 56.0
+    private func configureSignUpVC() {
+        addSubviews()
+        setupConstraints()
+    }
 
-        // Create Navigation Bar with Navigation Item to set the title of the SignUp VC
-
-        let frame = CGRect(
-            x: 0.0,
-            y: 0.0,
-            width: self.view.bounds.size.width,
-            height: navigationBarHeight
-        )
-        let navigationItem = UINavigationItem()
-
-        navigationItem.title = NSLocalizedString("signup", comment: "")
-
-        navigationBar = UINavigationBar(frame: frame)
-        navigationBar.items = [navigationItem]
-
-        navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleTextColor
-        ]
-        navigationBar.barTintColor = UIColor.navigationBarTintColor
-
-        // for corners of the signUpButton will be rounded
-
-        signUpButton.frame.size.height = signUpButtonHeight
-        signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 4.8
-
-        // Add subviews
-
+    private func addSubviews() {
         view.addSubview(signUpView)
         view.addSubview(signUpButton)
         view.addSubview(navigationBar)
+    }
 
-        // Set constraints
-
+    private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
+
         let signUpViewConstraints = [
-            signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: navigationBarHeight),
+            signUpView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: .navigationBarHeight),
             signUpView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             signUpView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
             signUpView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor)
@@ -203,7 +206,7 @@ class SignUpViewController: UIViewController, AlertShowable {
         let signUpButtonConstraints = [
             signUpButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             signUpButton.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
-            signUpButton.heightAnchor.constraint(equalToConstant: signUpButtonHeight),
+            signUpButton.heightAnchor.constraint(equalToConstant: .buttonHeight),
             signUpButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
         NSLayoutConstraint.activate(signUpViewConstraints)

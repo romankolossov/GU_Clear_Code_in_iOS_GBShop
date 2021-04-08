@@ -13,10 +13,10 @@ class TabBarController: UITabBarController {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super .init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.viewControllers = createViewControllers()
+        viewControllers = createViewControllers()
 
-        self.tabBar.backgroundColor = UIColor.tabBarBackgroundColor
-        self.tabBar.tintColor = UIColor.tabBarTintColor
+        tabBar.backgroundColor = UIColor.tabBarBackgroundColor
+        tabBar.tintColor = UIColor.tabBarTintColor
     }
     @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,7 +39,9 @@ class TabBarController: UITabBarController {
         )
         mainViewController.tabBarItem = mainVCTabBarItem
 
-        let mainNavigationController = UINavigationController(rootViewController: mainViewController)
+        let mainNavigationController = UINavigationController(
+            rootViewController: mainViewController
+        )
         controllers.append(mainNavigationController)
 
         // Search tab
@@ -52,7 +54,9 @@ class TabBarController: UITabBarController {
         )
         searchViewController.tabBarItem = searchVCTabBarItem
 
-        let searchNavigationController = UINavigationController(rootViewController: searchViewController)
+        let searchNavigationController = UINavigationController(
+            rootViewController: searchViewController
+        )
         controllers.append(searchNavigationController)
 
         // Cart tab
@@ -65,7 +69,9 @@ class TabBarController: UITabBarController {
         )
         cartViewController.tabBarItem = cartVCTabBarItem
 
-        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
+        let cartNavigationController = UINavigationController(
+            rootViewController: cartViewController
+        )
         controllers.append(cartNavigationController)
 
         // Review tab
@@ -78,7 +84,9 @@ class TabBarController: UITabBarController {
         )
         reviewViewController.tabBarItem = reviewVCTabBarItem
 
-        let reviewNavigationController = UINavigationController(rootViewController: reviewViewController)
+        let reviewNavigationController = UINavigationController(
+            rootViewController: reviewViewController
+        )
         controllers.append(reviewNavigationController)
 
         // User tab
@@ -91,7 +99,9 @@ class TabBarController: UITabBarController {
         )
         userViewController.tabBarItem = userVCTabBarItem
 
-        let userNavigationController = UINavigationController(rootViewController: userViewController)
+        let userNavigationController = UINavigationController(
+            rootViewController: userViewController
+        )
         controllers.append(userNavigationController)
 
         return controllers

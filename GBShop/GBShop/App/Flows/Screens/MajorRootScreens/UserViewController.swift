@@ -7,13 +7,13 @@
 
 import UIKit
 
-// for Change user data and Logout
+// Changing user data and logging out.
 
 class UserViewController: UIViewController, AlertShowable {
 
     // MARK: - Private properties
 
-    private let userView: UserView = {
+    private lazy var userView: UserView = {
         let view = UserView()
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,17 +25,13 @@ class UserViewController: UIViewController, AlertShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
-        self.configureUserVC()
-        self.configureSubviews()
+        configureUserVC()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         userData = UserData.getUser()
-
-        configureUserVCDataLook()
+        configureUserVCLook()
     }
 
     // MARK: - Actions
@@ -49,13 +45,13 @@ class UserViewController: UIViewController, AlertShowable {
         let logoutFactory: LogoutRequestFactory = AppDelegate.requestFactory.makeLogoutRequestFactory()
 
         logoutFactory.logout(id: id) { response in
-
             switch response.result {
             case .success(let model):
                 let resultWithLogoutSuccess: Int = 1
                 #if DEBUG
                 print(model)
                 #endif
+
                 DispatchQueue.main.async { [weak self] in
                     guard model.result == resultWithLogoutSuccess else {
                         self?.showAlert(
@@ -67,8 +63,8 @@ class UserViewController: UIViewController, AlertShowable {
                         return
                     }
                     UserData.clearUser()
-
                     self?.viewDidAppear(true)
+
                     self?.showAlert(
                         title: NSLocalizedString("logout", comment: ""),
                         message: NSLocalizedString("logoutSuccess", comment: ""),
@@ -87,24 +83,44 @@ class UserViewController: UIViewController, AlertShowable {
 
     @objc private func changeUserData() {
         // MARK: TO DO
-
     }
 
     // MARK: - Private methods
 
     // MARK: Configure
 
-    private func configureUserVC() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+    private func configureUserVCLook() {
+        guard let userData = userData else {
+            return
+        }
+        navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        userView.idLabel.text = String(userData.user.id)
+        userView.userNameLabel.text = userData.user.name
+        userView.passwordLabel.text = userData.user.lastname
+        userView.emailLabel.text = userData.user.login
+    }
+
+    private func configureUserVC() {
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
+
+        configureNavigationVC()
+        addSubviews()
+        setupConstraints()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create logoutItem and changeUserDataItem in navigation item of navigation bar.
         let logoutItem = UIBarButtonItem(
             image: UIImage(systemName: "arrowshape.zigzag.right"),
             style: .done,
@@ -118,15 +134,15 @@ class UserViewController: UIViewController, AlertShowable {
             action: #selector(changeUserData)
         )
         navigationItem.rightBarButtonItems = [logoutItem, changeUserDataItem]
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
     }
 
-    private func configureSubviews() {
+    private func addSubviews() {
         view.addSubview(userView)
+    }
 
+    private func setupConstraints() {
         let safeArea = view.safeAreaLayoutGuide
+
         let userViewConstraints = [
             userView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             userView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
@@ -134,18 +150,6 @@ class UserViewController: UIViewController, AlertShowable {
             userView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ]
         NSLayoutConstraint.activate(userViewConstraints)
-    }
-
-    private func configureUserVCDataLook() {
-        guard let userData = userData else {
-            return
-        }
-        self.navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
-
-        userView.idLabel.text = String(userData.user.id)
-        userView.userNameLabel.text = userData.user.name
-        userView.passwordLabel.text = userData.user.lastname
-        userView.emailLabel.text = userData.user.login
     }
 
 }

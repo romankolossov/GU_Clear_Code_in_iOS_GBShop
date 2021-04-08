@@ -7,7 +7,7 @@
 
 import UIKit
 
-// for display Catalog data, Search good by id and Add good to basket
+// Displaying catalog data, searching good by id and adding good to basket.
 
 class SearchViewController: UIViewController {
 
@@ -15,9 +15,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
-        self.configureSearchVC()
+        configureSearchVC()
     }
 
     // MARK: - Private methods
@@ -26,18 +24,21 @@ class SearchViewController: UIViewController {
 
     private func configureSearchVC() {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        configureNavigationVC()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
-
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
     }
 
 }

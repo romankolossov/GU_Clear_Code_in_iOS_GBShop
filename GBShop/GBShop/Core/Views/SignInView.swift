@@ -30,28 +30,29 @@ class SignInView: UIScrollView {
 
     private func configureUI() {
         self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
-
         self.addSubviews()
         self.setupConstraints()
     }
 
     private func addSubviews() {
-
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        userNameTextField.text = "Somebody"
-        userNameTextField.textColor = UIColor.userTextFieldTextColor
+        userNameTextField.placeholder = " User name"
+        userNameTextField.textColor = .userTextFieldTextColor
         userNameTextField.textAlignment = .left
-        userNameTextField.font = UIFont.userTextFieldFont
+        userNameTextField.font = .userTextFieldFont
+        userNameTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        userNameTextField.layer.cornerRadius = .textFieldCornerRadius
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.text = "mypassword"
-        passwordTextField.textColor = UIColor.userTextFieldTextColor
+        passwordTextField.placeholder = " Password"
+        passwordTextField.textColor = .userTextFieldTextColor
         passwordTextField.textAlignment = .left
-        passwordTextField.font = UIFont.userTextFieldFont
+        passwordTextField.font = .userTextFieldFont
+        passwordTextField.backgroundColor = .userTextFieldTextBackgroundColor
+        passwordTextField.layer.cornerRadius = .textFieldCornerRadius
 
         self.addSubview(userNameTextField)
         self.addSubview(passwordTextField)
-
     }
 
     private func setupConstraints() {

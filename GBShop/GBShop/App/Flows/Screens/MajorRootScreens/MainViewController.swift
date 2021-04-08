@@ -7,32 +7,93 @@
 
 import UIKit
 
-// for Sign in and Sign up
+// Signing in and signing up.
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+
+    // MARK: - Public properties
+
+    let goodsCellIdentifier: String = "GoodsCellIdentifier"
+    var goods: [GoodData] = []
+    var filteredGoods: [GoodData] = []
+
+    // MARK: - Private properties
+
+    private (set) lazy var collectionView: UICollectionView = {
+        let layout = GoodsLayout()
+        let safeArea = view.safeAreaLayoutGuide
+
+        let cv = UICollectionView(
+            frame: safeArea.layoutFrame,
+            collectionViewLayout: layout
+        )
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
+
+        cv.dataSource = self
+        cv.delegate = self
+
+        cv.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: goodsCellIdentifier)
+        return cv
+    }()
+    private (set) lazy var searchController: UISearchController = {
+        let sc = UISearchController()
+        sc.delegate = self // Monitor when search controller is dismissed.
+        sc.searchResultsUpdater = self
+        sc.searchBar.autocapitalizationType = .none
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.searchBar.delegate = self // Monitor when the cancel button is tapped.
+        // Place the search bar in the navigation bar.
+        navigationItem.searchController = sc
+        // Make the search bar always visible.
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+        sc.searchBar.placeholder = "Type good to search"
+        sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
+        return sc
+    }()
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
-
         configureMainVC()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadData()
     }
 
     // MARK: - Actions
 
     @objc private func signUp() {
         let signUpViewController = SignUpViewController()
-
         signUpViewController.modalPresentationStyle = .formSheet
-        self.navigationController?.present(signUpViewController, animated: true, completion: nil)
+
+        navigationController?.present(
+            signUpViewController,
+            animated: true,
+            completion: nil
+        )
     }
+
     @objc private func signIn() {
         let signInViewController = SignInViewController()
-
         signInViewController.modalPresentationStyle = .formSheet
-        self.navigationController?.present(signInViewController, animated: true, completion: nil)
+
+        navigationController?.present(
+            signInViewController,
+            animated: true,
+            completion: nil
+        )
+    }
+
+    @objc private func refresh(_ sender: UIRefreshControl) {
+        loadData { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
 
     // MARK: - Private methods
@@ -40,17 +101,27 @@ class MainViewController: UIViewController {
     // MARK: Configure
 
     private func configureMainVC() {
-        navigationItem.title = NSLocalizedString("mainVCName", comment: "GB Shop")
+        navigationItem.title = NSLocalizedString("mainVCName", comment: "GBBERRIES")
+        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [
+        configureNavigationVC()
+        addSubviews()
+        setupConstraints()
+        setupRefreshControl()
+    }
+
+    private func configureNavigationVC() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        self.navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
 
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
 
+        // Create registerNewUserItem and signInItem in navigation item of navigation bar.
         let registerNewUserItem = UIBarButtonItem(
             image: UIImage(systemName: "person.fill.badge.plus"),
             style: .plain,
@@ -64,9 +135,100 @@ class MainViewController: UIViewController {
             action: #selector(signIn)
         )
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
+    }
 
-        self.view.backgroundColor = UIColor.rootVCViewBackgroundColor
-        self.tabBarItem.title = nil
+    private func addSubviews() {
+        // Add an empty custom navigation bar before adding collection view to show collection view refresh control just above the cells but not in navigation bar.
+        // let navigationBar = UINavigationBar()
+        // view.addSubview(navigationBar)
+        view.addSubview(collectionView)
+    }
+
+    private func setupConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+
+        let collectionViewConstraints = [
+            collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            collectionView.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            collectionView.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(collectionViewConstraints)
+    }
+
+    // MARK: Load data
+
+    private func loadData(completion: (() -> Void)? = nil) {
+        let catalogDataFactory: CatalogDataRequestFactory = AppDelegate.requestFactory.makeCatalogDataRequestFactory()
+
+        catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
+            switch response.result {
+            case .success(let model):
+                #if DEBUG
+                print(model)
+                #endif
+
+                let goods: [GoodData] = model.map { GoodData(resultElement: $0) }
+                DispatchQueue.main.async { [weak self] in
+                    self?.goods.removeAll()
+                    self?.goods = goods
+                    self?.collectionView.reloadData()
+                    completion?()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    // MARK: Pull-to-refresh pattern
+
+    private func setupRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(
+            string: NSLocalizedString("reloadData", comment: ""),
+            attributes: [.font: UIFont.refreshControlFont]
+        )
+        refreshControl.tintColor = UIColor.refreshControlTintColor
+
+        refreshControl.addTarget(
+            self,
+            action: #selector(refresh(_:)),
+            for: .valueChanged
+        )
+        // Place the refresh control in the collection view.
+        collectionView.refreshControl = refreshControl
+    }
+
+    // MARK: - Delegates methods
+
+    // MARK: UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            return
+        }
+        let options: NSString.CompareOptions = [
+            .caseInsensitive
+        ]
+        DispatchQueue.main.async {
+            self.filteredGoods = self.goods.filter { element in
+                element.productName.range(of: text, options: options) != nil
+            }
+        }
+        collectionView.reloadData()
+    }
+
+    // MARK: UISearchBarDelegate
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Use searchBarCancelButtonClicked additionally to didDismissSearchController because of better animation when cancel button is clicked.
+        collectionView.reloadData()
+    }
+
+    // MARK: UISearchControllerDelegate
+
+    func didDismissSearchController(_ searchController: UISearchController) {
+        collectionView.reloadData()
     }
 
 }

@@ -6,7 +6,7 @@
   
 */
 
-// TabBarController
+// Tab bar controller
 /*
 "mainTab" = "Home";
 "searchTab" = "Search";
@@ -15,9 +15,9 @@
 "userTab" = "User";
 */
 
-// MainViewController
+// Main VC
 
-"mainVCName" = "GB Shop";
+"mainVCName" = "GB BERRIES";
 //"reloadData" = "Reloading data...";
 
 //MARK: TO DO
@@ -39,19 +39,19 @@
 "doneButton" = "DONE";
 */
 
-// SearchViewController
+// Search VC
 
 "searchVCName" = "Search";
 
-// CartViewController
+// Cart VC
 
 "cartVCName" = "Cart";
 
-// ReviewViewController
+// Review VC
 
 "reviewVCName" = "Review";
 
-// UserViewController
+// User VC
 
 "userVCName" = "Hi";
 "customer" = "dear customer";
@@ -61,7 +61,7 @@
 "logoutSuccess" = "You have logged out";
 "logoutFailure" = "Logout failed. Plese, try later";
 
-// SignUpViewController
+// SignUp VC
 // state
 "signup" = "Signup";
 // action
@@ -70,7 +70,7 @@
 "signupSuccess" = "Registration passed";
 "signupFailure" = "Registration failed. Plese, try later";
 
-// SignInViewController
+// SignIn VC
 // state
 "signin" = "Signin";
 // action
@@ -91,3 +91,7 @@
 "success" = "Success";
 "close" = "Close";
 */
+
+// Refresh control
+
+"reloadData" = "Reloading catalog...";

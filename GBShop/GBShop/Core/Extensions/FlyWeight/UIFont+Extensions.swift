@@ -9,17 +9,25 @@ import UIKit
 
 extension UIFont {
 
-    // for User Data
+    // MARK: - Main VC
 
-    static let userLableFont: UIFont = .preferredFont(forTextStyle: .title3)
-    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .title3)
+    // MARK: Goods collection view cell
 
-    // for Alerts
+    static let goodsLableFont: UIFont = .preferredFont(forTextStyle: .headline)
+
+    // MARK: - SignIn and SignUp VCs
+
+    static let userTextFieldFont: UIFont = .preferredFont(forTextStyle: .body)
+
+    // MARK: - User VC
+
+    static let userLableFont: UIFont = .preferredFont(forTextStyle: .body)
+
+    // MARK: - Alerts
 
     static let alertTitleFont: UIFont = .preferredFont(forTextStyle: .headline)
 
-    // MARK: Reserve
-    // for RefreshControl
+    // MARK: Refresh Control
 
-    // static let refreshControlFont: UIFont = .systemFont(ofSize: 10)
+    static let refreshControlFont: UIFont = .systemFont(ofSize: 11)
 }

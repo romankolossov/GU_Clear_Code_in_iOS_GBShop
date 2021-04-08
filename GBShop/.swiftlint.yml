@@ -48,14 +48,14 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - R.generated.swift
   - templates
 
-line_length: 210 # initially was set to 200
+line_length: 201 # initially was set to 200
 
 type_body_length:
   warning: 300
   error: 400
 
 function_body_length:
-  warning: 50 # initially was set to 50
+  warning: 60 # initially was set to 50
   error: 100
 
 file_length:
