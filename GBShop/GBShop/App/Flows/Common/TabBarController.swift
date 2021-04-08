@@ -11,8 +11,8 @@ class TabBarController: UITabBarController {
 
     // MARK: - Initializers
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super .init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init() {
+        super.init(nibName: nil, bundle: nil)
         viewControllers = createViewControllers()
 
         tabBar.backgroundColor = UIColor.tabBarBackgroundColor

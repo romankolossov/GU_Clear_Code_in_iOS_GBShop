@@ -23,7 +23,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     private(set) lazy var tableView: UITableView = {
         let safeArea = view.safeAreaLayoutGuide
-        let tv = UITableView(frame: safeArea.layoutFrame)
+        let tv = UITableView()
 
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
