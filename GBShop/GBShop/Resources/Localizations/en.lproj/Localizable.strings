@@ -63,10 +63,9 @@
 // User VC
 
 "userVCName" = "Hi";
-"customer" = "dear customer";
+"customer" = "Customer";
 
 "logout" = "Logout";
-
 "logoutSuccess" = "You have logged out";
 "logoutFailure" = "Logout failed. Plese, try later";
 

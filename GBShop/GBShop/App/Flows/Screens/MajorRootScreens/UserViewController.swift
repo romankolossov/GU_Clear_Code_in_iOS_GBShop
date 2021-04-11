@@ -90,10 +90,19 @@ class UserViewController: UIViewController, AlertShowable {
     // MARK: Configure
 
     private func configureUserVCLook() {
-        guard let userData = userData else {
+        guard let userData = userData,
+              !userData.user.login.isEmpty else {
+            navigationItem.title =
+                "\(NSLocalizedString("userVCName", comment: "Hi")), \(NSLocalizedString("customer", comment: "customer"))"
+
+            userView.idLabel.text = ""
+            userView.userNameLabel.text = ""
+            userView.passwordLabel.text = ""
+            userView.emailLabel.text = ""
             return
         }
-        navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
+        navigationItem.title =
+            "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
         userView.idLabel.text = String(userData.user.id)
         userView.userNameLabel.text = userData.user.name
