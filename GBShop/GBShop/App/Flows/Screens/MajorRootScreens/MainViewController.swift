@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import OSLog
 
 // Signing in and signing up.
 
-class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, RemoveAddableToCart {
 
     // MARK: - Public properties
 
@@ -19,7 +20,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     // MARK: - Private properties
 
-    private (set) lazy var collectionView: UICollectionView = {
+    private(set) lazy var collectionView: UICollectionView = {
         let layout = GoodsLayout()
         let safeArea = view.safeAreaLayoutGuide
 
@@ -36,7 +37,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         cv.register(GoodsCollectionViewCell.self, forCellWithReuseIdentifier: goodsCellIdentifier)
         return cv
     }()
-    private (set) lazy var searchController: UISearchController = {
+    private(set) lazy var searchController: UISearchController = {
         let sc = UISearchController()
         sc.delegate = self // Monitor when search controller is dismissed.
         sc.searchResultsUpdater = self
@@ -48,7 +49,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         // Make the search bar always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        sc.searchBar.placeholder = "Type good name to search"
+        sc.searchBar.placeholder = NSLocalizedString("typeGoodNameToSearch", comment: "")
         sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
         return sc
     }()
@@ -134,6 +135,8 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             target: self,
             action: #selector(signIn)
         )
+        // For use in UI tests.
+        signInItem.accessibilityIdentifier = "signInBarButtonItem"
         navigationItem.rightBarButtonItems = [registerNewUserItem, signInItem]
     }
 
@@ -164,9 +167,8 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         catalogDataFactory.catalogData(id: "1", pageNumber: "1") { response in
             switch response.result {
             case .success(let model):
-                #if DEBUG
-                print(model)
-                #endif
+                Logger.viewCycle.debug("\(model)")
+
                 let goods: [GoodData] = model.map {
                     GoodData(goodElement: $0)
                 }
@@ -177,7 +179,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
                     completion?()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
             }
         }
     }
@@ -186,7 +188,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     private func setupRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(
-            string: NSLocalizedString("reloadData", comment: ""),
+            string: NSLocalizedString("reloadGoodData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
         refreshControl.tintColor = UIColor.refreshControlTintColor

@@ -1,5 +1,5 @@
 //
-//  Int+Extensions.swift
+//  Int+Extension.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 19.03.2021.

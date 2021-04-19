@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 class SignInViewController: UIViewController, AlertShowable {
 
@@ -20,6 +21,7 @@ class SignInViewController: UIViewController, AlertShowable {
     private lazy var signInButton: ShakableButton = {
         let button = ShakableButton()
         button.setTitle(NSLocalizedString("toSignIn", comment: "Sign in"), for: .normal)
+        button.accessibilityIdentifier = "signInButton"
         button.setTitleColor(.buttonTitleColor, for: .normal)
         button.setTitleColor(.buttonTitleColorWhenHighlighted, for: .highlighted)
         button.backgroundColor = .buttonBackgroundColor
@@ -57,6 +59,7 @@ class SignInViewController: UIViewController, AlertShowable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.accessibilityIdentifier = "signInVCView"
         configureSignInVC()
 
         // MARK: Targets
@@ -115,12 +118,11 @@ class SignInViewController: UIViewController, AlertShowable {
             switch response.result {
             case .success(let model):
                 let resultWithSignInSuccess: Int = 1
-                #if DEBUG
-                print(model)
-                #endif
 
                 DispatchQueue.main.async { [weak self] in
-                    let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in self?.dismiss(animated: true, completion: nil)
+                    let handler: ((UIAlertAction) -> Void)? = { [weak self] _ in
+                        // After alert OK pressed, dismiss SignInVC screen to move to main VC screen
+                        self?.dismiss(animated: true, completion: nil)
                     }
                     guard model.result == resultWithSignInSuccess else {
                         self?.showAlert(
@@ -145,7 +147,7 @@ class SignInViewController: UIViewController, AlertShowable {
                     )
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
                 DispatchQueue.main.async { [weak self] in
                     self?.dismiss(animated: true, completion: nil)
                 }

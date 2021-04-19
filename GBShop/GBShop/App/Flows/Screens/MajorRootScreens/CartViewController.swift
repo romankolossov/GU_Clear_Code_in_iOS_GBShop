@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import OSLog
 
 // Deleting from basket and paying basket.
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, AlertShowable {
 
     // MARK: - Lifecycle
 
@@ -18,10 +19,45 @@ class CartViewController: UIViewController {
         configureCartVC()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // TO DO loadData()
+    }
+
     // MARK: - Actions
 
     @objc private func payBasket() {
-        // MARK: TO DO
+        let payBasketRequestFactory: PayBasketRequestFactory = AppDelegate.requestFactory.makePayBasketRequestFactory()
+
+        payBasketRequestFactory.payBasket(idPayProve: 1) { response in
+            switch response.result {
+            case .success(let model):
+                let resultWithPaySuccess: Int = 1
+
+                DispatchQueue.main.async { [weak self] in
+                    guard model.result == resultWithPaySuccess else {
+                        self?.showAlert(
+                            title: NSLocalizedString("payBasket", comment: ""),
+                            message: NSLocalizedString("payBasketFailure", comment: ""),
+                            handler: nil,
+                            completion: nil
+                        )
+                        return
+                    }
+                    // TO DO BasketData.clearBasket()
+                    // TO DO self?.viewDidAppear(true)
+
+                    self?.showAlert(
+                        title: NSLocalizedString("payBasket", comment: ""),
+                        message: NSLocalizedString("payBasketSuccess", comment: ""),
+                        handler: nil,
+                        completion: nil
+                    )
+                }
+            case .failure(let error):
+                Logger.viewCycle.debug("\(error.localizedDescription)")
+            }
+        }
     }
 
     // MARK: - Private methods

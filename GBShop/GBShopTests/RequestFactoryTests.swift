@@ -40,7 +40,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.user.id, 123)
                 signedIn.fulfill()
             case .failure(let error):
@@ -74,7 +73,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 signedUp.fulfill()
             case .failure(let error):
@@ -108,7 +106,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 changedUserData.fulfill()
             case .failure(let error):
@@ -134,7 +131,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 loggedOut.fulfill()
             case .failure(let error):
@@ -162,7 +158,6 @@ class RequestFactoryTests: XCTestCase {
             case .success(let model):
                 guard let elementFirst: CatalogDataResultElement = model.first else { return }
                 guard let elementLast: CatalogDataResultElement = model.last else { return }
-                print("\n\(model)\n")
                 XCTAssertEqual(elementFirst.idProduct, 123)
                 XCTAssertEqual(elementFirst.productName, "Ноутбук")
                 XCTAssertEqual(elementFirst.price, 45600)
@@ -193,7 +188,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 XCTAssertEqual(model.productName, "Ноутбук")
                 XCTAssertEqual(model.productDescription, "Мощный игровой ноутбук")
@@ -222,7 +216,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 addedReview.fulfill()
             case .failure(let error):
@@ -248,7 +241,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 removedReview.fulfill()
             case .failure(let error):
@@ -276,7 +268,6 @@ class RequestFactoryTests: XCTestCase {
             case .success(let model):
                 guard let elementFirst: ReviewListResultElement = model.first else { return }
                 guard let elementLast: ReviewListResultElement = model.last else { return }
-                print("\n\(model)\n")
                 XCTAssertEqual(elementFirst.idComment, 123)
                 XCTAssertEqual(elementLast.idComment, 456)
                 gotReviewList.fulfill()
@@ -303,7 +294,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 addedToBasket.fulfill()
             case .failure(let error):
@@ -329,7 +319,6 @@ class RequestFactoryTests: XCTestCase {
             // Verify that output is as expected
             switch response.result {
             case .success(let model):
-                print("\n\(model)\n")
                 XCTAssertEqual(model.result, 1)
                 deletedFromBasket.fulfill()
             case .failure(let error):

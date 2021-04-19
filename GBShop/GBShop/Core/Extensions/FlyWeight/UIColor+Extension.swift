@@ -1,5 +1,5 @@
 //
-//  UIColor+Extensions.swift
+//  UIColor+Extension.swift
 //  GBShop
 //
 //  Created by Roman Kolosov on 10.03.2021.

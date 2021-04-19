@@ -38,8 +38,8 @@ extension AlertShowable where Self: UIViewController {
         alertController.setValue(alertTitle, forKey: "attributedTitle")
 
         let okAction = UIAlertAction(
-            title: "OK",
-            style: .default,
+            title: NSLocalizedString("close", comment: ""),
+            style: .destructive,
             handler: handler
         )
         alertController.addAction(okAction)

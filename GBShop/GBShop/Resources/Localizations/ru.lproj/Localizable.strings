@@ -20,6 +20,8 @@
 "mainVCName" = "GB Магазин";
 //"reloadData" = "Reloading data...";
 
+"typeGoodNameToSearch" = "Введите товар для поиска";
+
 //MARK: TO DO
 // FirstViewController
 /*
@@ -47,19 +49,24 @@
 
 "cartVCName" = "Корзина";
 
+"payBasket" = "Оплата";
+"payBasketSuccess" = "Оплата товаров в корзине прошла успешно";
+"payBasketFailure" = "Оплата не выполнена";
+
 // Review VC
 
 "reviewVCName" = "Отзывы";
+"typeGoodNameToSearchReview" = "Введите товар для поиска отзывов";
 
 // User VC
 
 "userVCName" = "Привет";
-"customer" = "уважаемый покупатель";
+"customer" = "покупатель";
 
 "logout" = "Выход";
 
-"logoutSuccess" = "Вы успешно вышли из своего аккаунта";
-"logoutFailure" = "Выйти из аккаунта не удалось. Пожалуйста, повторите выход позже";
+"logoutSuccess" = "Вы успешно вышли из аккаунта";
+"logoutFailure" = "Выйти из аккаунта не удалось. Пожалуйста, повторите попытку позже";
 
 // SignUp VC
 // state
@@ -68,7 +75,7 @@
 "toSignUp" = "Зарегистрироваться";
 
 "signupSuccess" = "Регистрация прошла успешно";
-"signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, попробуйте пройти регистрацию позже";
+"signupFailure" = "Не удалось зарегистрироваться. Пожалуйста, повторите попытку позже";
 
 // SignIn VC
 // state
@@ -77,22 +84,31 @@
 "toSignIn" = "Войти";
 
 "signinSuccess" = "Вы успешно вошли в аккаунт";
-"signinFailure" = "Войти в аккаунт не удалось. Пожалуйста, повторите вход позже";
+"signinFailure" = "Войти в аккаунт не удалось. Пожалуйста, повторите попытку позже";
 
 // Alerts
 
-//"error" = "Error";
-//MARK: TO DO
-/*
-"actionsWithSomething" = "Some action";
-"actionsWithSomethingDescribe" = "What do You want to do with the Something?";
-"addToSomewhere" = "Add to somewhere";
-"removeFromSomewhere" = "Remove from somewhere";
-"success" = "Success";
-"close" = "Close";
-*/
+// Good action
+
+"goodAction" = "Действия с товаром";
+"goodActionMessage" = "Пожалуйста, выберите что Вы хотите сделать с выбранным товаром";
+
+"addToCart" = "Добавить в корзину";
+"addToCartSuccess" = "Товар был добавлен в корзину";
+"addToCartFailure" = "Не удалось добавить товар в корзину. Пожалуйста, повторите попытку позже";
+
+"removeFromCart" = "Удалить из корзины";
+"removeFromCartSuccess" = "Товар был удален из корзины";
+"removeFromCartFailure" = "Не удалось удалить товар из корзины. Пожалуйста, повторите попытку позже";
+
+"cart" = "Корзина";
+"cancel" = "Отменить";
+"close" = "Закрыть";
+// "success" = "Операция выполнена";
+// "failure" = "Операция отклонена";
 
 // Refresh control
 
-"reloadData" = "Обновление ассортимента...";
+"reloadGoodData" = "Обновление каталога...";
+"reloadReviewData" = "Обновление отзывов...";
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 // Displaying review list, adding review and  removing review.
 
@@ -19,7 +20,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     // MARK: - Private properties
 
-    private (set) lazy var tableView: UITableView = {
+    private(set) lazy var tableView: UITableView = {
         let safeArea = view.safeAreaLayoutGuide
         let tv = UITableView(frame: safeArea.layoutFrame)
 
@@ -32,7 +33,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         tv.register(ReviewTableViewCell.self, forCellReuseIdentifier: reviewCellIdentifier)
         return tv
     }()
-    private (set) lazy var searchController: UISearchController = {
+    private(set) lazy var searchController: UISearchController = {
         let sc = UISearchController()
         sc.delegate = self // Monitor when search controller is dismissed.
         sc.searchResultsUpdater = self
@@ -44,7 +45,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         // Make the search bar always visible.
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        sc.searchBar.placeholder = "Type good name to search its review"
+        sc.searchBar.placeholder = NSLocalizedString("typeGoodNameToSearchReview", comment: "")
         sc.searchBar.searchTextField.backgroundColor = .searchTextFieldBackgroundColor
         return sc
     }()
@@ -136,9 +137,8 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
         reviewListFactory.reviewList(idUser: 1, pageNumber: 1) { response in
             switch response.result {
             case .success(let model):
-                #if DEBUG
-                print(model)
-                #endif
+                Logger.viewCycle.debug("\(model)")
+
                 let reviews: [ReviewData] = model.map {
                     ReviewData(reviewElement: $0)
                 }
@@ -149,7 +149,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
                     completion?()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                Logger.viewCycle.debug("\(error.localizedDescription)")
             }
         }
     }
@@ -158,7 +158,7 @@ class ReviewViewController: UIViewController, UISearchControllerDelegate, UISear
 
     private func setupRefreshControl() {
         refreshControl.attributedTitle = NSAttributedString(
-            string: NSLocalizedString("reloadData", comment: ""),
+            string: NSLocalizedString("reloadReviewData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
         refreshControl.tintColor = UIColor.refreshControlTintColor

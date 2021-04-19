@@ -20,7 +20,7 @@ class SignInView: UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configureUI()
+        configureUI()
     }
     @available(*, unavailable) required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,14 +29,16 @@ class SignInView: UIScrollView {
     // MARK: - Private methods
 
     private func configureUI() {
-        self.backgroundColor = UIColor.suplimentaryViewBackgroundColor
-        self.addSubviews()
-        self.setupConstraints()
+        accessibilityIdentifier = "signInView"
+        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        addSubviews()
+        setupConstraints()
     }
 
     private func addSubviews() {
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = " User name"
+        userNameTextField.accessibilityIdentifier = "userNameTextField"
         userNameTextField.textColor = .userTextFieldTextColor
         userNameTextField.textAlignment = .left
         userNameTextField.font = .userTextFieldFont
@@ -45,14 +47,15 @@ class SignInView: UIScrollView {
 
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = " Password"
+        passwordTextField.accessibilityIdentifier = "passwordTextField"
         passwordTextField.textColor = .userTextFieldTextColor
         passwordTextField.textAlignment = .left
         passwordTextField.font = .userTextFieldFont
         passwordTextField.backgroundColor = .userTextFieldTextBackgroundColor
         passwordTextField.layer.cornerRadius = .textFieldCornerRadius
 
-        self.addSubview(userNameTextField)
-        self.addSubview(passwordTextField)
+        addSubview(userNameTextField)
+        addSubview(passwordTextField)
     }
 
     private func setupConstraints() {

@@ -18,7 +18,7 @@
 // Main VC
 
 "mainVCName" = "GB BERRIES";
-//"reloadData" = "Reloading data...";
+"typeGoodNameToSearch" = "Type good name to search";
 
 //MARK: TO DO
 // FirstViewController
@@ -47,9 +47,14 @@
 
 "cartVCName" = "Cart";
 
+"payBasket" = "Payment";
+"payBasketSuccess" = "Goods in basket was paid";
+"payBasketFailure" = "Payment failed";
+
 // Review VC
 
 "reviewVCName" = "Review";
+"typeGoodNameToSearchReview" = "Type good name to search its review";
 
 // User VC
 
@@ -81,17 +86,26 @@
 
 // Alerts
 
-//"error" = "Error";
-//MARK: TO DO
-/*
-"actionsWithSomething" = "Some action";
-"actionsWithSomethingDescribe" = "What do You want to do with the Something?";
-"addToSomewhere" = "Add to somewhere";
-"removeFromSomewhere" = "Remove from somewhere";
-"success" = "Success";
+// Good action
+
+"goodAction" = "Good action";
+"goodActionMessage" = "Please, choose what do You want to do with selcted dood";
+
+"addToCart" = "Add to cart";
+"addToCartSuccess" = "Selected good was added to cart";
+"addToCartFailure" = "Adding good to cart failed. Plese, try later";
+
+"removeFromCart" = "Remove from cart";
+"removeFromCartSuccess" = "Selected good was removed from cart";
+"removeFromCartFailure" = "Removal good from cart failed. Plese, try later";
+
+"cart" = "Cart";
 "close" = "Close";
-*/
+"cancel" = "Cancel";
+// "success" = "Success";
+// "failure" = "Failure";
 
 // Refresh control
 
-"reloadData" = "Reloading catalog...";
+"reloadGoodData" = "Reloading catalog...";
+"reloadReviewData" = "Reloading reviews...";
