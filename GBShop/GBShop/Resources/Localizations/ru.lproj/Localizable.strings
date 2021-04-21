@@ -58,6 +58,10 @@
 "reviewVCName" = "Отзывы";
 "typeGoodNameToSearchReview" = "Введите товар для поиска отзывов";
 
+"review" = "Отзывы";
+"addReviewSuccess" = "Отзыв был добавлен";
+"addReviewFailure" = "Отзыв добавлен не был. Пожалуйста, повторите попытку позже";
+
 // User VC
 
 "userVCName" = "Привет";

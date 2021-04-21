@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 class SignInViewController: UIViewController, AlertShowable {
 
@@ -125,6 +126,10 @@ class SignInViewController: UIViewController, AlertShowable {
                         self?.dismiss(animated: true, completion: nil)
                     }
                     guard model.result == resultWithSignInSuccess else {
+                        Analytics.logEvent(AnalyticsEventLogin, parameters: [
+                            AnalyticsParameterItemName: "signinFailure",
+                            AnalyticsParameterSuccess: "signinWithFailure"
+                        ])
                         self?.showAlert(
                             title: NSLocalizedString("signin", comment: ""),
                             message: NSLocalizedString("signinFailure", comment: ""),
@@ -133,6 +138,10 @@ class SignInViewController: UIViewController, AlertShowable {
                         )
                         return
                     }
+                    Analytics.logEvent(AnalyticsEventLogin, parameters: [
+                        AnalyticsParameterItemName: "signinSuccess",
+                        AnalyticsParameterSuccess: "signinWithSuccess"
+                    ])
                     UserData.saveUser(
                         id: model.user.id,
                         login: model.user.login,

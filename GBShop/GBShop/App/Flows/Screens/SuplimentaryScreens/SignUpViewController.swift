@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 class SignUpViewController: UIViewController, AlertShowable {
 
@@ -134,6 +135,10 @@ class SignUpViewController: UIViewController, AlertShowable {
                         )
                         return
                     }
+                    Analytics.logEvent(AnalyticsEventSignUp, parameters: [
+                        AnalyticsParameterItemName: "signupSuccess",
+                        AnalyticsParameterSuccess: "signupWithSuccess"
+                    ])
                     self?.showAlert(
                         title: NSLocalizedString("signup", comment: ""),
                         message: NSLocalizedString("signupSuccess", comment: ""),

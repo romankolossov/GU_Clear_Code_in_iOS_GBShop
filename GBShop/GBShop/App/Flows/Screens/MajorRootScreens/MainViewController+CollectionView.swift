@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -42,6 +43,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard searchController.isActive else {
+            Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+                AnalyticsParameterItemName: "goodOpen",
+                AnalyticsParameterSuccess: "goodWasOpen"
+            ])
             // TO DO send via delegate good data to good details screen.
             Logger.viewCycle.debug("\(self.goods[indexPath.row])")
             removeAddToCart(idProduct: goods[indexPath.row].idProduct,
@@ -51,6 +56,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             )
             return
         }
+        Analytics.logEvent(AnalyticsEventViewItem, parameters: [
+            AnalyticsParameterItemName: "goodOpen",
+            AnalyticsParameterSuccess: "goodWasOpen"
+        ])
         // TO DO send via delegate searched good data to good details screen.
         Logger.viewCycle.debug("\(self.filteredGoods[indexPath.row])")
         removeAddToCart(idProduct: filteredGoods[indexPath.row].idProduct,

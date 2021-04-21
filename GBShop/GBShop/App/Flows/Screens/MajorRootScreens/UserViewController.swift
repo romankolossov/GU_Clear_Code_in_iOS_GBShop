@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 // Changing user data and logging out.
 
@@ -63,6 +64,10 @@ class UserViewController: UIViewController, AlertShowable {
                     UserData.clearUser()
                     self?.viewDidAppear(true)
 
+                    Analytics.logEvent("logout", parameters: [
+                        "name": "logout" as NSObject,
+                        "fullText": "logoutWithSuccess" as NSObject
+                    ])
                     self?.showAlert(
                         title: NSLocalizedString("logout", comment: ""),
                         message: NSLocalizedString("logoutSuccess", comment: ""),

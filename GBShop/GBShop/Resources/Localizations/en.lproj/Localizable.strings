@@ -56,6 +56,10 @@
 "reviewVCName" = "Review";
 "typeGoodNameToSearchReview" = "Type good name to search its review";
 
+"review" = "Review";
+"addReviewSuccess" = "Review was added";
+"addReviewFailure" = "Review adding failed. Please, try later";
+
 // User VC
 
 "userVCName" = "Hi";
@@ -92,12 +96,12 @@
 "goodActionMessage" = "Please, choose what do You want to do with selcted dood";
 
 "addToCart" = "Add to cart";
-"addToCartSuccess" = "Selected good was added to cart";
-"addToCartFailure" = "Adding good to cart failed. Plese, try later";
+"addToCartSuccess" = "Good was added to cart";
+"addToCartFailure" = "Good adding to cart failed. Plese, try later";
 
 "removeFromCart" = "Remove from cart";
-"removeFromCartSuccess" = "Selected good was removed from cart";
-"removeFromCartFailure" = "Removal good from cart failed. Plese, try later";
+"removeFromCartSuccess" = "Good was removed from cart";
+"removeFromCartFailure" = "Good removing from cart failed. Plese, try later";
 
 "cart" = "Cart";
 "close" = "Close";

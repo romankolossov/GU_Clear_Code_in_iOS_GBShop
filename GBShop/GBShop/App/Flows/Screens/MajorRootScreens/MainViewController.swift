@@ -7,6 +7,7 @@
 
 import UIKit
 import OSLog
+import FirebaseAnalytics
 
 // Signing in and signing up.
 
@@ -64,6 +65,10 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventViewItemList, parameters: [
+            AnalyticsParameterItemName: "goodsListOpen",
+            AnalyticsParameterSuccess: "goodsListWasOpen"
+        ])
         loadData()
     }
 
