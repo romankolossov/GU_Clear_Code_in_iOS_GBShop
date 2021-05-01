@@ -17,6 +17,7 @@ extension UIColor {
     // MARK: - Navigation controllers and its root VCs
 
     static let navigationBarLargeTitleTextColor: UIColor = .white
+    static let navigationControllerNBarTintColor: UIColor = .white
     static let navigationBarBackgroundColor: UIColor = .init(red: 71 / 255, green: 21 / 255, blue: 111 / 255, alpha: 1.0)
 
     static let rootVCViewBackgroundColor: UIColor = navigationBarBackgroundColor

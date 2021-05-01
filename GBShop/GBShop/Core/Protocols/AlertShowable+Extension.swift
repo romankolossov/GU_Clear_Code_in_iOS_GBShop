@@ -22,7 +22,7 @@ extension AlertShowable where Self: UIViewController {
             message: message,
             preferredStyle: .alert
         )
-        alertController.view.tintColor = UIColor.alertViewTintColor
+        alertController.view.tintColor = .alertViewTintColor
 
         let alertTitle = NSMutableAttributedString(
             string: title ?? "",

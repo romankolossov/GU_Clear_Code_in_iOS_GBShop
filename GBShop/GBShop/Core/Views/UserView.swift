@@ -34,46 +34,46 @@ class UserView: UIView {
     // MARK: - Private methods
 
     private func configureUI() {
-        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        backgroundColor = .suplimentaryViewBackgroundColor
         addSubviews()
         setupConstraints()
     }
 
     private func addSubviews() {
         idLabel.translatesAutoresizingMaskIntoConstraints = false
-        idLabel.textColor = UIColor.userLableTextColor
+        idLabel.textColor = .userLableTextColor
         idLabel.textAlignment = .left
-        idLabel.font = UIFont.userLableFont
+        idLabel.font = .userLableFont
 
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        userNameLabel.textColor = UIColor.userLableTextColor
+        userNameLabel.textColor = .userLableTextColor
         userNameLabel.textAlignment = .left
-        userNameLabel.font = UIFont.userLableFont
+        userNameLabel.font = .userLableFont
 
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.textColor = UIColor.userLableTextColor
+        passwordLabel.textColor = .userLableTextColor
         passwordLabel.textAlignment = .left
-        passwordLabel.font = UIFont.userLableFont
+        passwordLabel.font = .userLableFont
 
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.textColor = UIColor.userLableTextColor
+        emailLabel.textColor = .userLableTextColor
         emailLabel.textAlignment = .left
-        emailLabel.font = UIFont.userLableFont
+        emailLabel.font = .userLableFont
 
         genderLabel.translatesAutoresizingMaskIntoConstraints = false
-        genderLabel.textColor = UIColor.userLableTextColor
+        genderLabel.textColor = .userLableTextColor
         genderLabel.textAlignment = .left
-        genderLabel.font = UIFont.userLableFont
+        genderLabel.font = .userLableFont
 
         creditCardLabel.translatesAutoresizingMaskIntoConstraints = false
-        creditCardLabel.textColor = UIColor.userLableTextColor
+        creditCardLabel.textColor = .userLableTextColor
         creditCardLabel.textAlignment = .left
-        creditCardLabel.font = UIFont.userLableFont
+        creditCardLabel.font = .userLableFont
 
         bioLabel.translatesAutoresizingMaskIntoConstraints = false
-        bioLabel.textColor = UIColor.userLableTextColor
+        bioLabel.textColor = .userLableTextColor
         bioLabel.textAlignment = .left
-        bioLabel.font = UIFont.userLableFont
+        bioLabel.font = .userLableFont
         bioLabel.numberOfLines = 3
 
         addSubview(idLabel)

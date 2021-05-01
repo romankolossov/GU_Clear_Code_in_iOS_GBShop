@@ -34,7 +34,7 @@ class SignUpView: UIScrollView {
     // MARK: - Private methods
 
     private func configureUI() {
-        backgroundColor = UIColor.suplimentaryViewBackgroundColor
+        backgroundColor = .suplimentaryViewBackgroundColor
         addSubviews()
         setupConstraints()
     }
@@ -44,7 +44,7 @@ class SignUpView: UIScrollView {
         idTextField.placeholder = " id"
         idTextField.textColor = .userTextFieldTextColor
         idTextField.textAlignment = .left
-        idTextField.font = UIFont.userTextFieldFont
+        idTextField.font = .userTextFieldFont
         idTextField.backgroundColor = .userTextFieldTextBackgroundColor
         idTextField.layer.cornerRadius = .textFieldCornerRadius
 

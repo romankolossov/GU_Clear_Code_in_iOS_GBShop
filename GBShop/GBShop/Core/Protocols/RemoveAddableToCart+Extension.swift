@@ -44,7 +44,7 @@ extension RemoveAddableToCart where Self: UIViewController {
         )
         // Configure alert controller
         alertController.setValue(alertTitle, forKey: "attributedTitle")
-        alertController.view.tintColor = UIColor.alertViewTintColor
+        alertController.view.tintColor = .alertViewTintColor
 
         // Inatatiate add to cart action
 

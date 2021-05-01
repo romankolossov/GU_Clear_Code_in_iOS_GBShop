@@ -38,7 +38,7 @@ class UserData {
         let userData = UserData(
             id: defaults.integer(forKey: "id"),
             login: defaults.string(forKey: "login") ?? "",
-            name: defaults.string(forKey: "name") ?? NSLocalizedString("customer", comment: ""),
+            name: defaults.string(forKey: "name") ?? "",
             lastName: defaults.string(forKey: "lastName") ?? ""
         )
         return userData

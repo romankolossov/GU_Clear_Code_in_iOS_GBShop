@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             collectionViewLayout: layout
         )
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.backgroundColor = UIColor.goodsCollectionViewBackgroundColor
+        cv.backgroundColor = .goodsCollectionViewBackgroundColor
 
         cv.dataSource = self
         cv.delegate = self
@@ -108,7 +108,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
 
     private func configureMainVC() {
         navigationItem.title = NSLocalizedString("mainVCName", comment: "GBBERRIES")
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -122,10 +122,10 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .white
-
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
+        navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
 
         // Create registerNewUserItem and signInItem in navigation item of navigation bar.
         let registerNewUserItem = UIBarButtonItem(
@@ -196,7 +196,7 @@ class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBar
             string: NSLocalizedString("reloadGoodData", comment: ""),
             attributes: [.font: UIFont.refreshControlFont]
         )
-        refreshControl.tintColor = UIColor.refreshControlTintColor
+        refreshControl.tintColor = .refreshControlTintColor
 
         refreshControl.addTarget(
             self,

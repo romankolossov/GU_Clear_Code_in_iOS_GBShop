@@ -38,7 +38,7 @@ class GoodsCollectionViewCell: UICollectionViewCell {
     // MARK: Configure
 
     private func configureCell() {
-        self.backgroundColor = UIColor.goodsCellBackgroundColor
+        self.backgroundColor = .goodsCellBackgroundColor
 
         self.layer.borderWidth = .goodCellBorderWidth
         self.layer.borderColor = UIColor.goodsCellBorderColor.cgColor

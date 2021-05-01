@@ -90,10 +90,19 @@ class UserViewController: UIViewController, AlertShowable {
     // MARK: Configure
 
     private func configureUserVCLook() {
-        guard let userData = userData else {
+        guard let userData = userData,
+              !userData.user.login.isEmpty else {
+            navigationItem.title =
+                "\(NSLocalizedString("userVCName", comment: "Hi")), \(NSLocalizedString("customer", comment: "customer"))"
+
+            userView.idLabel.text = ""
+            userView.userNameLabel.text = ""
+            userView.passwordLabel.text = ""
+            userView.emailLabel.text = ""
             return
         }
-        navigationItem.title = "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
+        navigationItem.title =
+            "\(NSLocalizedString("userVCName", comment: "Hi")), \(userData.user.name)"
 
         userView.idLabel.text = String(userData.user.id)
         userView.userNameLabel.text = userData.user.name
@@ -102,7 +111,7 @@ class UserViewController: UIViewController, AlertShowable {
     }
 
     private func configureUserVC() {
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -115,10 +124,10 @@ class UserViewController: UIViewController, AlertShowable {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .white
-
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
+        navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
 
         // Create logoutItem and changeUserDataItem in navigation item of navigation bar.
         let logoutItem = UIBarButtonItem(

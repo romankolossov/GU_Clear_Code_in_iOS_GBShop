@@ -65,7 +65,7 @@
 // User VC
 
 "userVCName" = "Привет";
-"customer" = "покупатель";
+"customer" = "Покупатель";
 
 "logout" = "Выход";
 

@@ -24,7 +24,7 @@ class SearchViewController: UIViewController {
 
     private func configureSearchVC() {
         navigationItem.title = NSLocalizedString("searchVCName", comment: "Search")
-        view.backgroundColor = UIColor.rootVCViewBackgroundColor
+        view.backgroundColor = .rootVCViewBackgroundColor
         (UIApplication.shared.delegate as? AppDelegate)?.restrictRotation = .portrait
 
         configureNavigationVC()
@@ -35,10 +35,10 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.navigationBarLargeTitleTextColor
         ]
-        navigationController?.navigationBar.tintColor = .white
-
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarBackgroundColor
+
+        navigationController?.navigationBar.tintColor = .navigationControllerNBarTintColor
+        navigationController?.navigationBar.backgroundColor = .navigationBarBackgroundColor
     }
 
 }
